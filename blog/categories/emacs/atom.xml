@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Emacs | Emacs Fodder]]></title>
-  <link href="http://ocodo.github.com/blog/categories/emacs/atom.xml" rel="self"/>
-  <link href="http://ocodo.github.com/"/>
-  <updated>2012-07-23T17:48:47+10:00</updated>
-  <id>http://ocodo.github.com/</id>
+  <link href="http://emacsfodder.github.com/blog/categories/emacs/atom.xml" rel="self"/>
+  <link href="http://emacsfodder.github.com/"/>
+  <updated>2012-07-23T23:25:50+10:00</updated>
+  <id>http://emacsfodder.github.com/</id>
   <author>
     <name><![CDATA[Jason Milkins]]></name>
     
@@ -15,10 +15,10 @@
   
   <entry>
     <title type="html"><![CDATA[Soothe theme]]></title>
-    <link href="http://ocodo.github.com/blog/2012/07/17/soothe-theme/"/>
+    <link href="http://emacsfodder.github.com/blog/2012/07/17/soothe-theme/"/>
     <updated>2012-07-17T00:00:00+10:00</updated>
-    <id>http://ocodo.github.com/blog/2012/07/17/soothe-theme</id>
-    <content type="html"><![CDATA[<p><a href="http://ocodo.github.com/soothe-theme.el" class="btn
+    <id>http://emacsfodder.github.com/blog/2012/07/17/soothe-theme</id>
+    <content type="html"><![CDATA[<p><a href="http://emacsfodder.github.com/soothe-theme.el" class="btn
 btn-primary btn-large">soothe-theme.el</a></p>
 
 <h1>Screenshots</h1>
@@ -31,10 +31,10 @@ btn-primary btn-large">soothe-theme.el</a></p>
   
   <entry>
     <title type="html"><![CDATA[Jade Dragon theme]]></title>
-    <link href="http://ocodo.github.com/blog/2012/07/03/jadedragon-theme/"/>
+    <link href="http://emacsfodder.github.com/blog/2012/07/03/jadedragon-theme/"/>
     <updated>2012-07-03T00:00:00+10:00</updated>
-    <id>http://ocodo.github.com/blog/2012/07/03/jadedragon-theme</id>
-    <content type="html"><![CDATA[<p><a href="http://ocodo.github.com/Jadedragon-theme.el" class="btn
+    <id>http://emacsfodder.github.com/blog/2012/07/03/jadedragon-theme</id>
+    <content type="html"><![CDATA[<p><a href="http://emacsfodder.github.com/Jadedragon-theme.el" class="btn
 btn-primary btn-large">Jadedragon-theme.el</a></p>
 
 <h3>emacs-lisp</h3>
@@ -49,14 +49,14 @@ btn-primary btn-large">Jadedragon-theme.el</a></p>
   
   <entry>
     <title type="html"><![CDATA[Tangerine Theme]]></title>
-    <link href="http://ocodo.github.com/blog/2012/07/02/tangerine-theme/"/>
+    <link href="http://emacsfodder.github.com/blog/2012/07/02/tangerine-theme/"/>
     <updated>2012-07-02T00:00:00+10:00</updated>
-    <id>http://ocodo.github.com/blog/2012/07/02/tangerine-theme</id>
+    <id>http://emacsfodder.github.com/blog/2012/07/02/tangerine-theme</id>
     <content type="html"><![CDATA[<p>Amber CRTs, Tangerine Dream, retro-futuristic, kandy kolored tangerine
 flake streamline baby... all these things held some influence over
 the creation of this theme.  Well, those things, and the fact I like orange.</p>
 
-<p><a href="http://ocodo.github.com/Tangerine-theme.el" class="btn
+<p><a href="http://emacsfodder.github.com/Tangerine-theme.el" class="btn
 btn-primary btn-large">Tangerine-theme.el</a></p>
 
 <h2>Obligatory screenshots</h2>
@@ -75,9 +75,9 @@ btn-primary btn-large">Tangerine-theme.el</a></p>
   
   <entry>
     <title type="html"><![CDATA[HexRGB.el with some extras]]></title>
-    <link href="http://ocodo.github.com/blog/2012/06/30/hexrgb-some-convenient-functions/"/>
+    <link href="http://emacsfodder.github.com/blog/2012/06/30/hexrgb-some-convenient-functions/"/>
     <updated>2012-06-30T00:00:00+10:00</updated>
-    <id>http://ocodo.github.com/blog/2012/06/30/hexrgb-some-convenient-functions</id>
+    <id>http://emacsfodder.github.com/blog/2012/06/30/hexrgb-some-convenient-functions</id>
     <content type="html"><![CDATA[<p>If you use a lot of CSS we have a number of useful CSS DSLs, like
 <a href="http://sass-lang.com">SASS</a> and <a href="http://lesscss.org">LESS</a> both of
 which give us a collection of color manipulation functions.</p>
@@ -165,9 +165,9 @@ you're in eshell, and play.</p>
   
   <entry>
     <title type="html"><![CDATA[Two New Emacs24 Themes]]></title>
-    <link href="http://ocodo.github.com/blog/2012/06/29/two-new-emacs24-themes/"/>
+    <link href="http://emacsfodder.github.com/blog/2012/06/29/two-new-emacs24-themes/"/>
     <updated>2012-06-29T00:00:00+10:00</updated>
-    <id>http://ocodo.github.com/blog/2012/06/29/two-new-emacs24-themes</id>
+    <id>http://emacsfodder.github.com/blog/2012/06/29/two-new-emacs24-themes</id>
     <content type="html"><![CDATA[<p><a href="#newthemes">Jump directly to the new themes...</a></p>
 
 <p>I have a number of Emacs color themes that were built a few years ago, they use the old <code>color-theme.el</code> system, I'd also adapted a web-based theme creator, so that it could load existing themes, as long as they were in a fixed format, the same as used by <a href="http://themes.sweyla.com/">http://themes.sweyla.com/</a></p>

@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Emacs Fodder]]></title>
-  <link href="http://ocodo.github.com/atom.xml" rel="self"/>
-  <link href="http://ocodo.github.com/"/>
-  <updated>2012-07-23T17:48:47+10:00</updated>
-  <id>http://ocodo.github.com/</id>
+  <link href="http://emacsfodder.github.com/atom.xml" rel="self"/>
+  <link href="http://emacsfodder.github.com/"/>
+  <updated>2012-07-23T23:25:50+10:00</updated>
+  <id>http://emacsfodder.github.com/</id>
   <author>
     <name><![CDATA[Jason Milkins]]></name>
     
@@ -15,69 +15,69 @@
   
   <entry>
     <title type="html"><![CDATA[Soothe theme]]></title>
-    <link href="http://ocodo.github.com/blog/2012/07/17/soothe-theme/"/>
+    <link href="http://emacsfodder.github.com/blog/2012/07/17/soothe-theme/"/>
     <updated>2012-07-17T00:00:00+10:00</updated>
-    <id>http://ocodo.github.com/blog/2012/07/17/soothe-theme</id>
-    <content type="html"><![CDATA[<p><a href="http://ocodo.github.com/soothe-theme.el" class="btn
+    <id>http://emacsfodder.github.com/blog/2012/07/17/soothe-theme</id>
+    <content type="html"><![CDATA[<p><a href="http://emacsfodder.github.com/soothe-theme.el" class="btn
 btn-primary btn-large">soothe-theme.el</a></p>
 
 <h1>Screenshots</h1>
 
-<p><img src="http://ocodo.github.com/soothe-ruby.png" alt="" /></p>
+<p><img src="http://emacsfodder.github.com/soothe-ruby.png" alt="" /></p>
 
-<p><img src="http://ocodo.github.com/soothe-html.png" alt="" /></p>
+<p><img src="http://emacsfodder.github.com/soothe-html.png" alt="" /></p>
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[Jade Dragon theme]]></title>
-    <link href="http://ocodo.github.com/blog/2012/07/03/jadedragon-theme/"/>
+    <link href="http://emacsfodder.github.com/blog/2012/07/03/jadedragon-theme/"/>
     <updated>2012-07-03T00:00:00+10:00</updated>
-    <id>http://ocodo.github.com/blog/2012/07/03/jadedragon-theme</id>
-    <content type="html"><![CDATA[<p><a href="http://ocodo.github.com/Jadedragon-theme.el" class="btn
+    <id>http://emacsfodder.github.com/blog/2012/07/03/jadedragon-theme</id>
+    <content type="html"><![CDATA[<p><a href="http://emacsfodder.github.com/Jadedragon-theme.el" class="btn
 btn-primary btn-large">Jadedragon-theme.el</a></p>
 
 <h3>emacs-lisp</h3>
 
-<p><img src="http://ocodo.github.com/jadedragon-emacslisp.png" alt="emacs-lisp" /></p>
+<p><img src="http://emacsfodder.github.com/jadedragon-emacslisp.png" alt="emacs-lisp" /></p>
 
 <h3>ObjC</h3>
 
-<p><img src="http://ocodo.github.com/jadedragon-objc.png" alt="SleepDisplay console utility" /></p>
+<p><img src="http://emacsfodder.github.com/jadedragon-objc.png" alt="SleepDisplay console utility" /></p>
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[Tangerine Theme]]></title>
-    <link href="http://ocodo.github.com/blog/2012/07/02/tangerine-theme/"/>
+    <link href="http://emacsfodder.github.com/blog/2012/07/02/tangerine-theme/"/>
     <updated>2012-07-02T00:00:00+10:00</updated>
-    <id>http://ocodo.github.com/blog/2012/07/02/tangerine-theme</id>
+    <id>http://emacsfodder.github.com/blog/2012/07/02/tangerine-theme</id>
     <content type="html"><![CDATA[<p>Amber CRTs, Tangerine Dream, retro-futuristic, kandy kolored tangerine
 flake streamline baby&#8230; all these things held some influence over
 the creation of this theme.  Well, those things, and the fact I like orange.</p>
 
-<p><a href="http://ocodo.github.com/Tangerine-theme.el" class="btn
+<p><a href="http://emacsfodder.github.com/Tangerine-theme.el" class="btn
 btn-primary btn-large">Tangerine-theme.el</a></p>
 
 <h2>Obligatory screenshots</h2>
 
-<p><img src="http://ocodo.github.com/tangerine-clojure.png" alt="Sample Clojure" /></p>
+<p><img src="http://emacsfodder.github.com/tangerine-clojure.png" alt="Sample Clojure" /></p>
 
 <h3>Tangerine shell</h3>
 
-<p><img src="http://ocodo.github.com/tangerine-shell.png" alt="Sample Shell script" /></p>
+<p><img src="http://emacsfodder.github.com/tangerine-shell.png" alt="Sample Shell script" /></p>
 
 <h3>Tangerine Perl</h3>
 
-<p><img src="http://ocodo.github.com/tangerine-perls.png" alt="Sample Perl code Git.pm" /></p>
+<p><img src="http://emacsfodder.github.com/tangerine-perls.png" alt="Sample Perl code Git.pm" /></p>
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[HexRGB.el with some extras]]></title>
-    <link href="http://ocodo.github.com/blog/2012/06/30/hexrgb-some-convenient-functions/"/>
+    <link href="http://emacsfodder.github.com/blog/2012/06/30/hexrgb-some-convenient-functions/"/>
     <updated>2012-06-30T00:00:00+10:00</updated>
-    <id>http://ocodo.github.com/blog/2012/06/30/hexrgb-some-convenient-functions</id>
+    <id>http://emacsfodder.github.com/blog/2012/06/30/hexrgb-some-convenient-functions</id>
     <content type="html"><![CDATA[<p>If you use a lot of CSS we have a number of useful CSS DSLs, like
 <a href="http://sass-lang.com">SASS</a> and <a href="http://lesscss.org">LESS</a> both of
 which give us a collection of color manipulation functions.</p>
@@ -165,9 +165,9 @@ you&#8217;re in eshell, and play.</p>
   
   <entry>
     <title type="html"><![CDATA[Two New Emacs24 Themes]]></title>
-    <link href="http://ocodo.github.com/blog/2012/06/29/two-new-emacs24-themes/"/>
+    <link href="http://emacsfodder.github.com/blog/2012/06/29/two-new-emacs24-themes/"/>
     <updated>2012-06-29T00:00:00+10:00</updated>
-    <id>http://ocodo.github.com/blog/2012/06/29/two-new-emacs24-themes</id>
+    <id>http://emacsfodder.github.com/blog/2012/06/29/two-new-emacs24-themes</id>
     <content type="html"><![CDATA[<p><a href="#newthemes">Jump directly to the new themes&#8230;</a></p>
 
 <p>I have a number of Emacs color themes that were built a few years ago, they use the old <code>color-theme.el</code> system, I&#8217;d also adapted a web-based theme creator, so that it could load existing themes, as long as they were in a fixed format, the same as used by <a href="http://themes.sweyla.com/">http://themes.sweyla.com/</a></p>
@@ -223,13 +223,13 @@ you&#8217;re in eshell, and play.</p>
 
 <h2>DeepBlueDay and MechanicalTurq</h2>
 
-<p><img src="http://ocodo.github.com/emacs24.themes.vol1.png" alt="" /></p>
+<p><img src="http://emacsfodder.github.com/emacs24.themes.vol1.png" alt="" /></p>
 
 <h1>Download&#8230;</h1>
 
-<p><a href="http://ocodo.github.com/DeepBlueDay-theme.el">DeepBlueDay-theme.el</a></p>
+<p><a href="http://emacsfodder.github.com/DeepBlueDay-theme.el">DeepBlueDay-theme.el</a></p>
 
-<p><a href="http://ocodo.github.com/MechanicalTurq-theme.el">MechanicalTurq-theme.el</a></p>
+<p><a href="http://emacsfodder.github.com/MechanicalTurq-theme.el">MechanicalTurq-theme.el</a></p>
 
 <p>Save them to your emacs custom theme folder, <code>~/.emacs.d/</code> by default, and in Emacs use <code>M-x enable-theme</code> to load and enable them (TAB completion will be available there, to make your life easier.)</p>
 
@@ -239,9 +239,9 @@ you&#8217;re in eshell, and play.</p>
   
   <entry>
     <title type="html"><![CDATA[Powerline.el enhanced]]></title>
-    <link href="http://ocodo.github.com/blog/2012/06/20/powerline-enhanced/"/>
+    <link href="http://emacsfodder.github.com/blog/2012/06/20/powerline-enhanced/"/>
     <updated>2012-06-20T00:00:00+10:00</updated>
-    <id>http://ocodo.github.com/blog/2012/06/20/powerline-enhanced</id>
+    <id>http://emacsfodder.github.com/blog/2012/06/20/powerline-enhanced</id>
     <content type="html"><![CDATA[<p>Powerline is an awesome little enhancement for Emacs, by an original
 author unknown, you can find the original version at <a href="http://emacswiki.org/emacs/powerline.el">http://emacswiki.org/emacs/powerline.el</a></p>
 
@@ -268,62 +268,62 @@ it, set the colors and graphic shape:</p>
 <pre><code>(setq powerline-arrow-shape 'arrow)       ;; 18px high arrows  
 </code></pre>
 
-<p><img src="http://ocodo.github.com/arrow.png" alt="" /></p>
+<p><img src="http://emacsfodder.github.com/arrow.png" alt="" /></p>
 
 <pre><code>(setq powerline-arrow-shape 'arrow14)     ;; 14px high arrows
 </code></pre>
 
-<p><img src="http://ocodo.github.com/arrow14.png" alt="" /></p>
+<p><img src="http://emacsfodder.github.com/arrow14.png" alt="" /></p>
 
 <pre><code>(setq powerline-arrow-shape 'half)        ;; flat
 </code></pre>
 
-<p><img src="http://ocodo.github.com/half.png" alt="" /></p>
+<p><img src="http://emacsfodder.github.com/half.png" alt="" /></p>
 
 <pre><code>(setq powerline-arrow-shape 'percent)     ;; ...? (I have no idea)
 </code></pre>
 
-<p><img src="http://ocodo.github.com/percent.png" alt="" /></p>
+<p><img src="http://emacsfodder.github.com/percent.png" alt="" /></p>
 
 <pre><code>(setq powerline-arrow-shape 'curve)       ;; scallop curve
 </code></pre>
 
-<p><img src="http://ocodo.github.com/curve.png" alt="" /></p>
+<p><img src="http://emacsfodder.github.com/curve.png" alt="" /></p>
 
 <h2>New shapes in this version</h2>
 
 <pre><code>(setq powerline-arrow-shape 'rounded)     ;; new, round corner
 </code></pre>
 
-<p><img src="http://ocodo.github.com/rounded.png" alt="" /></p>
+<p><img src="http://emacsfodder.github.com/rounded.png" alt="" /></p>
 
 <pre><code>(setq powerline-arrow-shape 'chamfer)     ;; new, folded corner
 </code></pre>
 
-<p><img src="http://ocodo.github.com/chamfer.png" alt="" /></p>
+<p><img src="http://emacsfodder.github.com/chamfer.png" alt="" /></p>
 
 <pre><code>(setq powerline-arrow-shape 'slant-left)  ;; new, diagonal from left
 </code></pre>
 
-<p><img src="http://ocodo.github.com/slant-left.png" alt="" /></p>
+<p><img src="http://emacsfodder.github.com/slant-left.png" alt="" /></p>
 
 <pre><code>(setq powerline-arrow-shape 'slant-right) ;; new, diagonal from right
 </code></pre>
 
-<p><img src="http://ocodo.github.com/slant-right.png" alt="" /></p>
+<p><img src="http://emacsfodder.github.com/slant-right.png" alt="" /></p>
 
 <pre><code>(setq powerline-arrow-shape 'slant)       ;; mirrored diagonals
 </code></pre>
 
-<p><img src="http://ocodo.github.com/slant.png" alt="" /></p>
+<p><img src="http://emacsfodder.github.com/slant.png" alt="" /></p>
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[Emacs 24.1.5 OSX Fullscreen Binaries]]></title>
-    <link href="http://ocodo.github.com/blog/2012/06/20/emacs-binaries/"/>
+    <link href="http://emacsfodder.github.com/blog/2012/06/20/emacs-binaries/"/>
     <updated>2012-06-20T00:00:00+10:00</updated>
-    <id>http://ocodo.github.com/blog/2012/06/20/emacs-binaries</id>
+    <id>http://emacsfodder.github.com/blog/2012/06/20/emacs-binaries</id>
     <content type="html"><![CDATA[<p>For convenience, I&#8217;ve built a couple of OS X binaries of Emacs24.1.5,</p>
 
 <p>First, built with Lion OS X 10.7.4 and patched to use Lion&#8217;s new
@@ -337,7 +337,7 @@ teeth nashing.</p>
 <p>The binary can be downloaded from here:</p>
 
 <blockquote><p><img src="https://github.com/jasonm23/emacs-icons-project/raw/master/thumb/emacs-card-british-racing-green.png" alt="" />
-<br/> <a href="http://ocodo.github.com/emacs-24.1.5-lion-fullscreen-os-x-10.7.4.tar.7z">emacs-24.1.5-lion-fullscreen-os-x-10.7.4.tar.7z</a></p></blockquote>
+<br/> <a href="http://emacsfodder.github.com/emacs-24.1.5-lion-fullscreen-os-x-10.7.4.tar.7z">emacs-24.1.5-lion-fullscreen-os-x-10.7.4.tar.7z</a></p></blockquote>
 
 <p><em>(You&#8217;ll need 7z/tar to uncompress it, <a href="http://wakaba.c3.cx/s/apps/unarchiver.html">The Unarchiver</a> will do the trick.)</em></p>
 
@@ -353,7 +353,7 @@ things I make you do.</p>
 <p>The link for this binary is:</p>
 
 <blockquote><p><img src="https://github.com/jasonm23/emacs-icons-project/raw/master/thumb/emacs-card-british-racing-green.png" alt="" />
-<br/> <a href="http://ocodo.github.com/emacs-24.1.5-ns-fullscreen-osx-10.6.8.tar.7z">emacs-24.1.5-ns-fullscreen-osx-10.6.8.tar.7z</a></p></blockquote>
+<br/> <a href="http://emacsfodder.github.com/emacs-24.1.5-ns-fullscreen-osx-10.6.8.tar.7z">emacs-24.1.5-ns-fullscreen-osx-10.6.8.tar.7z</a></p></blockquote>
 
 <p>Ok, so that&#8217;s the first post here. Enjoy.</p>
 
