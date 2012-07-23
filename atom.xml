@@ -4,7 +4,7 @@
   <title><![CDATA[Emacs Fodder]]></title>
   <link href="http://emacsfodder.github.com/atom.xml" rel="self"/>
   <link href="http://emacsfodder.github.com/"/>
-  <updated>2012-07-23T23:25:50+10:00</updated>
+  <updated>2012-07-23T23:38:32+10:00</updated>
   <id>http://emacsfodder.github.com/</id>
   <author>
     <name><![CDATA[Jason Milkins]]></name>
@@ -316,48 +316,6 @@ it, set the colors and graphic shape:</p>
 </code></pre>
 
 <p><img src="http://emacsfodder.github.com/slant.png" alt="" /></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Emacs 24.1.5 OSX Fullscreen Binaries]]></title>
-    <link href="http://emacsfodder.github.com/blog/2012/06/20/emacs-binaries/"/>
-    <updated>2012-06-20T00:00:00+10:00</updated>
-    <id>http://emacsfodder.github.com/blog/2012/06/20/emacs-binaries</id>
-    <content type="html"><![CDATA[<p>For convenience, I&#8217;ve built a couple of OS X binaries of Emacs24.1.5,</p>
-
-<p>First, built with Lion OS X 10.7.4 and patched to use Lion&#8217;s new
-fullscreen mode, I have tested it only on 10.7.4 (in fact I&#8217;m writing
-this post with it.) but, personally I prefer the old
-<em>ns-toggle-fullscreen</em> style of Fullscreen, as I use multiple
-monitors. However, it&#8217;s useful if you have one screen and prefer the
-Mission control screen swiping style. Non Mac users, suspend your
-teeth nashing.</p>
-
-<p>The binary can be downloaded from here:</p>
-
-<blockquote><p><img src="https://github.com/jasonm23/emacs-icons-project/raw/master/thumb/emacs-card-british-racing-green.png" alt="" />
-<br/> <a href="http://emacsfodder.github.com/emacs-24.1.5-lion-fullscreen-os-x-10.7.4.tar.7z">emacs-24.1.5-lion-fullscreen-os-x-10.7.4.tar.7z</a></p></blockquote>
-
-<p><em>(You&#8217;ll need 7z/tar to uncompress it, <a href="http://wakaba.c3.cx/s/apps/unarchiver.html">The Unarchiver</a> will do the trick.)</em></p>
-
-<p>I&#8217;ve also built a 10.6.8 (and up) compatible build of Emacs24.1.5
-with the older <em>ns-toggle-fullscreen</em> patch, which does non-exclusive
-fullscreen, TBH, I&#8217;d recommend you get this one unless you&#8217;re <em>really</em>
-wanting the little Lion OS X fullscreen window widget.</p>
-
-<p>It&#8217;s quite possible to get the same mission control style operation,
-but you&#8217;ll need to drag it to it&#8217;s own space&#8230; yeah, I know, the
-things I make you do.</p>
-
-<p>The link for this binary is:</p>
-
-<blockquote><p><img src="https://github.com/jasonm23/emacs-icons-project/raw/master/thumb/emacs-card-british-racing-green.png" alt="" />
-<br/> <a href="http://emacsfodder.github.com/emacs-24.1.5-ns-fullscreen-osx-10.6.8.tar.7z">emacs-24.1.5-ns-fullscreen-osx-10.6.8.tar.7z</a></p></blockquote>
-
-<p>Ok, so that&#8217;s the first post here. Enjoy.</p>
-
-<p>Coming soon, <code>powerline.el</code> with some new styling addons.</p>
 ]]></content>
   </entry>
   
