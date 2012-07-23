@@ -1,0 +1,295 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>HexRGB.el with some extras - My Octopress Blog</title>
+  <meta name="author" content="Your Name">
+
+  
+  <meta name="description" content="a few useful enhancements for hexrgb.el">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://ocodo.github.com/blog/2012/06/30/hexrgb-some-convenient-functions/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="My Octopress Blog" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><img src="/emacs-fodder-head.png" />
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:ocodo.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">HexRGB.el With Some Extras</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-06-30T00:00:00+10:00" pubdate data-updated="true">Jun 30<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>If you use a lot of CSS we have a number of useful CSS DSLs, like
+<a href="http://sass-lang.com">SASS</a> and <a href="http://lesscss.org">LESS</a> both of
+which give us a collection of color manipulation functions.</p>
+
+<p>Adding a few of these helpful color functions to Emacs is relatively
+simple and the bulk of the work required is already done by Drew Adams
+in his <a href="http://www.emacswiki.org/cgi-bin/wiki/hexrgb.el">hexrgb.el</a>
+extension.</p>
+
+<p>I've added a few small modifications in
+<a href="https://gist.github.com/3022890">this version</a>, the
+function: <code>hexrgb-hsv-to-hex</code> accepts an additional argument
+<code>nb-digits</code> so that hex colors returned are with 2 digits per r,g,b
+value.</p>
+
+<pre><code>(hexrgb-hsv-to-hex   0.05   0.7   0.4     2) 
+;;------------------ ^ ---- ^ --- ^ ----- ^ -------
+;;                   hue    sat   light   nb-digits 
+</code></pre>
+
+<p>Which returns <span style="color: white; background-color:#6639B8;
+padding:4px; border-radius: 3px;">#6639B8</span></p>
+
+<p>Previously, <strong>hexrgb.el</strong> returned hex colors with 4 digits per
+channel (r, g, b), I'm not sure why, but obviously for a large number
+of people, this isn't all that useful.</p>
+
+<p>I've also added a few convenience functions that provide color
+manipulation direct from hex colors. Currently these just work in
+eshell or ielm (interactive emacs lisp modes.)</p>
+
+<p>For example:</p>
+
+<pre><code>(hexrgb-hex-set-brightness "#ff0000" 0.3)
+</code></pre>
+
+<p>returns <span style="color:white;background-color:#4C0000; padding:4px; border-radius: 3px;">#4C0000</span></p>
+
+<pre><code>(hexrgb-hex-set-saturation "#ff0000" 0.5)
+</code></pre>
+
+<p>returns <span style="color:white;background-color:#FF7F7F; padding:4px; border-radius: 3px;">#FF7F7F</span></p>
+
+<pre><code>(hexrgb-hex-set-hue "#FF0000" 0.6)
+</code></pre>
+
+<p>returns <span style="color:white;background-color:#0066FF; padding:4px; border-radius: 3px;">#0066FF</span></p>
+
+<p>These functions aren't complicated, they use the hex-to-hsv existing
+function, grab the h, s or v values and then convert back to a hex
+color value.  This makes working with colors easier, for example, you
+could add <code>(require 'hexrgb)</code> to a theme definition and use the
+functions to manipulate theme colors, or just switch on
+<a href="https://github.com/emacsmirror/rainbow-mode"><em>rainbow-mode</em></a> when
+you're in eshell, and play.</p>
+
+<p>Here's the function definitions:</p>
+
+<pre><code>(defun hexrgb-hex-set-brightness
+  (hex brightness)
+  "set brightness of a hex color, amount values from 0-1
+   returns a 6 digit hex color"
+  (let* ((hsv (hexrgb-hex-to-hsv hex))
+         (h (first hsv)) (s (second hsv)) (v (third hsv)))
+    (hexrgb-hsv-to-hex h s (* v brightness) 2)))
+
+(defun hexrgb-hex-set-saturation
+  (hex saturation)
+  "set saturation of a hex color, amount values from 0-1
+   returns a 6 digit hex color"
+  (let* ((hsv (hexrgb-hex-to-hsv hex))
+         (h (first hsv)) (s (second hsv)) (v (third hsv)))
+    (hexrgb-hsv-to-hex h (* s saturation) v 2)))
+
+(defun hexrgb-hex-set-hue
+  (hex hue)
+  "set hue of a hex color, amount values from 0-1
+   returns a 6 digit hex color"
+  (let* ((hsv (hexrgb-hex-to-hsv hex))
+         (s (second hsv)) (v (third hsv)))
+    (hexrgb-hsv-to-hex hue s v 2)))
+</code></pre>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Your Name</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-06-30T00:00:00+10:00" pubdate data-updated="true">Jun 30<span>th</span>, 2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/emacs/'>Emacs</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ocodo.github.com/blog/2012/06/30/hexrgb-some-convenient-functions/" data-via="" data-counturl="http://ocodo.github.com/blog/2012/06/30/hexrgb-some-convenient-functions/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/06/29/two-new-emacs24-themes/" title="Previous Post: Two New Emacs24 Themes">&laquo; Two New Emacs24 Themes</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2012/07/02/tangerine-theme/" title="Next Post: Tangerine Theme">Tangerine Theme &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/07/17/soothe-theme/">Soothe theme</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/07/03/jadedragon-theme/">Jade Dragon theme</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/07/02/tangerine-theme/">Tangerine Theme</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/06/30/hexrgb-some-convenient-functions/">HexRGB.el with some extras</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/06/29/two-new-emacs24-themes/">Two New Emacs24 Themes</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Your Name -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

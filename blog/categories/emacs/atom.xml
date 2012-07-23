@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Emacs | My Octopress Blog]]></title>
+  <link href="http://ocodo.github.com/blog/categories/emacs/atom.xml" rel="self"/>
+  <link href="http://ocodo.github.com/"/>
+  <updated>2012-07-23T17:44:36+10:00</updated>
+  <id>http://ocodo.github.com/</id>
+  <author>
+    <name><![CDATA[Your Name]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Soothe theme]]></title>
+    <link href="http://ocodo.github.com/blog/2012/07/17/soothe-theme/"/>
+    <updated>2012-07-17T00:00:00+10:00</updated>
+    <id>http://ocodo.github.com/blog/2012/07/17/soothe-theme</id>
+    <content type="html"><![CDATA[<p><a href="http://ocodo.github.com/soothe-theme.el" class="btn
+btn-primary btn-large">soothe-theme.el</a></p>
+
+<h1>Screenshots</h1>
+
+<p><img src="/soothe-ruby.png" alt="" /></p>
+
+<p><img src="/soothe-html.png" alt="" /></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Jade Dragon theme]]></title>
+    <link href="http://ocodo.github.com/blog/2012/07/03/jadedragon-theme/"/>
+    <updated>2012-07-03T00:00:00+10:00</updated>
+    <id>http://ocodo.github.com/blog/2012/07/03/jadedragon-theme</id>
+    <content type="html"><![CDATA[<p><a href="http://ocodo.github.com/Jadedragon-theme.el" class="btn
+btn-primary btn-large">Jadedragon-theme.el</a></p>
+
+<h3>emacs-lisp</h3>
+
+<p><img src="/jadedragon-emacslisp.png" alt="emacs-lisp" /></p>
+
+<h3>ObjC</h3>
+
+<p><img src="/jadedragon-objc.png" alt="SleepDisplay console utility" /></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Tangerine Theme]]></title>
+    <link href="http://ocodo.github.com/blog/2012/07/02/tangerine-theme/"/>
+    <updated>2012-07-02T00:00:00+10:00</updated>
+    <id>http://ocodo.github.com/blog/2012/07/02/tangerine-theme</id>
+    <content type="html"><![CDATA[<p>Amber CRTs, Tangerine Dream, retro-futuristic, kandy kolored tangerine
+flake streamline baby... all these things held some influence over
+the creation of this theme.  Well, those things, and the fact I like orange.</p>
+
+<p><a href="http://ocodo.github.com/Tangerine-theme.el" class="btn
+btn-primary btn-large">Tangerine-theme.el</a></p>
+
+<h2>Obligatory screenshots</h2>
+
+<p><img src="/tangerine-clojure.png" alt="Sample Clojure" /></p>
+
+<h3>Tangerine shell</h3>
+
+<p><img src="/tangerine-shell.png" alt="Sample Shell script" /></p>
+
+<h3>Tangerine Perl</h3>
+
+<p><img src="/tangerine-perls.png" alt="Sample Perl code Git.pm" /></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[HexRGB.el with some extras]]></title>
+    <link href="http://ocodo.github.com/blog/2012/06/30/hexrgb-some-convenient-functions/"/>
+    <updated>2012-06-30T00:00:00+10:00</updated>
+    <id>http://ocodo.github.com/blog/2012/06/30/hexrgb-some-convenient-functions</id>
+    <content type="html"><![CDATA[<p>If you use a lot of CSS we have a number of useful CSS DSLs, like
+<a href="http://sass-lang.com">SASS</a> and <a href="http://lesscss.org">LESS</a> both of
+which give us a collection of color manipulation functions.</p>
+
+<p>Adding a few of these helpful color functions to Emacs is relatively
+simple and the bulk of the work required is already done by Drew Adams
+in his <a href="http://www.emacswiki.org/cgi-bin/wiki/hexrgb.el">hexrgb.el</a>
+extension.</p>
+
+<p>I've added a few small modifications in
+<a href="https://gist.github.com/3022890">this version</a>, the
+function: <code>hexrgb-hsv-to-hex</code> accepts an additional argument
+<code>nb-digits</code> so that hex colors returned are with 2 digits per r,g,b
+value.</p>
+
+<pre><code>(hexrgb-hsv-to-hex   0.05   0.7   0.4     2) 
+;;------------------ ^ ---- ^ --- ^ ----- ^ -------
+;;                   hue    sat   light   nb-digits 
+</code></pre>
+
+<p>Which returns <span style="color: white; background-color:#6639B8;
+padding:4px; border-radius: 3px;">#6639B8</span></p>
+
+<p>Previously, <strong>hexrgb.el</strong> returned hex colors with 4 digits per
+channel (r, g, b), I'm not sure why, but obviously for a large number
+of people, this isn't all that useful.</p>
+
+<p>I've also added a few convenience functions that provide color
+manipulation direct from hex colors. Currently these just work in
+eshell or ielm (interactive emacs lisp modes.)</p>
+
+<p>For example:</p>
+
+<pre><code>(hexrgb-hex-set-brightness "#ff0000" 0.3)
+</code></pre>
+
+<p>returns <span style="color:white;background-color:#4C0000; padding:4px; border-radius: 3px;">#4C0000</span></p>
+
+<pre><code>(hexrgb-hex-set-saturation "#ff0000" 0.5)
+</code></pre>
+
+<p>returns <span style="color:white;background-color:#FF7F7F; padding:4px; border-radius: 3px;">#FF7F7F</span></p>
+
+<pre><code>(hexrgb-hex-set-hue "#FF0000" 0.6)
+</code></pre>
+
+<p>returns <span style="color:white;background-color:#0066FF; padding:4px; border-radius: 3px;">#0066FF</span></p>
+
+<p>These functions aren't complicated, they use the hex-to-hsv existing
+function, grab the h, s or v values and then convert back to a hex
+color value.  This makes working with colors easier, for example, you
+could add <code>(require 'hexrgb)</code> to a theme definition and use the
+functions to manipulate theme colors, or just switch on
+<a href="https://github.com/emacsmirror/rainbow-mode"><em>rainbow-mode</em></a> when
+you're in eshell, and play.</p>
+
+<p>Here's the function definitions:</p>
+
+<pre><code>(defun hexrgb-hex-set-brightness
+  (hex brightness)
+  "set brightness of a hex color, amount values from 0-1
+   returns a 6 digit hex color"
+  (let* ((hsv (hexrgb-hex-to-hsv hex))
+         (h (first hsv)) (s (second hsv)) (v (third hsv)))
+    (hexrgb-hsv-to-hex h s (* v brightness) 2)))
+
+(defun hexrgb-hex-set-saturation
+  (hex saturation)
+  "set saturation of a hex color, amount values from 0-1
+   returns a 6 digit hex color"
+  (let* ((hsv (hexrgb-hex-to-hsv hex))
+         (h (first hsv)) (s (second hsv)) (v (third hsv)))
+    (hexrgb-hsv-to-hex h (* s saturation) v 2)))
+
+(defun hexrgb-hex-set-hue
+  (hex hue)
+  "set hue of a hex color, amount values from 0-1
+   returns a 6 digit hex color"
+  (let* ((hsv (hexrgb-hex-to-hsv hex))
+         (s (second hsv)) (v (third hsv)))
+    (hexrgb-hsv-to-hex hue s v 2)))
+</code></pre>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Two New Emacs24 Themes]]></title>
+    <link href="http://ocodo.github.com/blog/2012/06/29/two-new-emacs24-themes/"/>
+    <updated>2012-06-29T00:00:00+10:00</updated>
+    <id>http://ocodo.github.com/blog/2012/06/29/two-new-emacs24-themes</id>
+    <content type="html"><![CDATA[<p><a href="#newthemes">Jump directly to the new themes...</a></p>
+
+<p>I have a number of Emacs color themes that were built a few years ago, they use the old <code>color-theme.el</code> system, I'd also adapted a web-based theme creator, so that it could load existing themes, as long as they were in a fixed format, the same as used by <a href="http://themes.sweyla.com/">http://themes.sweyla.com/</a></p>
+
+<p>Anyway, I've begun to convert some of my regular themes over to the new <code>deftheme</code> format. The main advangatge is there's no reliance on <code>color-theme</code> anymore. The only drawback for me is that I will need to update my existing theme-editor.</p>
+
+<p>But in the meantime, it's possible to create <code>deftheme</code> style themes with <code>customize-create-theme</code> but it's not the best way to to it, frankly, even if I converted my existing theme tool, it would still be very limited.</p>
+
+<p>The best thing to do is learn how to work with theme source code, which like everything that extends Emacs, is written in emacs lisp.</p>
+
+<p>The basic template for making a theme is as follows:</p>
+
+<pre><code>;;; Filename: name-theme.el 
+(deftheme name
+  "DOCSTRING")
+
+;; Not a bad idea to define a palette...
+(let (
+      (color-1 "#ffffff") 
+      (color-2 "#ff0000") 
+      (color-3 "#00ff00")
+      (color-4 "#0000ff"))
+
+  ;; Set faces
+  (custom-theme-set-faces
+   'name ;; you must use the same theme name here...
+   '(default ((t (:foreground ,color-1 :background black))))
+   '(cursor  ((t (:background ,color-4))))
+   '(fringe  ((t (:background ,color-3))))
+   ;;; etc... 
+   ;;; don't use these settings of course, 
+   ;;; they're horrible.
+   )
+
+  ;; Set variables
+  (custom-theme-set-variables
+   'name ;; again specify the same theme name...
+   '(any-variable EXPR)
+
+(provide-theme 'name)
+;;; name-theme.el ends here
+</code></pre>
+
+<p>For a more advanced example to work from, look at the new built in themes, I'd recommend <code>tango-theme.el</code> which you'll be able to find using, <code>M-x describe-theme</code> and then type <code>tango</code>.</p>
+
+<p>The help buffer will give you a link to the source code, and you can study it further, (if you have questions, I'm very happy to answer them in the comments.)</p>
+
+<p><a name="newthemes" /></p>
+
+<hr />
+
+<h1>Two new themes...</h1>
+
+<h2>DeepBlueDay and MechanicalTurq</h2>
+
+<p><img src="/emacs24.themes.vol1.png" alt="" /></p>
+
+<h1>Download...</h1>
+
+<p><a href="/DeepBlueDay-theme.el">DeepBlueDay-theme.el</a></p>
+
+<p><a href="/MechanicalTurq-theme.el">MechanicalTurq-theme.el</a></p>
+
+<p>Save them to your emacs custom theme folder, <code>~/.emacs.d/</code> by default, and in Emacs use <code>M-x enable-theme</code> to load and enable them (TAB completion will be available there, to make your life easier.)</p>
+
+<p>If you have questions, let me know.</p>
+]]></content>
+  </entry>
+  
+</feed>
