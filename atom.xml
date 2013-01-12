@@ -4,7 +4,7 @@
   <title><![CDATA[Emacs Fodder]]></title>
   <link href="http://emacsfodder.github.com/atom.xml" rel="self"/>
   <link href="http://emacsfodder.github.com/"/>
-  <updated>2013-01-12T23:03:11+11:00</updated>
+  <updated>2013-01-12T23:06:47+11:00</updated>
   <id>http://emacsfodder.github.com/</id>
   <author>
     <name><![CDATA[Jason Milkins]]></name>
@@ -70,7 +70,7 @@ btn-primary btn-large">Tangerine-theme.el</a></p>
 
 <h2>Obligatory screenshots</h2>
 
-<p><img src="http://emacsfodder.github.com/tangerine-clojure.png" alt="Sample Clojure" /></p>
+<p><img src="http://emacsfodder.github.com/tangerine-clojure.png" alt="Sample emacslisp" /></p>
 
 <h3>Tangerine shell</h3>
 
