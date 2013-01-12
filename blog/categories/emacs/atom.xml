@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Emacs | Emacs Fodder]]></title>
   <link href="http://emacsfodder.github.com/blog/categories/emacs/atom.xml" rel="self"/>
   <link href="http://emacsfodder.github.com/"/>
-  <updated>2013-01-12T23:01:53+11:00</updated>
+  <updated>2013-01-12T23:02:54+11:00</updated>
   <id>http://emacsfodder.github.com/</id>
   <author>
     <name><![CDATA[Jason Milkins]]></name>
@@ -24,8 +24,9 @@ X, or in another window manager it'll serve you well.</p>
 
 <p>The block-highlights may put you off, I find them very helpful for
 some reason I'm unable to clarify for you in any technical /
-psychological / color-theory sense. Just 30 years of using
-text based environments, whatever that's worth.</p>
+psychological / color-theory sense, but try it out anyway.</p>
+
+<p>Feel free to fork modify, whatever, it's MIT Licensed.</p>
 
 <p><a href="/soothe-theme.el">soothe-theme.el</a></p>
 
