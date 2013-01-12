@@ -4,7 +4,7 @@
   <title><![CDATA[Emacs Fodder]]></title>
   <link href="http://emacsfodder.github.com/atom.xml" rel="self"/>
   <link href="http://emacsfodder.github.com/"/>
-  <updated>2013-01-12T23:02:54+11:00</updated>
+  <updated>2013-01-12T23:03:11+11:00</updated>
   <id>http://emacsfodder.github.com/</id>
   <author>
     <name><![CDATA[Jason Milkins]]></name>
@@ -20,7 +20,7 @@
     <id>http://emacsfodder.github.com/blog/2012/07/17/soothe-theme</id>
     <content type="html"><![CDATA[<p>This is a theme I use almost exclusively now, it&#8217;s not Terminal
 friendly, and I should fix that, but if you&#8217;re using Emacs.app on OS
-X, or in another window manager it&#8217;ll serve you well.</p>
+X, or in another full color window manager it&#8217;ll serve you well.</p>
 
 <p>The block-highlights may put you off, I find them very helpful for
 some reason I&#8217;m unable to clarify for you in any technical /
