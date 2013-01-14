@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Emacs | Emacs Fodder]]></title>
   <link href="http://emacsfodder.github.com/blog/categories/emacs/atom.xml" rel="self"/>
   <link href="http://emacsfodder.github.com/"/>
-  <updated>2013-01-12T23:06:47+11:00</updated>
+  <updated>2013-01-15T08:53:35+11:00</updated>
   <id>http://emacsfodder.github.com/</id>
   <author>
     <name><![CDATA[Jason Milkins]]></name>
@@ -12,6 +12,23 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Mesa theme]]></title>
+    <link href="http://emacsfodder.github.com/blog/2013/01/14/mesa-theme/"/>
+    <updated>2013-01-14T00:00:00+11:00</updated>
+    <id>http://emacsfodder.github.com/blog/2013/01/14/mesa-theme</id>
+    <content type="html"><![CDATA[<p>Mesa is a theme for Emacs 24, works in both the terminal and full
+color GUIs.</p>
+
+<p>Download : <a href="mesa-theme.el">mesa-theme.el</a></p>
+
+<h1>Screenshots</h1>
+
+<p><img src="mesa-screen.png" alt="" />
+<img src="mesa-screen2.png" alt="" /></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Soothe theme]]></title>
@@ -169,80 +186,6 @@ you're in eshell, and play.</p>
          (s (second hsv)) (v (third hsv)))
     (hexrgb-hsv-to-hex hue s v 2)))
 </code></pre>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Two New Emacs24 Themes]]></title>
-    <link href="http://emacsfodder.github.com/blog/2012/06/29/two-new-emacs24-themes/"/>
-    <updated>2012-06-29T00:00:00+10:00</updated>
-    <id>http://emacsfodder.github.com/blog/2012/06/29/two-new-emacs24-themes</id>
-    <content type="html"><![CDATA[<p><a href="#newthemes">Jump directly to the new themes...</a></p>
-
-<p>I have a number of Emacs color themes that were built a few years ago, they use the old <code>color-theme.el</code> system, I'd also adapted a web-based theme creator, so that it could load existing themes, as long as they were in a fixed format, the same as used by <a href="http://themes.sweyla.com/">http://themes.sweyla.com/</a></p>
-
-<p>Anyway, I've begun to convert some of my regular themes over to the new <code>deftheme</code> format. The main advangatge is there's no reliance on <code>color-theme</code> anymore. The only drawback for me is that I will need to update my existing theme-editor.</p>
-
-<p>But in the meantime, it's possible to create <code>deftheme</code> style themes with <code>customize-create-theme</code> but it's not the best way to to it, frankly, even if I converted my existing theme tool, it would still be very limited.</p>
-
-<p>The best thing to do is learn how to work with theme source code, which like everything that extends Emacs, is written in emacs lisp.</p>
-
-<p>The basic template for making a theme is as follows:</p>
-
-<pre><code>;;; Filename: name-theme.el 
-(deftheme name
-  "DOCSTRING")
-
-;; Not a bad idea to define a palette...
-(let (
-      (color-1 "#ffffff") 
-      (color-2 "#ff0000") 
-      (color-3 "#00ff00")
-      (color-4 "#0000ff"))
-
-  ;; Set faces
-  (custom-theme-set-faces
-   'name ;; you must use the same theme name here...
-   '(default ((t (:foreground ,color-1 :background black))))
-   '(cursor  ((t (:background ,color-4))))
-   '(fringe  ((t (:background ,color-3))))
-   ;;; etc... 
-   ;;; don't use these settings of course, 
-   ;;; they're horrible.
-   )
-
-  ;; Set variables
-  (custom-theme-set-variables
-   'name ;; again specify the same theme name...
-   '(any-variable EXPR)
-
-(provide-theme 'name)
-;;; name-theme.el ends here
-</code></pre>
-
-<p>For a more advanced example to work from, look at the new built in themes, I'd recommend <code>tango-theme.el</code> which you'll be able to find using, <code>M-x describe-theme</code> and then type <code>tango</code>.</p>
-
-<p>The help buffer will give you a link to the source code, and you can study it further, (if you have questions, I'm very happy to answer them in the comments.)</p>
-
-<p><a name="newthemes" /></p>
-
-<hr />
-
-<h1>Two new themes...</h1>
-
-<h2>DeepBlueDay and MechanicalTurq</h2>
-
-<p><img src="/emacs24.themes.vol1.png" alt="" /></p>
-
-<h1>Download...</h1>
-
-<p><a href="/DeepBlueDay-theme.el">DeepBlueDay-theme.el</a></p>
-
-<p><a href="/MechanicalTurq-theme.el">MechanicalTurq-theme.el</a></p>
-
-<p>Save them to your emacs custom theme folder, <code>~/.emacs.d/</code> by default, and in Emacs use <code>M-x enable-theme</code> to load and enable them (TAB completion will be available there, to make your life easier.)</p>
-
-<p>If you have questions, let me know.</p>
 ]]></content>
   </entry>
   

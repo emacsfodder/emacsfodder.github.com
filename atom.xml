@@ -4,7 +4,7 @@
   <title><![CDATA[Emacs Fodder]]></title>
   <link href="http://emacsfodder.github.com/atom.xml" rel="self"/>
   <link href="http://emacsfodder.github.com/"/>
-  <updated>2013-01-12T23:06:47+11:00</updated>
+  <updated>2013-01-15T08:53:35+11:00</updated>
   <id>http://emacsfodder.github.com/</id>
   <author>
     <name><![CDATA[Jason Milkins]]></name>
@@ -12,6 +12,23 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Mesa theme]]></title>
+    <link href="http://emacsfodder.github.com/blog/2013/01/14/mesa-theme/"/>
+    <updated>2013-01-14T00:00:00+11:00</updated>
+    <id>http://emacsfodder.github.com/blog/2013/01/14/mesa-theme</id>
+    <content type="html"><![CDATA[<p>Mesa is a theme for Emacs 24, works in both the terminal and full
+color GUIs.</p>
+
+<p>Download : <a href="mesa-theme.el">mesa-theme.el</a></p>
+
+<h1>Screenshots</h1>
+
+<p><img src="mesa-screen.png" alt="" />
+<img src="mesa-screen2.png" alt="" /></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Soothe theme]]></title>
