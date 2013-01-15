@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Emacs | Emacs Fodder]]></title>
   <link href="http://emacsfodder.github.com/blog/categories/emacs/atom.xml" rel="self"/>
   <link href="http://emacsfodder.github.com/"/>
-  <updated>2013-01-15T23:05:37+11:00</updated>
+  <updated>2013-01-16T02:10:33+11:00</updated>
   <id>http://emacsfodder.github.com/</id>
   <author>
     <name><![CDATA[Jason Milkins]]></name>
@@ -24,6 +24,9 @@ theme creator, so that it could load existing themes, as long as they
 were in a fixed format, the same as used by
 <a href="http://themes.sweyla.com/">http://themes.sweyla.com/</a> - All in all I
 was quite invested in <code>color-theme.el</code></p>
+
+<!--more-->
+
 
 <p>I've begun to convert some of my regular themes over to the new
 <code>(deftheme)</code> format. The main advangatge is there's no reliance on
