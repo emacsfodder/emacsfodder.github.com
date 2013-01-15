@@ -4,7 +4,7 @@
   <title><![CDATA[Emacs Fodder]]></title>
   <link href="http://emacsfodder.github.com/atom.xml" rel="self"/>
   <link href="http://emacsfodder.github.com/"/>
-  <updated>2013-01-15T18:48:45+11:00</updated>
+  <updated>2013-01-15T19:02:51+11:00</updated>
   <id>http://emacsfodder.github.com/</id>
   <author>
     <name><![CDATA[Jason Milkins]]></name>
@@ -360,66 +360,76 @@ flatshapes, a rounded or folded corner, and a set of diagonals.</p>
 the following lines to the end of your <code>.emacs</code> / <code>init.el</code> - to load
 it, set the colors and graphic shape:</p>
 
-<pre><code>(require 'powerline)
-;; colors...
-(setq powerline-color1 "#222")      ;; dark grey; 
-(setq powerline-color2 "#444")      ;; slightly lighter grey
-;; shape...
-(setq powerline-arrow-shape 'arrow) ;; mirrored arrows, 
+<p>{% codeblock lang:cl }
+(require &#8216;powerline)
+;; colors&#8230;
+(setq powerline-color1 &#8220;#222&#8221;)      ;; dark grey;
+(setq powerline-color2 &#8220;#444&#8221;)      ;; slightly lighter grey
+;; shape&#8230;
+(setq powerline-arrow-shape &#8216;arrow) ;; mirrored arrows,
 ;; see below for the shape options
-</code></pre>
+{% endcodeblock %}</p>
 
 <h2>Shapes</h2>
 
-<pre><code>(setq powerline-arrow-shape 'arrow)       ;; 18px high arrows  
-</code></pre>
+<p>{% codeblock %}
+(setq powerline-arrow-shape &#8216;arrow)       ;; 18px high arrows<br/>
+{% endcodeblock %}</p>
 
 <p><img src="http://emacsfodder.github.com/media/arrow.png" alt="" /></p>
 
-<pre><code>(setq powerline-arrow-shape 'arrow14)     ;; 14px high arrows
-</code></pre>
+<p>{% codeblock lang:cl %}
+(setq powerline-arrow-shape &#8216;arrow14)     ;; 14px high arrows
+{% endcodeblock %}</p>
 
 <p><img src="http://emacsfodder.github.com/media/arrow14.png" alt="" /></p>
 
-<pre><code>(setq powerline-arrow-shape 'half)        ;; flat
-</code></pre>
+<p>{% codeblock lang:cl %}
+(setq powerline-arrow-shape &#8216;half)        ;; flat
+{% endcodeblock %}</p>
 
 <p><img src="http://emacsfodder.github.com/media/half.png" alt="" /></p>
 
-<pre><code>(setq powerline-arrow-shape 'percent)     ;; ...? (I have no idea)
-</code></pre>
+<p>{% codeblock lang:cl %}
+(setq powerline-arrow-shape &#8216;percent)     ;; &#8230;? (I have no idea)
+{% endcodeblock %}</p>
 
 <p><img src="http://emacsfodder.github.com/media/percent.png" alt="" /></p>
 
-<pre><code>(setq powerline-arrow-shape 'curve)       ;; scallop curve
-</code></pre>
+<p>{% codeblock lang:cl %}
+(setq powerline-arrow-shape &#8216;curve)       ;; scallop curve
+{% endcodeblock %}</p>
 
 <p><img src="http://emacsfodder.github.com/media/curve.png" alt="" /></p>
 
 <h2>New shapes in this version</h2>
 
-<pre><code>(setq powerline-arrow-shape 'rounded)     ;; new, round corner
-</code></pre>
+<p>{% codeblock lang:cl %}
+(setq powerline-arrow-shape &#8216;rounded)     ;; new, round corner
+{% endcodeblock %}</p>
 
 <p><img src="http://emacsfodder.github.com/media/rounded.png" alt="" /></p>
 
-<pre><code>(setq powerline-arrow-shape 'chamfer)     ;; new, folded corner
-</code></pre>
+<p>{% codeblock lang:cl %}
+(setq powerline-arrow-shape &#8216;chamfer)     ;; new, folded corner
+{% endcodeblock %}</p>
 
 <p><img src="http://emacsfodder.github.com/media/chamfer.png" alt="" /></p>
 
-<pre><code>(setq powerline-arrow-shape 'slant-left)  ;; new, diagonal from left
-</code></pre>
+<p>{% codeblock lang:cl %}
+(setq powerline-arrow-shape &#8216;slant-left)  ;; new, diagonal from left
+{% endcodeblock %}</p>
 
 <p><img src="http://emacsfodder.github.com/media/slant-left.png" alt="" /></p>
 
-<pre><code>(setq powerline-arrow-shape 'slant-right) ;; new, diagonal from right
-</code></pre>
+<p>{% codeblock lang:cl %}
+(setq powerline-arrow-shape &#8216;slant-right) ;; new, diagonal from right
+{% endcodeblock %}
+<img src="http://emacsfodder.github.com/media/slant-right.png" alt="" /></p>
 
-<p><img src="http://emacsfodder.github.com/media/slant-right.png" alt="" /></p>
-
-<pre><code>(setq powerline-arrow-shape 'slant)       ;; mirrored diagonals
-</code></pre>
+<p>{% codeblock lang:cl %}
+(setq powerline-arrow-shape &#8216;slant)       ;; mirrored diagonals
+{% endcodeblock %}</p>
 
 <p><img src="http://emacsfodder.github.com/media/slant.png" alt="" /></p>
 ]]></content>
