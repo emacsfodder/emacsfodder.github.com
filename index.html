@@ -7,9 +7,8 @@
 	<meta name="author" content="Jason Milkins">
 
 	
-	<meta name="description" content="I have a bunch of Emacs color themes that I built a few years ago,
-they use the old color-theme.el system, I&#8217;d also adapted a web-based
-theme &hellip;">
+	<meta name="description" content="Well this isn&#8217;t anything to do with Emacs, but since this blog uses
+Octopress, I suppose this is as good a place as any to post this. I&#8217; &hellip;">
 	
 
   <!-- http://t.co/dKP3o1e -->
@@ -87,6 +86,933 @@ theme &hellip;">
 			
 			<div class="mid-col-container">
 				<div id="content" class="inner">
+
+
+    <article class="post">
+	<div class="meta">
+		<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-01-16T00:00:00+11:00" pubdate data-updated="true">Jan 16<span>th</span>, 2013</time></div>
+		<div class="tags">
+
+
+	<a class='category' href='/blog/categories/octopress/'>octopress</a>
+
+
+</div>
+		
+			<span class="comments"><a href="/blog/alternative-syntax-scss-for-octopress/#disqus_thread">Comments</a></span>
+		
+	</div>
+	<h1 class="title"><a href="/blog/alternative-syntax-scss-for-octopress/">Alternative _syntax.scss for Octopress</a></h1>
+	<div class="entry-content">
+		<p>Well this isn&#8217;t anything to do with Emacs, but since this blog uses
+Octopress, I suppose this is as good a place as any to post this.</p>
+
+<p>I&#8217;ve made an alternative <code>_syntax.scss</code> &#8220;part&#8221; for Octopress, just
+replace your existing one, all the variables are self-contained.</p>
+
+<figure class='code'><figcaption><span> (_syntax.scss)</span> <a href='/code/_syntax.scss'>download</a></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
+<span class='line-number'>64</span>
+<span class='line-number'>65</span>
+<span class='line-number'>66</span>
+<span class='line-number'>67</span>
+<span class='line-number'>68</span>
+<span class='line-number'>69</span>
+<span class='line-number'>70</span>
+<span class='line-number'>71</span>
+<span class='line-number'>72</span>
+<span class='line-number'>73</span>
+<span class='line-number'>74</span>
+<span class='line-number'>75</span>
+<span class='line-number'>76</span>
+<span class='line-number'>77</span>
+<span class='line-number'>78</span>
+<span class='line-number'>79</span>
+<span class='line-number'>80</span>
+<span class='line-number'>81</span>
+<span class='line-number'>82</span>
+<span class='line-number'>83</span>
+<span class='line-number'>84</span>
+<span class='line-number'>85</span>
+<span class='line-number'>86</span>
+<span class='line-number'>87</span>
+<span class='line-number'>88</span>
+<span class='line-number'>89</span>
+<span class='line-number'>90</span>
+<span class='line-number'>91</span>
+<span class='line-number'>92</span>
+<span class='line-number'>93</span>
+<span class='line-number'>94</span>
+<span class='line-number'>95</span>
+<span class='line-number'>96</span>
+<span class='line-number'>97</span>
+<span class='line-number'>98</span>
+<span class='line-number'>99</span>
+<span class='line-number'>100</span>
+<span class='line-number'>101</span>
+<span class='line-number'>102</span>
+<span class='line-number'>103</span>
+<span class='line-number'>104</span>
+<span class='line-number'>105</span>
+<span class='line-number'>106</span>
+<span class='line-number'>107</span>
+<span class='line-number'>108</span>
+<span class='line-number'>109</span>
+<span class='line-number'>110</span>
+<span class='line-number'>111</span>
+<span class='line-number'>112</span>
+<span class='line-number'>113</span>
+<span class='line-number'>114</span>
+<span class='line-number'>115</span>
+<span class='line-number'>116</span>
+<span class='line-number'>117</span>
+<span class='line-number'>118</span>
+<span class='line-number'>119</span>
+<span class='line-number'>120</span>
+<span class='line-number'>121</span>
+<span class='line-number'>122</span>
+<span class='line-number'>123</span>
+<span class='line-number'>124</span>
+<span class='line-number'>125</span>
+<span class='line-number'>126</span>
+<span class='line-number'>127</span>
+<span class='line-number'>128</span>
+<span class='line-number'>129</span>
+<span class='line-number'>130</span>
+<span class='line-number'>131</span>
+<span class='line-number'>132</span>
+<span class='line-number'>133</span>
+<span class='line-number'>134</span>
+<span class='line-number'>135</span>
+<span class='line-number'>136</span>
+<span class='line-number'>137</span>
+<span class='line-number'>138</span>
+<span class='line-number'>139</span>
+<span class='line-number'>140</span>
+<span class='line-number'>141</span>
+<span class='line-number'>142</span>
+<span class='line-number'>143</span>
+<span class='line-number'>144</span>
+<span class='line-number'>145</span>
+<span class='line-number'>146</span>
+<span class='line-number'>147</span>
+<span class='line-number'>148</span>
+<span class='line-number'>149</span>
+<span class='line-number'>150</span>
+<span class='line-number'>151</span>
+<span class='line-number'>152</span>
+<span class='line-number'>153</span>
+<span class='line-number'>154</span>
+<span class='line-number'>155</span>
+<span class='line-number'>156</span>
+<span class='line-number'>157</span>
+<span class='line-number'>158</span>
+<span class='line-number'>159</span>
+<span class='line-number'>160</span>
+<span class='line-number'>161</span>
+<span class='line-number'>162</span>
+<span class='line-number'>163</span>
+<span class='line-number'>164</span>
+<span class='line-number'>165</span>
+<span class='line-number'>166</span>
+<span class='line-number'>167</span>
+<span class='line-number'>168</span>
+<span class='line-number'>169</span>
+<span class='line-number'>170</span>
+<span class='line-number'>171</span>
+<span class='line-number'>172</span>
+<span class='line-number'>173</span>
+<span class='line-number'>174</span>
+<span class='line-number'>175</span>
+<span class='line-number'>176</span>
+<span class='line-number'>177</span>
+<span class='line-number'>178</span>
+<span class='line-number'>179</span>
+<span class='line-number'>180</span>
+<span class='line-number'>181</span>
+<span class='line-number'>182</span>
+<span class='line-number'>183</span>
+<span class='line-number'>184</span>
+<span class='line-number'>185</span>
+<span class='line-number'>186</span>
+<span class='line-number'>187</span>
+<span class='line-number'>188</span>
+<span class='line-number'>189</span>
+<span class='line-number'>190</span>
+<span class='line-number'>191</span>
+<span class='line-number'>192</span>
+<span class='line-number'>193</span>
+<span class='line-number'>194</span>
+<span class='line-number'>195</span>
+<span class='line-number'>196</span>
+<span class='line-number'>197</span>
+<span class='line-number'>198</span>
+<span class='line-number'>199</span>
+<span class='line-number'>200</span>
+<span class='line-number'>201</span>
+<span class='line-number'>202</span>
+<span class='line-number'>203</span>
+<span class='line-number'>204</span>
+<span class='line-number'>205</span>
+<span class='line-number'>206</span>
+<span class='line-number'>207</span>
+<span class='line-number'>208</span>
+<span class='line-number'>209</span>
+<span class='line-number'>210</span>
+<span class='line-number'>211</span>
+<span class='line-number'>212</span>
+<span class='line-number'>213</span>
+<span class='line-number'>214</span>
+<span class='line-number'>215</span>
+<span class='line-number'>216</span>
+<span class='line-number'>217</span>
+<span class='line-number'>218</span>
+<span class='line-number'>219</span>
+<span class='line-number'>220</span>
+<span class='line-number'>221</span>
+<span class='line-number'>222</span>
+<span class='line-number'>223</span>
+<span class='line-number'>224</span>
+<span class='line-number'>225</span>
+<span class='line-number'>226</span>
+<span class='line-number'>227</span>
+<span class='line-number'>228</span>
+<span class='line-number'>229</span>
+<span class='line-number'>230</span>
+<span class='line-number'>231</span>
+<span class='line-number'>232</span>
+<span class='line-number'>233</span>
+<span class='line-number'>234</span>
+<span class='line-number'>235</span>
+<span class='line-number'>236</span>
+<span class='line-number'>237</span>
+<span class='line-number'>238</span>
+<span class='line-number'>239</span>
+<span class='line-number'>240</span>
+<span class='line-number'>241</span>
+<span class='line-number'>242</span>
+<span class='line-number'>243</span>
+<span class='line-number'>244</span>
+<span class='line-number'>245</span>
+<span class='line-number'>246</span>
+<span class='line-number'>247</span>
+<span class='line-number'>248</span>
+<span class='line-number'>249</span>
+<span class='line-number'>250</span>
+<span class='line-number'>251</span>
+<span class='line-number'>252</span>
+<span class='line-number'>253</span>
+<span class='line-number'>254</span>
+<span class='line-number'>255</span>
+<span class='line-number'>256</span>
+<span class='line-number'>257</span>
+<span class='line-number'>258</span>
+<span class='line-number'>259</span>
+<span class='line-number'>260</span>
+<span class='line-number'>261</span>
+<span class='line-number'>262</span>
+<span class='line-number'>263</span>
+<span class='line-number'>264</span>
+<span class='line-number'>265</span>
+<span class='line-number'>266</span>
+<span class='line-number'>267</span>
+<span class='line-number'>268</span>
+<span class='line-number'>269</span>
+<span class='line-number'>270</span>
+<span class='line-number'>271</span>
+<span class='line-number'>272</span>
+<span class='line-number'>273</span>
+<span class='line-number'>274</span>
+<span class='line-number'>275</span>
+<span class='line-number'>276</span>
+<span class='line-number'>277</span>
+<span class='line-number'>278</span>
+<span class='line-number'>279</span>
+<span class='line-number'>280</span>
+<span class='line-number'>281</span>
+<span class='line-number'>282</span>
+<span class='line-number'>283</span>
+<span class='line-number'>284</span>
+<span class='line-number'>285</span>
+<span class='line-number'>286</span>
+<span class='line-number'>287</span>
+<span class='line-number'>288</span>
+<span class='line-number'>289</span>
+<span class='line-number'>290</span>
+<span class='line-number'>291</span>
+<span class='line-number'>292</span>
+<span class='line-number'>293</span>
+<span class='line-number'>294</span>
+<span class='line-number'>295</span>
+<span class='line-number'>296</span>
+<span class='line-number'>297</span>
+<span class='line-number'>298</span>
+<span class='line-number'>299</span>
+<span class='line-number'>300</span>
+<span class='line-number'>301</span>
+<span class='line-number'>302</span>
+<span class='line-number'>303</span>
+<span class='line-number'>304</span>
+<span class='line-number'>305</span>
+<span class='line-number'>306</span>
+<span class='line-number'>307</span>
+<span class='line-number'>308</span>
+<span class='line-number'>309</span>
+<span class='line-number'>310</span>
+<span class='line-number'>311</span>
+<span class='line-number'>312</span>
+<span class='line-number'>313</span>
+<span class='line-number'>314</span>
+<span class='line-number'>315</span>
+<span class='line-number'>316</span>
+<span class='line-number'>317</span>
+<span class='line-number'>318</span>
+<span class='line-number'>319</span>
+<span class='line-number'>320</span>
+<span class='line-number'>321</span>
+<span class='line-number'>322</span>
+<span class='line-number'>323</span>
+<span class='line-number'>324</span>
+<span class='line-number'>325</span>
+<span class='line-number'>326</span>
+<span class='line-number'>327</span>
+<span class='line-number'>328</span>
+<span class='line-number'>329</span>
+<span class='line-number'>330</span>
+<span class='line-number'>331</span>
+<span class='line-number'>332</span>
+<span class='line-number'>333</span>
+<span class='line-number'>334</span>
+<span class='line-number'>335</span>
+<span class='line-number'>336</span>
+<span class='line-number'>337</span>
+<span class='line-number'>338</span>
+<span class='line-number'>339</span>
+<span class='line-number'>340</span>
+<span class='line-number'>341</span>
+<span class='line-number'>342</span>
+<span class='line-number'>343</span>
+<span class='line-number'>344</span>
+<span class='line-number'>345</span>
+<span class='line-number'>346</span>
+<span class='line-number'>347</span>
+<span class='line-number'>348</span>
+<span class='line-number'>349</span>
+<span class='line-number'>350</span>
+<span class='line-number'>351</span>
+<span class='line-number'>352</span>
+<span class='line-number'>353</span>
+<span class='line-number'>354</span>
+<span class='line-number'>355</span>
+<span class='line-number'>356</span>
+<span class='line-number'>357</span>
+<span class='line-number'>358</span>
+<span class='line-number'>359</span>
+<span class='line-number'>360</span>
+<span class='line-number'>361</span>
+<span class='line-number'>362</span>
+<span class='line-number'>363</span>
+<span class='line-number'>364</span>
+<span class='line-number'>365</span>
+<span class='line-number'>366</span>
+<span class='line-number'>367</span>
+<span class='line-number'>368</span>
+<span class='line-number'>369</span>
+<span class='line-number'>370</span>
+<span class='line-number'>371</span>
+<span class='line-number'>372</span>
+<span class='line-number'>373</span>
+<span class='line-number'>374</span>
+<span class='line-number'>375</span>
+<span class='line-number'>376</span>
+<span class='line-number'>377</span>
+<span class='line-number'>378</span>
+<span class='line-number'>379</span>
+<span class='line-number'>380</span>
+<span class='line-number'>381</span>
+<span class='line-number'>382</span>
+<span class='line-number'>383</span>
+<span class='line-number'>384</span>
+<span class='line-number'>385</span>
+<span class='line-number'>386</span>
+<span class='line-number'>387</span>
+<span class='line-number'>388</span>
+<span class='line-number'>389</span>
+<span class='line-number'>390</span>
+<span class='line-number'>391</span>
+<span class='line-number'>392</span>
+<span class='line-number'>393</span>
+<span class='line-number'>394</span>
+<span class='line-number'>395</span>
+<span class='line-number'>396</span>
+<span class='line-number'>397</span>
+<span class='line-number'>398</span>
+<span class='line-number'>399</span>
+<span class='line-number'>400</span>
+<span class='line-number'>401</span>
+<span class='line-number'>402</span>
+<span class='line-number'>403</span>
+<span class='line-number'>404</span>
+<span class='line-number'>405</span>
+<span class='line-number'>406</span>
+<span class='line-number'>407</span>
+<span class='line-number'>408</span>
+<span class='line-number'>409</span>
+<span class='line-number'>410</span>
+<span class='line-number'>411</span>
+<span class='line-number'>412</span>
+<span class='line-number'>413</span>
+<span class='line-number'>414</span>
+<span class='line-number'>415</span>
+<span class='line-number'>416</span>
+<span class='line-number'>417</span>
+<span class='line-number'>418</span>
+<span class='line-number'>419</span>
+<span class='line-number'>420</span>
+<span class='line-number'>421</span>
+<span class='line-number'>422</span>
+<span class='line-number'>423</span>
+<span class='line-number'>424</span>
+<span class='line-number'>425</span>
+<span class='line-number'>426</span>
+<span class='line-number'>427</span>
+<span class='line-number'>428</span>
+<span class='line-number'>429</span>
+<span class='line-number'>430</span>
+<span class='line-number'>431</span>
+<span class='line-number'>432</span>
+<span class='line-number'>433</span>
+<span class='line-number'>434</span>
+<span class='line-number'>435</span>
+<span class='line-number'>436</span>
+<span class='line-number'>437</span>
+<span class='line-number'>438</span>
+<span class='line-number'>439</span>
+<span class='line-number'>440</span>
+<span class='line-number'>441</span>
+</pre></td><td class='code'><pre><code class='scss'><span class='line'><span class="c1">// Soothe Color Palette</span>
+</span><span class='line'><span class="na">$soothe-gray-1</span><span class="o">         :</span> <span class="mh">#828282</span><span class="p">;</span>
+</span><span class='line'><span class="na">$soothe-gray-1bg</span><span class="o">       :</span> <span class="mh">#0a0a0a</span><span class="p">;</span>
+</span><span class='line'><span class="na">$soothe-gray-2</span><span class="o">         :</span> <span class="mh">#333333</span><span class="p">;</span>
+</span><span class='line'><span class="na">$soothe-gray-2bg</span><span class="o">       :</span> <span class="mh">#111111</span><span class="p">;</span>
+</span><span class='line'><span class="na">$soothe-gray-3</span><span class="o">         :</span> <span class="mh">#aaaaaa</span><span class="p">;</span>
+</span><span class='line'><span class="na">$soothe-gray-3bg</span><span class="o">       :</span> <span class="mh">#141414</span><span class="p">;</span>
+</span><span class='line'><span class="na">$soothe-gray-4</span><span class="o">         :</span> <span class="mh">#252525</span><span class="p">;</span>
+</span><span class='line'><span class="na">$soothe-gray-4bg</span><span class="o">       :</span> <span class="mh">#171717</span><span class="p">;</span>
+</span><span class='line'><span class="na">$soothe-gray-5</span><span class="o">         :</span> <span class="mh">#2a2a2a</span><span class="p">;</span>
+</span><span class='line'><span class="na">$soothe-gray-5bg</span><span class="o">       :</span> <span class="mh">#1a1a1a</span><span class="p">;</span>
+</span><span class='line'><span class="na">$soothe-gray-6</span><span class="o">         :</span> <span class="mh">#202020</span><span class="p">;</span>
+</span><span class='line'><span class="na">$soothe-gray-6bg</span><span class="o">       :</span> <span class="mh">#1e1e1e</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="na">$soothe-red-1</span><span class="o">          :</span> <span class="mh">#d13120</span><span class="p">;</span>
+</span><span class='line'><span class="na">$soothe-red-1bg</span><span class="o">        :</span> <span class="mh">#1D1515</span><span class="p">;</span>
+</span><span class='line'><span class="na">$soothe-red-2</span><span class="o">          :</span> <span class="mh">#b23f1e</span><span class="p">;</span>
+</span><span class='line'><span class="na">$soothe-red-2bg</span><span class="o">        :</span> <span class="mh">#251c1e</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="na">$soothe-brown-1</span><span class="o">        :</span> <span class="mh">#9f621d</span><span class="p">;</span>
+</span><span class='line'><span class="na">$soothe-brown-1bg</span><span class="o">      :</span> <span class="mh">#2a1f1f</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="na">$soothe-orange-1</span><span class="o">       :</span> <span class="mh">#d97a35</span><span class="p">;</span>
+</span><span class='line'><span class="na">$soothe-orange-1bg</span><span class="o">     :</span> <span class="mh">#1F1710</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="na">$soothe-yellow-1</span><span class="o">       :</span> <span class="mh">#deae3e</span><span class="p">;</span>
+</span><span class='line'><span class="na">$soothe-yellow-1bg</span><span class="o">     :</span> <span class="mh">#18140C</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="na">$soothe-green-1</span><span class="o">        :</span> <span class="mh">#81af34</span><span class="p">;</span>
+</span><span class='line'><span class="na">$soothe-green-1bg</span><span class="o">      :</span> <span class="mh">#1a2321</span><span class="p">;</span>
+</span><span class='line'><span class="na">$soothe-green-2</span><span class="o">        :</span> <span class="mh">#4e9f75</span><span class="p">;</span>
+</span><span class='line'><span class="na">$soothe-green-2bg</span><span class="o">      :</span> <span class="mh">#1a2321</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="na">$soothe-turquoise-1</span><span class="o">    :</span> <span class="mh">#11535F</span><span class="p">;</span>
+</span><span class='line'><span class="na">$soothe-turquoise-2</span><span class="o">    :</span> <span class="mh">#082E36</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="na">$soothe-turquoise-1bg</span><span class="o">  :</span> <span class="mh">#05181C</span><span class="p">;</span>
+</span><span class='line'><span class="na">$soothe-turquoise-2bg</span><span class="o">  :</span> <span class="mh">#041316</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="na">$soothe-blue-1</span><span class="o">         :</span> <span class="mh">#7e9fc9</span><span class="p">;</span>
+</span><span class='line'><span class="na">$soothe-blue-1bg</span><span class="o">       :</span> <span class="mh">#1e252f</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="na">$soothe-blue-2</span><span class="o">         :</span> <span class="mh">#417598</span><span class="p">;</span>
+</span><span class='line'><span class="na">$soothe-blue-2bg</span><span class="o">       :</span> <span class="mh">#1b333e</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="na">$soothe-blue-3</span><span class="o">         :</span> <span class="mh">#00959e</span><span class="p">;</span>
+</span><span class='line'><span class="na">$soothe-blue-3bg</span><span class="o">       :</span> <span class="mh">#132228</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="na">$soothe-blue-4</span><span class="o">         :</span> <span class="mh">#365e7a</span><span class="p">;</span>
+</span><span class='line'><span class="na">$soothe-blue-4bg</span><span class="o">       :</span> <span class="mh">#172028</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="na">$soothe-magenta-1</span><span class="o">      :</span> <span class="mh">#a737a7</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="na">$soothe-purple-1</span><span class="o">       :</span> <span class="mh">#7878b5</span><span class="p">;</span>
+</span><span class='line'><span class="na">$soothe-purple-1bg</span><span class="o">     :</span> <span class="mh">#1D1B25</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// special colors </span>
+</span><span class='line'><span class="na">$soothe-background</span><span class="o">     :</span> <span class="mh">#110F13</span><span class="p">;</span>
+</span><span class='line'><span class="na">$soothe-alt-background</span><span class="o"> :</span> <span class="mh">#111013</span><span class="p">;</span>
+</span><span class='line'><span class="na">$soothe-foreground</span><span class="o">     :</span> <span class="mh">#dcdddd</span><span class="p">;</span>
+</span><span class='line'><span class="na">$soothe-hl-line</span><span class="o">        :</span> <span class="mh">#11151a</span><span class="p">;</span>
+</span><span class='line'><span class="na">$soothe-selection</span><span class="o">      :</span> <span class="mh">#11151a</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="na">$caption-gradient-top</span><span class="o">:</span>    <span class="mh">#d7d7d7</span><span class="p">;</span>
+</span><span class='line'><span class="na">$caption-gradient-bottom</span><span class="o">:</span> <span class="mh">#bbbbbb</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$base03</span><span class="o">:</span> <span class="nv">$sooth-background</span> <span class="nv">!default</span><span class="p">;</span> <span class="c1">//darkest blue</span>
+</span><span class='line'><span class="nv">$base02</span><span class="o">:</span> <span class="nv">$sooth-blue-4bg</span>   <span class="nv">!default</span><span class="p">;</span> <span class="c1">//dark blue</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$base01</span><span class="o">:</span> <span class="mh">#586e75</span>          <span class="nv">!default</span><span class="p">;</span> <span class="c1">//darkest gray</span>
+</span><span class='line'><span class="nv">$base00</span><span class="o">:</span> <span class="mh">#657b83</span>          <span class="nv">!default</span><span class="p">;</span> <span class="c1">//dark gray</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$base0</span><span class="o">:</span>     <span class="mh">#839496</span>           <span class="nv">!default</span><span class="p">;</span> <span class="c1">//medium gray</span>
+</span><span class='line'><span class="nv">$base1</span><span class="o">:</span>     <span class="mh">#93a1a1</span>           <span class="nv">!default</span><span class="p">;</span> <span class="c1">//medium light gray</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$base2</span><span class="o">:</span>     <span class="mh">#eee8d5</span>           <span class="nv">!default</span><span class="p">;</span> <span class="c1">//cream</span>
+</span><span class='line'><span class="nv">$base3</span><span class="o">:</span>     <span class="mh">#fdf6e3</span>           <span class="nv">!default</span><span class="p">;</span> <span class="c1">//white</span>
+</span><span class='line'>
+</span><span class='line'><span class="na">$pre-bg</span><span class="o">:</span> <span class="nv">$soothe-background</span><span class="p">;</span>
+</span><span class='line'><span class="na">$pre-border</span><span class="o">:</span> <span class="mh">#345</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">article</span><span class="p">{</span>
+</span><span class='line'>  <span class="nt">code</span><span class="o">,</span> <span class="nt">pre</span><span class="p">{</span>
+</span><span class='line'>      <span class="na">background</span><span class="o">:</span> <span class="nv">$pre-bg</span><span class="p">;</span>
+</span><span class='line'>      <span class="na">border</span><span class="o">:</span> <span class="mi">1</span><span class="kt">px</span> <span class="no">solid</span> <span class="nv">$pre-border</span><span class="p">;</span>
+</span><span class='line'>        <span class="na">color</span><span class="o">:</span> <span class="nv">$base00</span><span class="p">;</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>  <span class="nt">code</span><span class="p">{</span>
+</span><span class='line'>      <span class="na">font-family</span><span class="o">:</span> <span class="nv">$font-mono</span><span class="p">;</span>
+</span><span class='line'>      <span class="na">font-size</span><span class="o">:</span> <span class="mi">0</span><span class="mf">.9</span><span class="kt">em</span><span class="p">;</span>
+</span><span class='line'>      <span class="na">padding</span><span class="o">:</span> <span class="mi">1</span><span class="kt">px</span> <span class="mi">3</span><span class="kt">px</span><span class="p">;</span>
+</span><span class='line'>      <span class="na">margin</span><span class="o">:</span> <span class="mi">0</span> <span class="mi">3</span><span class="kt">px</span><span class="p">;</span>
+</span><span class='line'>        <span class="na">color</span><span class="o">:</span> <span class="mh">#111</span><span class="p">;</span>
+</span><span class='line'>        <span class="na">background</span><span class="o">:</span> <span class="nf">rgba</span><span class="p">(</span><span class="mi">0</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="mi">0</span><span class="mf">.1</span><span class="p">);</span>
+</span><span class='line'>        <span class="na">border</span><span class="o">:</span> <span class="no">none</span><span class="p">;</span>
+</span><span class='line'>      <span class="k">@include</span><span class="nd"> border-radius</span><span class="p">(</span><span class="mi">5</span><span class="kt">px</span><span class="p">);</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>  <span class="nt">pre</span><span class="p">{</span>
+</span><span class='line'>      <span class="na">font-size</span><span class="o">:</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">0</span><span class="mf">.9</span><span class="kt">em</span><span class="p">;</span>
+</span><span class='line'>      <span class="na">line-height</span><span class="o">:</span> <span class="mi">1</span><span class="mf">.5</span><span class="p">;</span>
+</span><span class='line'>      <span class="na">margin-top</span><span class="o">:</span> <span class="mi">10</span><span class="kt">px</span><span class="p">;</span>
+</span><span class='line'>      <span class="na">padding</span><span class="o">:</span> <span class="mi">5</span><span class="kt">px</span> <span class="mi">15</span><span class="kt">px</span><span class="p">;</span>
+</span><span class='line'>      <span class="na">overflow-x</span><span class="o">:</span> <span class="no">auto</span><span class="p">;</span>
+</span><span class='line'>      <span class="k">@include</span><span class="nd"> border-radius</span><span class="p">(</span><span class="mi">5</span><span class="kt">px</span><span class="p">);</span>
+</span><span class='line'>      <span class="nt">code</span><span class="p">{</span>
+</span><span class='line'>          <span class="na">background</span><span class="o">:</span> <span class="no">none</span><span class="p">;</span>
+</span><span class='line'>          <span class="na">border</span><span class="o">:</span> <span class="no">none</span><span class="p">;</span>
+</span><span class='line'>          <span class="na">padding</span><span class="o">:</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'>          <span class="na">margin</span><span class="o">:</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'>            <span class="na">color</span><span class="o">:</span> <span class="nv">$base00</span><span class="p">;</span>
+</span><span class='line'>          <span class="k">@include</span><span class="nd"> border-radius</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</span><span class='line'>      <span class="p">}</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">figure</span><span class="nc">.code</span><span class="p">{</span>
+</span><span class='line'>  <span class="na">background</span><span class="o">:</span> <span class="nv">$pre-bg</span><span class="p">;</span>
+</span><span class='line'>  <span class="na">border</span><span class="o">:</span> <span class="mi">0</span><span class="kt">px</span> <span class="no">solid</span> <span class="nv">$caption-gradient-top</span><span class="p">;</span>
+</span><span class='line'>  <span class="na">margin-top</span><span class="o">:</span> <span class="mi">10</span><span class="kt">px</span><span class="p">;</span>
+</span><span class='line'>  <span class="na">padding</span><span class="o">:</span> <span class="mi">5</span><span class="kt">px</span> <span class="mi">15</span><span class="kt">px</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">@include</span><span class="nd"> border-radius</span><span class="p">(</span><span class="mi">5</span><span class="kt">px</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nt">table</span> <span class="p">{</span>
+</span><span class='line'>        <span class="na">background</span><span class="o">:</span> <span class="no">none</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nt">figcaption</span><span class="p">{</span>
+</span><span class='line'>      <span class="na">font-size</span><span class="o">:</span> <span class="mi">0</span><span class="mf">.9</span><span class="kt">em</span><span class="p">;</span>
+</span><span class='line'>      <span class="na">position</span><span class="o">:</span> <span class="no">relative</span><span class="p">;</span>
+</span><span class='line'>      <span class="nt">span</span><span class="p">{</span>
+</span><span class='line'>          <span class="na">margin</span><span class="o">:</span> <span class="mi">-5</span><span class="kt">px</span> <span class="mi">-15</span><span class="kt">px</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'>          <span class="na">padding</span><span class="o">:</span> <span class="mi">0</span><span class="kt">px</span> <span class="mi">15</span><span class="kt">px</span><span class="p">;</span>
+</span><span class='line'>          <span class="na">display</span><span class="o">:</span> <span class="no">block</span><span class="p">;</span>
+</span><span class='line'>            <span class="na">border-radius</span><span class="o">:</span> <span class="mi">5</span><span class="kt">px</span> <span class="mi">5</span><span class="kt">px</span> <span class="mi">0</span><span class="kt">px</span> <span class="mi">0</span><span class="kt">px</span><span class="p">;</span>
+</span><span class='line'>            <span class="na">border-top</span><span class="o">:</span> <span class="mi">1</span><span class="kt">px</span> <span class="nf">lighten</span><span class="p">(</span><span class="nv">$caption-gradient-top</span><span class="o">,</span> <span class="mi">10</span><span class="kt">%</span><span class="p">)</span> <span class="no">solid</span><span class="p">;</span>
+</span><span class='line'>          <span class="k">@include</span><span class="nd"> background</span><span class="p">(</span><span class="nf">linear-gradient</span><span class="p">(</span><span class="no">top</span><span class="o">,</span> <span class="nv">$caption-gradient-top</span><span class="o">,</span> <span class="nv">$caption-gradient-bottom</span><span class="p">));</span>
+</span><span class='line'>          <span class="k">&amp;</span><span class="nd">:empty</span><span class="p">{</span>
+</span><span class='line'>              <span class="na">display</span><span class="o">:</span> <span class="no">none</span><span class="p">;</span>
+</span><span class='line'>          <span class="p">}</span>
+</span><span class='line'>      <span class="p">}</span>
+</span><span class='line'>      <span class="nt">a</span><span class="p">{</span>
+</span><span class='line'>          <span class="na">position</span><span class="o">:</span> <span class="no">absolute</span><span class="p">;</span>
+</span><span class='line'>          <span class="na">top</span><span class="o">:</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'>          <span class="na">right</span><span class="o">:</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'>      <span class="p">}</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>  <span class="nt">code</span><span class="o">,</span> <span class="nt">pre</span><span class="p">{</span>
+</span><span class='line'>      <span class="na">background</span><span class="o">:</span> <span class="no">none</span><span class="p">;</span>
+</span><span class='line'>      <span class="na">border</span><span class="o">:</span> <span class="no">none</span><span class="p">;</span>
+</span><span class='line'>      <span class="na">padding</span><span class="o">:</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'>      <span class="na">margin</span><span class="o">:</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'>      <span class="k">@include</span><span class="nd"> border-radius</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>  <span class="nc">.highlight</span><span class="p">{</span>
+</span><span class='line'>      <span class="na">overflow-x</span><span class="o">:</span> <span class="no">auto</span><span class="p">;</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>  <span class="nc">.line-numbers</span><span class="p">{</span>
+</span><span class='line'>      <span class="na">border-right</span><span class="o">:</span> <span class="mi">1</span><span class="kt">px</span> <span class="no">solid</span> <span class="nv">$pre-border</span><span class="p">;</span>
+</span><span class='line'>      <span class="na">font-family</span><span class="o">:</span> <span class="nv">$font-mono</span><span class="p">;</span>
+</span><span class='line'>        <span class="na">font-size</span><span class="o">:</span> <span class="mi">8</span><span class="kt">px</span><span class="p">;</span>
+</span><span class='line'>        <span class="na">line-height</span><span class="o">:</span> <span class="mi">16</span><span class="kt">pt</span><span class="p">;</span>
+</span><span class='line'>        <span class="na">color</span><span class="o">:</span> <span class="nv">$soothe-blue-2</span><span class="p">;</span>
+</span><span class='line'>        <span class="na">background</span><span class="o">:</span> <span class="nv">$soothe-blue-4bg</span><span class="p">;</span>
+</span><span class='line'>      <span class="na">padding</span><span class="o">:</span> <span class="mi">0</span> <span class="mi">3</span><span class="kt">px</span> <span class="mi">0</span> <span class="mi">15</span><span class="kt">px</span><span class="p">;</span>
+</span><span class='line'>      <span class="na">text-align</span><span class="o">:</span> <span class="no">right</span><span class="p">;</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>  <span class="nt">table</span><span class="p">{</span>
+</span><span class='line'>      <span class="na">border</span><span class="o">:</span> <span class="no">none</span><span class="p">;</span>
+</span><span class='line'>      <span class="na">text-align</span><span class="o">:</span> <span class="no">left</span><span class="p">;</span>
+</span><span class='line'>      <span class="na">margin-top</span><span class="o">:</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'>      <span class="nt">td</span><span class="p">{</span>
+</span><span class='line'>          <span class="na">text-align</span><span class="o">:</span> <span class="no">left</span><span class="p">;</span>
+</span><span class='line'>      <span class="p">}</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>  <span class="nt">td</span><span class="nc">.code</span><span class="p">{</span>
+</span><span class='line'>      <span class="na">width</span><span class="o">:</span> <span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
+</span><span class='line'>      <span class="na">padding-left</span><span class="o">:</span> <span class="mi">15</span><span class="kt">px</span><span class="p">;</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="nc">.entry-content</span> <span class="nc">.gist</span><span class="p">{</span>
+</span><span class='line'>  <span class="na">background</span><span class="o">:</span> <span class="nv">$pre-bg</span><span class="p">;</span>
+</span><span class='line'>  <span class="na">color</span><span class="o">:</span> <span class="nv">$color-gray01</span><span class="p">;</span>
+</span><span class='line'>  <span class="na">padding</span><span class="o">:</span> <span class="mi">30</span><span class="kt">px</span> <span class="mi">15</span><span class="kt">px</span> <span class="mi">5</span><span class="kt">px</span><span class="p">;</span>
+</span><span class='line'>  <span class="na">margin-top</span><span class="o">:</span> <span class="mi">10</span><span class="kt">px</span><span class="p">;</span>
+</span><span class='line'>  <span class="na">border</span><span class="o">:</span> <span class="mi">1</span><span class="kt">px</span> <span class="no">solid</span> <span class="nv">$pre-border</span><span class="p">;</span>
+</span><span class='line'>  <span class="na">position</span><span class="o">:</span> <span class="no">relative</span><span class="p">;</span>
+</span><span class='line'>  <span class="na">overflow</span><span class="o">:</span> <span class="no">hidden</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">@include</span><span class="nd"> border-radius</span><span class="p">(</span><span class="mi">5</span><span class="kt">px</span><span class="p">);</span>
+</span><span class='line'>  <span class="nc">.gist-file</span><span class="p">{</span>
+</span><span class='line'>      <span class="na">margin</span><span class="o">:</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'>      <span class="nc">.gist-data</span><span class="p">{</span>
+</span><span class='line'>          <span class="na">background</span><span class="o">:</span> <span class="no">transparent</span><span class="p">;</span>
+</span><span class='line'>          <span class="na">border</span><span class="o">:</span> <span class="no">none</span><span class="p">;</span>
+</span><span class='line'>          <span class="nt">pre</span><span class="p">{</span>
+</span><span class='line'>              <span class="na">font</span><span class="o">:</span> <span class="mi">0</span><span class="mf">.9</span><span class="kt">em</span> <span class="nv">$font-mono</span><span class="p">;</span>
+</span><span class='line'>              <span class="na">line-height</span><span class="o">:</span> <span class="mi">1</span><span class="mf">.5</span><span class="p">;</span>
+</span><span class='line'>          <span class="p">}</span>
+</span><span class='line'>      <span class="p">}</span>
+</span><span class='line'>      <span class="nc">.gist-meta</span><span class="p">{</span>
+</span><span class='line'>          <span class="na">font</span><span class="o">:</span> <span class="mi">300</span> <span class="mi">0</span><span class="mf">.9</span><span class="kt">em</span> <span class="nv">$font-default</span><span class="p">;</span>
+</span><span class='line'>          <span class="na">line-height</span><span class="o">:</span> <span class="mi">1</span><span class="mf">.5</span><span class="p">;</span>
+</span><span class='line'>          <span class="na">margin</span><span class="o">:</span> <span class="mi">0</span> <span class="mi">-16</span><span class="kt">px</span> <span class="mi">-6</span><span class="kt">px</span><span class="p">;</span>
+</span><span class='line'>          <span class="na">padding</span><span class="o">:</span> <span class="mi">5</span><span class="kt">px</span> <span class="mi">15</span><span class="kt">px</span><span class="p">;</span>
+</span><span class='line'>          <span class="k">@include</span><span class="nd"> background</span><span class="p">(</span><span class="nf">linear-gradient</span><span class="p">(</span><span class="no">top</span><span class="o">,</span> <span class="nv">$pre-bg</span><span class="o">,</span> <span class="nv">$pre-border</span><span class="p">));</span>
+</span><span class='line'>          <span class="nt">a</span><span class="p">{</span>
+</span><span class='line'>              <span class="na">color</span><span class="o">:</span> <span class="nv">$color-main</span><span class="p">;</span>
+</span><span class='line'>              <span class="k">&amp;</span><span class="nd">:first-of-type</span><span class="p">{</span>
+</span><span class='line'>                  <span class="na">position</span><span class="o">:</span> <span class="no">absolute</span><span class="p">;</span>
+</span><span class='line'>                  <span class="na">top</span><span class="o">:</span> <span class="mi">5</span><span class="kt">px</span><span class="p">;</span>
+</span><span class='line'>                  <span class="na">right</span><span class="o">:</span> <span class="mi">15</span><span class="kt">px</span><span class="p">;</span>
+</span><span class='line'>                  <span class="na">z-index</span><span class="o">:</span> <span class="mi">1</span><span class="p">;</span>
+</span><span class='line'>              <span class="p">}</span>
+</span><span class='line'>              <span class="k">&amp;</span><span class="nd">:nth-of-type</span><span class="o">(</span><span class="nt">2</span><span class="o">)</span><span class="p">{</span>
+</span><span class='line'>                  <span class="na">position</span><span class="o">:</span> <span class="no">absolute</span><span class="p">;</span>
+</span><span class='line'>                  <span class="na">top</span><span class="o">:</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'>                  <span class="na">left</span><span class="o">:</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'>                  <span class="na">padding</span><span class="o">:</span> <span class="mi">5</span><span class="kt">px</span> <span class="mi">15</span><span class="kt">px</span><span class="p">;</span>
+</span><span class='line'>                  <span class="na">width</span><span class="o">:</span> <span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
+</span><span class='line'>                  <span class="k">@include</span><span class="nd"> background</span><span class="p">(</span><span class="nf">linear-gradient</span><span class="p">(</span><span class="no">top</span><span class="o">,</span> <span class="nv">$pre-border</span><span class="o">,</span> <span class="nv">$pre-bg</span><span class="p">));</span>
+</span><span class='line'>              <span class="p">}</span>
+</span><span class='line'>          <span class="p">}</span>
+</span><span class='line'>      <span class="p">}</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="nt">figure</span><span class="nc">.code</span><span class="o">,</span> <span class="nc">.gist-highlight</span><span class="p">{</span>
+</span><span class='line'>  <span class="nc">.c</span> <span class="p">{</span>
+</span><span class='line'>      <span class="na">color</span><span class="o">:</span><span class="nv">$base01</span> <span class="nv">!important</span><span class="p">;</span>
+</span><span class='line'>      <span class="na">font-style</span><span class="o">:</span> <span class="no">italic</span> <span class="nv">!important</span><span class="p">;</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>  <span class="cm">/* Comment */</span>
+</span><span class='line'>  <span class="nc">.cm</span> <span class="p">{</span>
+</span><span class='line'>      <span class="na">color</span><span class="o">:</span><span class="nv">$base01</span> <span class="nv">!important</span><span class="p">;</span>
+</span><span class='line'>      <span class="na">font-style</span><span class="o">:</span> <span class="no">italic</span> <span class="nv">!important</span><span class="p">;</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>  <span class="cm">/* Comment.Multiline */</span>
+</span><span class='line'>  <span class="nc">.cp</span> <span class="p">{</span>
+</span><span class='line'>      <span class="na">color</span><span class="o">:</span><span class="nv">$base01</span> <span class="nv">!important</span><span class="p">;</span>
+</span><span class='line'>      <span class="na">font-style</span><span class="o">:</span> <span class="no">italic</span> <span class="nv">!important</span><span class="p">;</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>  <span class="cm">/* Comment.Preproc */</span>
+</span><span class='line'>  <span class="nc">.c1</span> <span class="p">{</span>
+</span><span class='line'>      <span class="na">color</span><span class="o">:</span><span class="nv">$base01</span> <span class="nv">!important</span><span class="p">;</span>
+</span><span class='line'>      <span class="na">font-style</span><span class="o">:</span> <span class="no">italic</span> <span class="nv">!important</span><span class="p">;</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>  <span class="cm">/* Comment.Single */</span>
+</span><span class='line'>  <span class="nc">.cs</span> <span class="p">{</span>
+</span><span class='line'>      <span class="na">color</span><span class="o">:</span><span class="nv">$base01</span> <span class="nv">!important</span><span class="p">;</span>
+</span><span class='line'>      <span class="nt">font-weight</span><span class="nd">:bold</span> <span class="o">!</span><span class="nt">important</span><span class="o">;</span>
+</span><span class='line'>      <span class="nt">font-style</span><span class="nd">:</span> <span class="nt">italic</span> <span class="o">!</span><span class="nt">important</span><span class="o">;</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>  <span class="cm">/* Comment.Special */</span>
+</span><span class='line'>  <span class="nc">.err</span> <span class="p">{</span>
+</span><span class='line'>      <span class="na">color</span><span class="o">:</span><span class="nv">$soothe-red-2</span> <span class="nv">!important</span><span class="p">;</span>
+</span><span class='line'>      <span class="na">background</span><span class="o">:</span> <span class="no">none</span> <span class="nv">!important</span><span class="p">;</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>  <span class="cm">/* Error */</span>
+</span><span class='line'>  <span class="nc">.k</span> <span class="p">{</span>
+</span><span class='line'>      <span class="na">color</span><span class="o">:</span> <span class="nv">$soothe-orange-1</span> <span class="nv">!important</span><span class="p">;</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>  <span class="cm">/* Keyword */</span>
+</span><span class='line'>  <span class="nc">.o</span> <span class="p">{</span>
+</span><span class='line'>      <span class="na">color</span><span class="o">:</span><span class="nv">$base1</span> <span class="nv">!important</span><span class="p">;</span>
+</span><span class='line'>      <span class="na">font-weight</span><span class="o">:</span> <span class="no">bold</span> <span class="nv">!important</span><span class="p">;</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>  <span class="cm">/* Operator */</span>
+</span><span class='line'>  <span class="nc">.p</span> <span class="p">{</span>
+</span><span class='line'>      <span class="na">color</span><span class="o">:</span> <span class="nv">$base1</span> <span class="nv">!important</span><span class="p">;</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>  <span class="cm">/* Operator */</span>
+</span><span class='line'>  <span class="nc">.ow</span> <span class="p">{</span>
+</span><span class='line'>      <span class="na">color</span><span class="o">:</span><span class="nv">$soothe-blue-3</span> <span class="nv">!important</span><span class="p">;</span>
+</span><span class='line'>      <span class="na">font-weight</span><span class="o">:</span> <span class="no">bold</span> <span class="nv">!important</span><span class="p">;</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>  <span class="cm">/* Operator.Word */</span>
+</span><span class='line'>  <span class="nc">.gd</span> <span class="p">{</span>
+</span><span class='line'>      <span class="na">color</span><span class="o">:</span><span class="nv">$base1</span> <span class="nv">!important</span><span class="p">;</span>
+</span><span class='line'>      <span class="nt">background-color</span><span class="nd">:mix</span><span class="o">(</span><span class="err">$</span><span class="nt">soothe-red-2</span><span class="o">,</span><span class="err">$</span><span class="nt">base03</span><span class="o">,</span><span class="nt">25</span><span class="err">%</span><span class="o">)</span> <span class="o">!</span><span class="nt">important</span><span class="o">;</span>
+</span><span class='line'>      <span class="nt">display</span><span class="nd">:</span> <span class="nt">inline-block</span><span class="o">;</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>  <span class="cm">/* Generic.Deleted */</span>
+</span><span class='line'>  <span class="nc">.gd</span> <span class="nc">.x</span> <span class="p">{</span>
+</span><span class='line'>      <span class="na">color</span><span class="o">:</span><span class="nv">$base1</span> <span class="nv">!important</span><span class="p">;</span>
+</span><span class='line'>      <span class="nt">background-color</span><span class="nd">:mix</span><span class="o">(</span><span class="err">$</span><span class="nt">soothe-red-2</span><span class="o">,</span><span class="err">$</span><span class="nt">base03</span><span class="o">,</span><span class="nt">35</span><span class="err">%</span><span class="o">)</span> <span class="o">!</span><span class="nt">important</span><span class="o">;</span>
+</span><span class='line'>      <span class="nt">display</span><span class="nd">:</span> <span class="nt">inline-block</span><span class="o">;</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>  <span class="cm">/* Generic.Deleted.Specific */</span>
+</span><span class='line'>  <span class="nc">.ge</span> <span class="p">{</span>
+</span><span class='line'>      <span class="na">color</span><span class="o">:</span><span class="nv">$base1</span> <span class="nv">!important</span><span class="p">;</span>
+</span><span class='line'>      <span class="na">font-style</span><span class="o">:</span> <span class="no">italic</span> <span class="nv">!important</span><span class="p">;</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>  <span class="cm">/* Generic.Emph */</span>
+</span><span class='line'>  <span class="nc">.gh</span> <span class="p">{</span>
+</span><span class='line'>      <span class="na">color</span><span class="o">:</span> <span class="nv">$base01</span> <span class="nv">!important</span><span class="p">;</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>  <span class="cm">/* Generic.Heading */</span>
+</span><span class='line'>  <span class="nc">.gi</span> <span class="p">{</span>
+</span><span class='line'>      <span class="na">color</span><span class="o">:</span><span class="nv">$base1</span> <span class="nv">!important</span><span class="p">;</span>
+</span><span class='line'>      <span class="nt">background-color</span><span class="nd">:mix</span><span class="o">(</span><span class="err">$</span><span class="nt">soothe-green-2</span><span class="o">,</span><span class="err">$</span><span class="nt">base03</span><span class="o">,</span><span class="nt">20</span><span class="err">%</span><span class="o">)</span> <span class="o">!</span><span class="nt">important</span><span class="o">;</span>
+</span><span class='line'>      <span class="nt">display</span><span class="nd">:</span> <span class="nt">inline-block</span><span class="o">;</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>  <span class="cm">/* Generic.Inserted */</span>
+</span><span class='line'>  <span class="nc">.gi</span> <span class="nc">.x</span> <span class="p">{</span>
+</span><span class='line'>      <span class="na">color</span><span class="o">:</span><span class="nv">$base1</span> <span class="nv">!important</span><span class="p">;</span>
+</span><span class='line'>      <span class="nt">background-color</span><span class="nd">:mix</span><span class="o">(</span><span class="err">$</span><span class="nt">soothe-green-2</span><span class="o">,</span><span class="err">$</span><span class="nt">base03</span><span class="o">,</span><span class="nt">40</span><span class="err">%</span><span class="o">)</span> <span class="o">!</span><span class="nt">important</span><span class="o">;</span>
+</span><span class='line'>      <span class="nt">display</span><span class="nd">:</span> <span class="nt">inline-block</span><span class="o">;</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>  <span class="cm">/* Generic.Inserted.Specific */</span>
+</span><span class='line'>  <span class="nc">.gs</span> <span class="p">{</span>
+</span><span class='line'>      <span class="na">color</span><span class="o">:</span><span class="nv">$base1</span> <span class="nv">!important</span><span class="p">;</span>
+</span><span class='line'>      <span class="na">font-weight</span><span class="o">:</span> <span class="no">bold</span> <span class="nv">!important</span><span class="p">;</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>  <span class="cm">/* Generic.Strong */</span>
+</span><span class='line'>  <span class="nc">.gu</span> <span class="p">{</span>
+</span><span class='line'>      <span class="na">color</span><span class="o">:</span> <span class="nv">$soothe-purple-1</span> <span class="nv">!important</span><span class="p">;</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>  <span class="cm">/* Generic.Subheading */</span>
+</span><span class='line'>  <span class="nc">.kc</span> <span class="p">{</span>
+</span><span class='line'>      <span class="na">color</span><span class="o">:</span><span class="nv">$soothe-green-2</span> <span class="nv">!important</span><span class="p">;</span>
+</span><span class='line'>      <span class="na">font-weight</span><span class="o">:</span> <span class="no">bold</span> <span class="nv">!important</span><span class="p">;</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>  <span class="cm">/* Keyword.Constant */</span>
+</span><span class='line'>  <span class="nc">.kd</span> <span class="p">{</span>
+</span><span class='line'>      <span class="na">color</span><span class="o">:</span> <span class="nv">$soothe-blue-4</span> <span class="nv">!important</span><span class="p">;</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>  <span class="cm">/* Keyword.Declaration */</span>
+</span><span class='line'>  <span class="nc">.kp</span> <span class="p">{</span>
+</span><span class='line'>      <span class="na">color</span><span class="o">:</span><span class="nv">$soothe-orange-1</span> <span class="nv">!important</span><span class="p">;</span>
+</span><span class='line'>      <span class="na">font-weight</span><span class="o">:</span> <span class="no">bold</span> <span class="nv">!important</span><span class="p">;</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>  <span class="cm">/* Keyword.Pseudo */</span>
+</span><span class='line'>  <span class="nc">.kr</span> <span class="p">{</span>
+</span><span class='line'>      <span class="na">color</span><span class="o">:</span><span class="nv">$soothe-magenta-1</span> <span class="nv">!important</span><span class="p">;</span>
+</span><span class='line'>      <span class="na">font-weight</span><span class="o">:</span> <span class="no">bold</span> <span class="nv">!important</span><span class="p">;</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>  <span class="cm">/* Keyword.Reserved */</span>
+</span><span class='line'>  <span class="nc">.kt</span> <span class="p">{</span>
+</span><span class='line'>      <span class="na">color</span><span class="o">:</span> <span class="nv">$soothe-blue-3</span> <span class="nv">!important</span><span class="p">;</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>  <span class="cm">/* Keyword.Type */</span>
+</span><span class='line'>  <span class="nc">.n</span> <span class="p">{</span>
+</span><span class='line'>      <span class="na">color</span><span class="o">:</span><span class="nv">$soothe-blue-4</span> <span class="nv">!important</span><span class="p">;</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>  <span class="nc">.na</span> <span class="p">{</span>
+</span><span class='line'>      <span class="na">color</span><span class="o">:</span> <span class="nv">$soothe-blue-4</span> <span class="nv">!important</span><span class="p">;</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>  <span class="cm">/* Name.Attribute */</span>
+</span><span class='line'>  <span class="nc">.nb</span> <span class="p">{</span>
+</span><span class='line'>      <span class="na">color</span><span class="o">:</span> <span class="nv">$soothe-green-2</span> <span class="nv">!important</span><span class="p">;</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>  <span class="cm">/* Name.Builtin */</span>
+</span><span class='line'>  <span class="nc">.nc</span> <span class="p">{</span>
+</span><span class='line'>      <span class="na">color</span><span class="o">:</span> <span class="nv">$soothe-magenta-1</span> <span class="nv">!important</span><span class="p">;</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>  <span class="cm">/* Name.Class */</span>
+</span><span class='line'>  <span class="nc">.no</span> <span class="p">{</span>
+</span><span class='line'>      <span class="na">color</span><span class="o">:</span> <span class="nv">$soothe-yellow-1</span> <span class="nv">!important</span><span class="p">;</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>  <span class="cm">/* Name.Constant */</span>
+</span><span class='line'>  <span class="nc">.nl</span> <span class="p">{</span>
+</span><span class='line'>      <span class="na">color</span><span class="o">:</span><span class="nv">$soothe-green-2</span> <span class="nv">!important</span><span class="p">;</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>  <span class="nc">.ne</span> <span class="p">{</span>
+</span><span class='line'>      <span class="na">color</span><span class="o">:</span><span class="nv">$soothe-blue-4</span> <span class="nv">!important</span><span class="p">;</span>
+</span><span class='line'>      <span class="na">font-weight</span><span class="o">:</span> <span class="no">bold</span> <span class="nv">!important</span><span class="p">;</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>  <span class="cm">/* Name.Exception */</span>
+</span><span class='line'>  <span class="nc">.nf</span> <span class="p">{</span>
+</span><span class='line'>      <span class="na">color</span><span class="o">:</span><span class="nv">$soothe-blue-4</span> <span class="nv">!important</span><span class="p">;</span>
+</span><span class='line'>      <span class="na">font-weight</span><span class="o">:</span> <span class="no">bold</span> <span class="nv">!important</span><span class="p">;</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>  <span class="cm">/* Name.Function */</span>
+</span><span class='line'>  <span class="nc">.nn</span> <span class="p">{</span>
+</span><span class='line'>      <span class="na">color</span><span class="o">:</span> <span class="nv">$soothe-yellow-1</span> <span class="nv">!important</span><span class="p">;</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>  <span class="cm">/* Name.Namespace */</span>
+</span><span class='line'>  <span class="nc">.nt</span> <span class="p">{</span>
+</span><span class='line'>      <span class="na">color</span><span class="o">:</span><span class="nv">$soothe-blue-4</span> <span class="nv">!important</span><span class="p">;</span>
+</span><span class='line'>      <span class="na">font-weight</span><span class="o">:</span> <span class="no">bold</span> <span class="nv">!important</span><span class="p">;</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>  <span class="cm">/* Name.Tag */</span>
+</span><span class='line'>  <span class="nc">.nx</span> <span class="p">{</span>
+</span><span class='line'>      <span class="na">color</span><span class="o">:</span><span class="nv">$soothe-yellow-1</span> <span class="nv">!Important</span><span class="p">;</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>  <span class="nc">.vg</span> <span class="p">{</span>
+</span><span class='line'>      <span class="na">color</span><span class="o">:</span> <span class="nv">$soothe-blue-4</span> <span class="nv">!important</span><span class="p">;</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>  <span class="cm">/* Name.Variable.Global */</span>
+</span><span class='line'>  <span class="nc">.vi</span> <span class="p">{</span>
+</span><span class='line'>      <span class="na">color</span><span class="o">:</span> <span class="nv">$soothe-blue-4</span> <span class="nv">!important</span><span class="p">;</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>  <span class="cm">/* Name.Variable.Instance */</span>
+</span><span class='line'>  <span class="nc">.nv</span> <span class="p">{</span>
+</span><span class='line'>      <span class="na">color</span><span class="o">:</span> <span class="nv">$soothe-blue-4</span> <span class="nv">!important</span><span class="p">;</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>  <span class="cm">/* Name.Variable */</span>
+</span><span class='line'>  <span class="nc">.mf</span> <span class="p">{</span>
+</span><span class='line'>      <span class="na">color</span><span class="o">:</span> <span class="nv">$soothe-blue-3</span> <span class="nv">!important</span><span class="p">;</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>  <span class="cm">/* Literal.Number.Float */</span>
+</span><span class='line'>  <span class="nc">.m</span> <span class="p">{</span>
+</span><span class='line'>      <span class="na">color</span><span class="o">:</span> <span class="nv">$soothe-blue-3</span> <span class="nv">!important</span><span class="p">;</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>  <span class="cm">/* Literal.Number */</span>
+</span><span class='line'>  <span class="nc">.mh</span> <span class="p">{</span>
+</span><span class='line'>      <span class="na">color</span><span class="o">:</span> <span class="nv">$soothe-blue-3</span> <span class="nv">!important</span><span class="p">;</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>  <span class="cm">/* Literal.Number.Hex */</span>
+</span><span class='line'>  <span class="nc">.mi</span> <span class="p">{</span>
+</span><span class='line'>      <span class="na">color</span><span class="o">:</span> <span class="nv">$soothe-blue-3</span> <span class="nv">!important</span><span class="p">;</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>  <span class="cm">/* Literal.Number.Integer */</span>
+</span><span class='line'>  <span class="nc">.s</span> <span class="p">{</span>
+</span><span class='line'>      <span class="na">color</span><span class="o">:</span> <span class="nv">$soothe-blue-3</span> <span class="nv">!important</span><span class="p">;</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>  <span class="cm">/* Literal.String */</span>
+</span><span class='line'>  <span class="nc">.sd</span> <span class="p">{</span>
+</span><span class='line'>      <span class="na">color</span><span class="o">:</span> <span class="nv">$soothe-blue-3</span> <span class="nv">!important</span><span class="p">;</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>  <span class="cm">/* Literal.String.Doc */</span>
+</span><span class='line'>  <span class="nc">.s2</span> <span class="p">{</span>
+</span><span class='line'>      <span class="na">color</span><span class="o">:</span> <span class="nv">$soothe-blue-3</span> <span class="nv">!important</span><span class="p">;</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>  <span class="cm">/* Literal.String.Double */</span>
+</span><span class='line'>  <span class="nc">.se</span> <span class="p">{</span>
+</span><span class='line'>      <span class="na">color</span><span class="o">:</span> <span class="nv">$soothe-red-2</span> <span class="nv">!important</span><span class="p">;</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>  <span class="cm">/* Literal.String.Escape */</span>
+</span><span class='line'>  <span class="nc">.si</span> <span class="p">{</span>
+</span><span class='line'>      <span class="na">color</span><span class="o">:</span> <span class="nv">$soothe-blue-4</span> <span class="nv">!important</span><span class="p">;</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>  <span class="cm">/* Literal.String.Interpol */</span>
+</span><span class='line'>  <span class="nc">.sr</span> <span class="p">{</span>
+</span><span class='line'>      <span class="na">color</span><span class="o">:</span> <span class="nv">$soothe-blue-3</span> <span class="nv">!important</span><span class="p">;</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>  <span class="cm">/* Literal.String.Regex */</span>
+</span><span class='line'>  <span class="nc">.s1</span> <span class="p">{</span>
+</span><span class='line'>      <span class="na">color</span><span class="o">:</span> <span class="nv">$soothe-blue-3</span> <span class="nv">!important</span><span class="p">;</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>  <span class="cm">/* Literal.String.Single */</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+		
+		
+	</div>
+
+</article>
 
 
     <article class="post">
