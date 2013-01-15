@@ -1,24 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-
-  <title><![CDATA[Category: Emacs | Emacs Fodder]]></title>
-  <link href="http://emacsfodder.github.com/blog/categories/emacs/atom.xml" rel="self"/>
-  <link href="http://emacsfodder.github.com/"/>
-  <updated>2013-01-15T18:48:45+11:00</updated>
-  <id>http://emacsfodder.github.com/</id>
-  <author>
-    <name><![CDATA[Jason Milkins]]></name>
-    
-  </author>
-  <generator uri="http://octopress.org/">Octopress</generator>
-
-  
-  <entry>
-    <title type="html"><![CDATA[Notes on deftheme]]></title>
-    <link href="http://emacsfodder.github.com/blog/notes-on-deftheme/"/>
-    <updated>2013-01-15T00:00:00+11:00</updated>
-    <id>http://emacsfodder.github.com/blog/notes-on-deftheme</id>
-    <content type="html"><![CDATA[<p>I have a bunch of Emacs color themes that I built a few years ago,
+<p>I have a bunch of Emacs color themes that I built a few years ago,
 they use the old <code>color-theme.el</code> system, I'd also adapted a web-based
 theme creator, so that it could load existing themes, as long as they
 were in a fixed format, the same as used by
@@ -41,7 +21,7 @@ written in emacs lisp.</p>
 <p>To that end, have a look at this base template, it's meant to serve as
 a guide, it'd be better to create a few <code>yas/snippets</code>.</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span> (template-theme.el)</span> <a href='/code/template-theme.el'>download</a></figcaption>
+<div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span> (template-theme.el)</span> <a href='/code/template-theme.el'>download</a></figcaption>
  <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -100,7 +80,8 @@ a guide, it'd be better to create a few <code>yas/snippets</code>.</p>
 </span><span class='line'>
 </span><span class='line'>   <span class="p">(</span><span class="nv">provide-theme</span> <span class="ss">&#39;name</span><span class="p">)</span>
 </span><span class='line'>    <span class="c1">;;; name-theme.el ends here</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
 
 <p>For more advanced examples, look at the new built in themes, I'd
 recommend <code>tango-theme.el</code> which you'll be able to find using, <code>M-x
@@ -112,91 +93,3 @@ color helpers, and don't forget the always helpful
 <a href="http://julien.danjou.info/projects/emacs-packages"><code>rainbow-mode.el</code></a>. Personally
 I think Emacs plus these little extensions, are the best way to make
 themes.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Mesa theme]]></title>
-    <link href="http://emacsfodder.github.com/blog/mesa-theme/"/>
-    <updated>2013-01-14T00:00:00+11:00</updated>
-    <id>http://emacsfodder.github.com/blog/mesa-theme</id>
-    <content type="html"><![CDATA[<p>Mesa is a theme for Emacs 24, works in both the terminal and full
-color GUIs.</p>
-
-<p>Download : <a href="/downloads/mesa-theme.el">mesa-theme.el</a></p>
-
-<h1>Screenshots</h1>
-
-<p><img src="/media/mesa-screen.png" alt="" />
-<img src="/media/mesa-screen2.png" alt="" /></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Soothe theme]]></title>
-    <link href="http://emacsfodder.github.com/blog/soothe-theme/"/>
-    <updated>2012-07-17T00:00:00+10:00</updated>
-    <id>http://emacsfodder.github.com/blog/soothe-theme</id>
-    <content type="html"><![CDATA[<p>This is a theme I use almost exclusively now, it's not Terminal
-friendly, and I should fix that, but if you're using Emacs.app on OS
-X, or in another full color window manager it'll serve you well.</p>
-
-<p>The block-highlights may put you off, I find them very helpful for
-some reason I'm unable to clarify for you in any technical /
-psychological / color-theory sense, but try it out anyway.</p>
-
-<p>Feel free to fork modify, whatever, it's MIT Licensed.</p>
-
-<p><a href="/downloads/soothe-theme.el">Download: soothe-theme.el</a></p>
-
-<h1>Screenshots</h1>
-
-<p><img src="/media/soothe-ruby.png" alt="" /></p>
-
-<p><img src="/media/soothe-html.png" alt="" /></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Jade Dragon theme]]></title>
-    <link href="http://emacsfodder.github.com/blog/jadedragon-theme/"/>
-    <updated>2012-07-03T00:00:00+10:00</updated>
-    <id>http://emacsfodder.github.com/blog/jadedragon-theme</id>
-    <content type="html"><![CDATA[<p><a href="/downloads/jadedragon-theme.el">Download: jade dragon</a></p>
-
-<h3>emacs-lisp</h3>
-
-<p><img src="/media/jadedragon-emacslisp.png" alt="emacs-lisp" /></p>
-
-<h3>ObjC</h3>
-
-<p><img src="/media/jadedragon-objc.png" alt="SleepDisplay console utility" /></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Tangerine Theme]]></title>
-    <link href="http://emacsfodder.github.com/blog/tangerine-theme/"/>
-    <updated>2012-07-02T00:00:00+10:00</updated>
-    <id>http://emacsfodder.github.com/blog/tangerine-theme</id>
-    <content type="html"><![CDATA[<p>Amber CRTs, Tangerine Dream, retro-futuristic, kandy kolored tangerine
-flake streamline baby... all these things held some influence over
-the creation of this theme.  Well, those things, and the fact I like orange.</p>
-
-<p><a href="/downloads/tangerine-theme.el">Download: Tangerine</a></p>
-
-<h2>Obligatory screenshots</h2>
-
-<p><img src="/media/tangerine-clojure.png" alt="Sample emacslisp" /></p>
-
-<h3>Tangerine shell</h3>
-
-<p><img src="/media/tangerine-shell.png" alt="Sample Shell script" /></p>
-
-<h3>Tangerine Perl</h3>
-
-<p><img src="/media/tangerine-perls.png" alt="Sample Perl code Git.pm" /></p>
-]]></content>
-  </entry>
-  
-</feed>

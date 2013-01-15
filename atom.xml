@@ -4,7 +4,7 @@
   <title><![CDATA[Emacs Fodder]]></title>
   <link href="http://emacsfodder.github.com/atom.xml" rel="self"/>
   <link href="http://emacsfodder.github.com/"/>
-  <updated>2013-01-15T08:53:35+11:00</updated>
+  <updated>2013-01-15T18:48:45+11:00</updated>
   <id>http://emacsfodder.github.com/</id>
   <author>
     <name><![CDATA[Jason Milkins]]></name>
@@ -14,27 +14,130 @@
 
   
   <entry>
+    <title type="html"><![CDATA[Notes on deftheme]]></title>
+    <link href="http://emacsfodder.github.com/blog/notes-on-deftheme/"/>
+    <updated>2013-01-15T00:00:00+11:00</updated>
+    <id>http://emacsfodder.github.com/blog/notes-on-deftheme</id>
+    <content type="html"><![CDATA[<p>I have a bunch of Emacs color themes that I built a few years ago,
+they use the old <code>color-theme.el</code> system, I&#8217;d also adapted a web-based
+theme creator, so that it could load existing themes, as long as they
+were in a fixed format, the same as used by
+<a href="http://themes.sweyla.com/">http://themes.sweyla.com/</a> - All in all I
+was quite invested in <code>color-theme.el</code></p>
+
+<p>I&#8217;ve begun to convert some of my regular themes over to the new
+<code>(deftheme)</code> format. The main advangatge is there&#8217;s no reliance on
+<code>color-theme.el</code> anymore. There&#8217;s a couple of small drawbacks, when a
+theme is first loaded, you need to confirm it, since it&#8217;s possible to
+run arbitrary emacs-lisp in it. You then need to enable it for future
+use, so it&#8217;s a quick trip to <code>.emacs</code> - This is only going to bug you
+if you run Emacs in <code>-Q</code> quick-start mode, which I do in some cases.</p>
+
+<p>With Emacs 24 you can create a theme <code>customize-create-theme</code> it&#8217;s ok,
+but not the best way to to it, it&#8217;s much better to learn how to work
+with theme source code, which like everything that extends Emacs, is
+written in emacs lisp.</p>
+
+<p>To that end, have a look at this base template, it&#8217;s meant to serve as
+a guide, it&#8217;d be better to create a few <code>yas/snippets</code>.</p>
+
+<figure class='code'><figcaption><span> (template-theme.el)</span> <a href='http://emacsfodder.github.com/code/template-theme.el'>download</a></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+</pre></td><td class='code'><pre><code class='cl'><span class='line'>    <span class="c1">;;; Filename: name-theme.el </span>
+</span><span class='line'><span class="p">(</span><span class="nv">deftheme</span> <span class="nv">name</span>
+</span><span class='line'>  <span class="s">&quot;DOCSTRING&quot;</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">;; Not a bad idea to define a palette...</span>
+</span><span class='line'><span class="p">(</span><span class="k">let</span> <span class="p">(</span>
+</span><span class='line'>      <span class="p">(</span><span class="nv">color-1</span> <span class="s">&quot;#ffffff&quot;</span><span class="p">)</span>
+</span><span class='line'>      <span class="p">(</span><span class="nv">color-2</span> <span class="s">&quot;#ff0000&quot;</span><span class="p">)</span>
+</span><span class='line'>      <span class="p">(</span><span class="nv">color-3</span> <span class="s">&quot;#00ff00&quot;</span><span class="p">)</span>
+</span><span class='line'>      <span class="p">(</span><span class="nv">color-4</span> <span class="s">&quot;#0000ff&quot;</span><span class="p">))</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">;; Set faces</span>
+</span><span class='line'>  <span class="p">(</span><span class="nv">custom-theme-set-faces</span>
+</span><span class='line'>   <span class="ss">&#39;name</span> <span class="c1">;; you must use the same theme name here...</span>
+</span><span class='line'>   <span class="o">&#39;</span><span class="p">(</span><span class="nv">default</span> <span class="p">((</span><span class="no">t</span> <span class="p">(</span><span class="ss">:foreground</span> <span class="o">,</span><span class="nv">color-1</span> <span class="ss">:background</span> <span class="nv">black</span><span class="p">))))</span>
+</span><span class='line'>   <span class="o">&#39;</span><span class="p">(</span><span class="nv">cursor</span>  <span class="p">((</span><span class="no">t</span> <span class="p">(</span><span class="ss">:background</span> <span class="o">,</span><span class="nv">color-4</span><span class="p">))))</span>
+</span><span class='line'>   <span class="o">&#39;</span><span class="p">(</span><span class="nv">fringe</span>  <span class="p">((</span><span class="no">t</span> <span class="p">(</span><span class="ss">:background</span> <span class="o">,</span><span class="nv">color-3</span><span class="p">))))</span>
+</span><span class='line'>       <span class="c1">;;; etc... </span>
+</span><span class='line'>       <span class="c1">;;; don&#39;t use these settings of course, </span>
+</span><span class='line'>       <span class="c1">;;; they&#39;re horrible.</span>
+</span><span class='line'>   <span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">;; Set variables</span>
+</span><span class='line'>  <span class="p">(</span><span class="nv">custom-theme-set-variables</span>
+</span><span class='line'>   <span class="ss">&#39;name</span> <span class="c1">;; again specify the same theme name...</span>
+</span><span class='line'>   <span class="o">&#39;</span><span class="p">(</span><span class="nv">any-variable</span> <span class="nv">EXPR</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'>   <span class="p">(</span><span class="nv">provide-theme</span> <span class="ss">&#39;name</span><span class="p">)</span>
+</span><span class='line'>    <span class="c1">;;; name-theme.el ends here</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>For more advanced examples, look at the new built in themes, I&#8217;d
+recommend <code>tango-theme.el</code> which you&#8217;ll be able to find using, <code>M-x
+describe-theme</code> <code>tango</code>.</p>
+
+<p>Have a look at <a href="#">my extensions</a> to Drew Adams
+<a href="http://emacswiki.org/emacs/hexrgb.el"><code>hexrgb.el</code></a> for some useful
+color helpers, and don&#8217;t forget the always helpful
+<a href="http://julien.danjou.info/projects/emacs-packages"><code>rainbow-mode.el</code></a>. Personally
+I think Emacs plus these little extensions, are the best way to make
+themes.</p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[Mesa theme]]></title>
-    <link href="http://emacsfodder.github.com/blog/2013/01/14/mesa-theme/"/>
+    <link href="http://emacsfodder.github.com/blog/mesa-theme/"/>
     <updated>2013-01-14T00:00:00+11:00</updated>
-    <id>http://emacsfodder.github.com/blog/2013/01/14/mesa-theme</id>
+    <id>http://emacsfodder.github.com/blog/mesa-theme</id>
     <content type="html"><![CDATA[<p>Mesa is a theme for Emacs 24, works in both the terminal and full
 color GUIs.</p>
 
-<p>Download : <a href="mesa-theme.el">mesa-theme.el</a></p>
+<p>Download : <a href="http://emacsfodder.github.com/downloads/mesa-theme.el">mesa-theme.el</a></p>
 
 <h1>Screenshots</h1>
 
-<p><img src="mesa-screen.png" alt="" />
-<img src="mesa-screen2.png" alt="" /></p>
+<p><img src="http://emacsfodder.github.com/media/mesa-screen.png" alt="" />
+<img src="http://emacsfodder.github.com/media/mesa-screen2.png" alt="" /></p>
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[Soothe theme]]></title>
-    <link href="http://emacsfodder.github.com/blog/2012/07/17/soothe-theme/"/>
+    <link href="http://emacsfodder.github.com/blog/soothe-theme/"/>
     <updated>2012-07-17T00:00:00+10:00</updated>
-    <id>http://emacsfodder.github.com/blog/2012/07/17/soothe-theme</id>
+    <id>http://emacsfodder.github.com/blog/soothe-theme</id>
     <content type="html"><![CDATA[<p>This is a theme I use almost exclusively now, it&#8217;s not Terminal
 friendly, and I should fix that, but if you&#8217;re using Emacs.app on OS
 X, or in another full color window manager it&#8217;ll serve you well.</p>
@@ -45,91 +148,93 @@ psychological / color-theory sense, but try it out anyway.</p>
 
 <p>Feel free to fork modify, whatever, it&#8217;s MIT Licensed.</p>
 
-<p><a href="http://emacsfodder.github.com/soothe-theme.el">soothe-theme.el</a></p>
+<p><a href="http://emacsfodder.github.com/downloads/soothe-theme.el">Download: soothe-theme.el</a></p>
 
 <h1>Screenshots</h1>
 
-<p><img src="http://emacsfodder.github.com/soothe-ruby.png" alt="" /></p>
+<p><img src="http://emacsfodder.github.com/media/soothe-ruby.png" alt="" /></p>
 
-<p><img src="http://emacsfodder.github.com/soothe-html.png" alt="" /></p>
+<p><img src="http://emacsfodder.github.com/media/soothe-html.png" alt="" /></p>
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[Jade Dragon theme]]></title>
-    <link href="http://emacsfodder.github.com/blog/2012/07/03/jadedragon-theme/"/>
+    <link href="http://emacsfodder.github.com/blog/jadedragon-theme/"/>
     <updated>2012-07-03T00:00:00+10:00</updated>
-    <id>http://emacsfodder.github.com/blog/2012/07/03/jadedragon-theme</id>
-    <content type="html"><![CDATA[<p><a href="http://emacsfodder.github.com/Jadedragon-theme.el" class="btn
-btn-primary btn-large">Jadedragon-theme.el</a></p>
+    <id>http://emacsfodder.github.com/blog/jadedragon-theme</id>
+    <content type="html"><![CDATA[<p><a href="http://emacsfodder.github.com/downloads/jadedragon-theme.el">Download: jade dragon</a></p>
 
 <h3>emacs-lisp</h3>
 
-<p><img src="http://emacsfodder.github.com/jadedragon-emacslisp.png" alt="emacs-lisp" /></p>
+<p><img src="http://emacsfodder.github.com/media/jadedragon-emacslisp.png" alt="emacs-lisp" /></p>
 
 <h3>ObjC</h3>
 
-<p><img src="http://emacsfodder.github.com/jadedragon-objc.png" alt="SleepDisplay console utility" /></p>
+<p><img src="http://emacsfodder.github.com/media/jadedragon-objc.png" alt="SleepDisplay console utility" /></p>
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[Tangerine Theme]]></title>
-    <link href="http://emacsfodder.github.com/blog/2012/07/02/tangerine-theme/"/>
+    <link href="http://emacsfodder.github.com/blog/tangerine-theme/"/>
     <updated>2012-07-02T00:00:00+10:00</updated>
-    <id>http://emacsfodder.github.com/blog/2012/07/02/tangerine-theme</id>
+    <id>http://emacsfodder.github.com/blog/tangerine-theme</id>
     <content type="html"><![CDATA[<p>Amber CRTs, Tangerine Dream, retro-futuristic, kandy kolored tangerine
 flake streamline baby&#8230; all these things held some influence over
 the creation of this theme.  Well, those things, and the fact I like orange.</p>
 
-<p><a href="http://emacsfodder.github.com/Tangerine-theme.el" class="btn
-btn-primary btn-large">Tangerine-theme.el</a></p>
+<p><a href="http://emacsfodder.github.com/downloads/tangerine-theme.el">Download: Tangerine</a></p>
 
 <h2>Obligatory screenshots</h2>
 
-<p><img src="http://emacsfodder.github.com/tangerine-clojure.png" alt="Sample emacslisp" /></p>
+<p><img src="http://emacsfodder.github.com/media/tangerine-clojure.png" alt="Sample emacslisp" /></p>
 
 <h3>Tangerine shell</h3>
 
-<p><img src="http://emacsfodder.github.com/tangerine-shell.png" alt="Sample Shell script" /></p>
+<p><img src="http://emacsfodder.github.com/media/tangerine-shell.png" alt="Sample Shell script" /></p>
 
 <h3>Tangerine Perl</h3>
 
-<p><img src="http://emacsfodder.github.com/tangerine-perls.png" alt="Sample Perl code Git.pm" /></p>
+<p><img src="http://emacsfodder.github.com/media/tangerine-perls.png" alt="Sample Perl code Git.pm" /></p>
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[HexRGB.el with some extras]]></title>
-    <link href="http://emacsfodder.github.com/blog/2012/06/30/hexrgb-some-convenient-functions/"/>
+    <link href="http://emacsfodder.github.com/blog/hexrgb-some-convenient-functions/"/>
     <updated>2012-06-30T00:00:00+10:00</updated>
-    <id>http://emacsfodder.github.com/blog/2012/06/30/hexrgb-some-convenient-functions</id>
-    <content type="html"><![CDATA[<p>If you use a lot of CSS we have a number of useful CSS DSLs, like
-<a href="http://sass-lang.com">SASS</a> and <a href="http://lesscss.org">LESS</a> both of
-which give us a collection of color manipulation functions.</p>
+    <id>http://emacsfodder.github.com/blog/hexrgb-some-convenient-functions</id>
+    <content type="html"><![CDATA[<p>If you use a lot of css, you probably know there a few useful
+preprocessor, like <a href="http://sass-lang.com">SASS</a> and
+<a href="http://lesscss.org">LESS</a> both of which give us a collection of color
+manipulation functions.</p>
 
 <p>Adding a few of these helpful color functions to Emacs is relatively
-simple and the bulk of the work required is already done by Drew Adams
-in his <a href="http://www.emacswiki.org/cgi-bin/wiki/hexrgb.el">hexrgb.el</a>
+simple, the bulk of the work required is already done by the most
+excellent <strong>Drew Adams</strong> in his
+<a href="http://www.emacswiki.org/cgi-bin/wiki/hexrgb.el">hexrgb.el</a>
 extension.</p>
 
-<p>I&#8217;ve added a few small modifications in
-<a href="https://gist.github.com/3022890">this version</a>, the
-function: <code>hexrgb-hsv-to-hex</code> accepts an additional argument
-<code>nb-digits</code> so that hex colors returned are with 2 digits per r,g,b
+<p>I&#8217;ve added a few small <a href="https://gist.github.com/3022890">extensions</a>.</p>
+
+<p><code>hexrgb-hsv-to-hex</code> accepts an additional argument <code>nb-digits</code> so that hex colors returned are with 2 digits per r,g,b
 value.</p>
 
-<pre><code>(hexrgb-hsv-to-hex   0.05   0.7   0.4     2) 
-;;------------------ ^ ---- ^ --- ^ ----- ^ -------
-;;                   hue    sat   light   nb-digits 
-</code></pre>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>(hexrgb-hsv-to-hex   0.05   0.7   0.4     2) 
+</span><span class='line'>;;------------------ ^ ---- ^ --- ^ ----- ^ -------
+</span><span class='line'>;;                   hue    sat   light   nb-digits</span></code></pre></td></tr></table></div></figure>
+
 
 <p>Which returns <span style="color: white; background-color:#6639B8;
 padding:4px; border-radius: 3px;">#6639B8</span></p>
 
-<p>Previously, <strong>hexrgb.el</strong> returned hex colors with 4 digits per
-channel (r, g, b), I&#8217;m not sure why, but obviously for a large number
-of people, this isn&#8217;t all that useful.</p>
+<p><strong>hexrgb.el</strong> returns hex colors with 4 digits per channel (r, g, b),
+I&#8217;m not sure why, but obviously for a large number of people, this
+isn&#8217;t all that useful.</p>
 
 <p>I&#8217;ve also added a few convenience functions that provide color
 manipulation direct from hex colors. Currently these just work in
@@ -137,18 +242,21 @@ eshell or ielm (interactive emacs lisp modes.)</p>
 
 <p>For example:</p>
 
-<pre><code>(hexrgb-hex-set-brightness "#ff0000" 0.3)
-</code></pre>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>(hexrgb-hex-set-brightness "#ff0000" 0.3)</span></code></pre></td></tr></table></div></figure>
 
-<p>returns <span style="color:white;background-color:#4C0000; padding:4px; border-radius: 3px;">#4C0000</span></p>
 
-<pre><code>(hexrgb-hex-set-saturation "#ff0000" 0.5)
-</code></pre>
+<p>returns <span style="color:white;background-color:#4C0000; padding:4px;border-radius: 3px;">#4C0000</span></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>(hexrgb-hex-set-saturation "#ff0000" 0.5)</span></code></pre></td></tr></table></div></figure>
+
 
 <p>returns <span style="color:white;background-color:#FF7F7F; padding:4px; border-radius: 3px;">#FF7F7F</span></p>
 
-<pre><code>(hexrgb-hex-set-hue "#FF0000" 0.6)
-</code></pre>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>(hexrgb-hex-set-hue "#FF0000" 0.6)</span></code></pre></td></tr></table></div></figure>
+
 
 <p>returns <span style="color:white;background-color:#0066FF; padding:4px; border-radius: 3px;">#0066FF</span></p>
 
@@ -162,100 +270,70 @@ you&#8217;re in eshell, and play.</p>
 
 <p>Here&#8217;s the function definitions:</p>
 
-<pre><code>(defun hexrgb-hex-set-brightness
-  (hex brightness)
-  "set brightness of a hex color, amount values from 0-1
-   returns a 6 digit hex color"
-  (let* ((hsv (hexrgb-hex-to-hsv hex))
-         (h (first hsv)) (s (second hsv)) (v (third hsv)))
-    (hexrgb-hsv-to-hex h s (* v brightness) 2)))
+<figure class='code'><figcaption><span> (hexrgb-extensions.el)</span> <a href='http://emacsfodder.github.com/code/hexrgb-extensions.el'>download</a></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+</pre></td><td class='code'><pre><code class='cl'><span class='line'><span class="p">(</span><span class="nb">defun</span> <span class="nv">hexrgb-hex-set-brightness</span>
+</span><span class='line'>  <span class="p">(</span><span class="nv">hex</span> <span class="nv">brightness</span><span class="p">)</span>
+</span><span class='line'>  <span class="s">&quot;set brightness of a hex color, amount values from 0-1</span>
+</span><span class='line'><span class="s">   returns a 6 digit hex color&quot;</span>
+</span><span class='line'>  <span class="p">(</span><span class="k">let*</span> <span class="p">((</span><span class="nv">hsv</span> <span class="p">(</span><span class="nv">hexrgb-hex-to-hsv</span> <span class="nv">hex</span><span class="p">))</span>
+</span><span class='line'>         <span class="p">(</span><span class="nv">h</span> <span class="p">(</span><span class="nb">first</span> <span class="nv">hsv</span><span class="p">))</span> <span class="p">(</span><span class="nv">s</span> <span class="p">(</span><span class="nb">second</span> <span class="nv">hsv</span><span class="p">))</span> <span class="p">(</span><span class="nv">v</span> <span class="p">(</span><span class="nb">third</span> <span class="nv">hsv</span><span class="p">)))</span>
+</span><span class='line'>    <span class="p">(</span><span class="nv">hexrgb-hsv-to-hex</span> <span class="nv">h</span> <span class="nv">s</span> <span class="p">(</span><span class="nb">*</span> <span class="nv">v</span> <span class="nv">brightness</span><span class="p">)</span> <span class="mi">2</span><span class="p">)))</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">(</span><span class="nb">defun</span> <span class="nv">hexrgb-hex-set-saturation</span>
+</span><span class='line'>  <span class="p">(</span><span class="nv">hex</span> <span class="nv">saturation</span><span class="p">)</span>
+</span><span class='line'>  <span class="s">&quot;set saturation of a hex color, amount values from 0-1</span>
+</span><span class='line'><span class="s">   returns a 6 digit hex color&quot;</span>
+</span><span class='line'>  <span class="p">(</span><span class="k">let*</span> <span class="p">((</span><span class="nv">hsv</span> <span class="p">(</span><span class="nv">hexrgb-hex-to-hsv</span> <span class="nv">hex</span><span class="p">))</span>
+</span><span class='line'>         <span class="p">(</span><span class="nv">h</span> <span class="p">(</span><span class="nb">first</span> <span class="nv">hsv</span><span class="p">))</span> <span class="p">(</span><span class="nv">s</span> <span class="p">(</span><span class="nb">second</span> <span class="nv">hsv</span><span class="p">))</span> <span class="p">(</span><span class="nv">v</span> <span class="p">(</span><span class="nb">third</span> <span class="nv">hsv</span><span class="p">)))</span>
+</span><span class='line'>    <span class="p">(</span><span class="nv">hexrgb-hsv-to-hex</span> <span class="nv">h</span> <span class="p">(</span><span class="nb">*</span> <span class="nv">s</span> <span class="nv">saturation</span><span class="p">)</span> <span class="nv">v</span> <span class="mi">2</span><span class="p">)))</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">(</span><span class="nb">defun</span> <span class="nv">hexrgb-hex-set-hue</span>
+</span><span class='line'>  <span class="p">(</span><span class="nv">hex</span> <span class="nv">hue</span><span class="p">)</span>
+</span><span class='line'>  <span class="s">&quot;set hue of a hex color, amount values from 0-1</span>
+</span><span class='line'><span class="s">   returns a 6 digit hex color&quot;</span>
+</span><span class='line'>  <span class="p">(</span><span class="k">let*</span> <span class="p">((</span><span class="nv">hsv</span> <span class="p">(</span><span class="nv">hexrgb-hex-to-hsv</span> <span class="nv">hex</span><span class="p">))</span>
+</span><span class='line'>         <span class="p">(</span><span class="nv">s</span> <span class="p">(</span><span class="nb">second</span> <span class="nv">hsv</span><span class="p">))</span> <span class="p">(</span><span class="nv">v</span> <span class="p">(</span><span class="nb">third</span> <span class="nv">hsv</span><span class="p">)))</span>
+</span><span class='line'>    <span class="p">(</span><span class="nv">hexrgb-hsv-to-hex</span> <span class="nv">hue</span> <span class="nv">s</span> <span class="nv">v</span> <span class="mi">2</span><span class="p">)))</span>
+</span></code></pre></td></tr></table></div></figure>
 
-(defun hexrgb-hex-set-saturation
-  (hex saturation)
-  "set saturation of a hex color, amount values from 0-1
-   returns a 6 digit hex color"
-  (let* ((hsv (hexrgb-hex-to-hsv hex))
-         (h (first hsv)) (s (second hsv)) (v (third hsv)))
-    (hexrgb-hsv-to-hex h (* s saturation) v 2)))
-
-(defun hexrgb-hex-set-hue
-  (hex hue)
-  "set hue of a hex color, amount values from 0-1
-   returns a 6 digit hex color"
-  (let* ((hsv (hexrgb-hex-to-hsv hex))
-         (s (second hsv)) (v (third hsv)))
-    (hexrgb-hsv-to-hex hue s v 2)))
-</code></pre>
 ]]></content>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Two New Emacs24 Themes]]></title>
-    <link href="http://emacsfodder.github.com/blog/2012/06/29/two-new-emacs24-themes/"/>
+    <title type="html"><![CDATA[Two Emacs24 Themes]]></title>
+    <link href="http://emacsfodder.github.com/blog/two-new-emacs24-themes/"/>
     <updated>2012-06-29T00:00:00+10:00</updated>
-    <id>http://emacsfodder.github.com/blog/2012/06/29/two-new-emacs24-themes</id>
-    <content type="html"><![CDATA[<p><a href="#newthemes">Jump directly to the new themes&#8230;</a></p>
-
-<p>I have a number of Emacs color themes that were built a few years ago, they use the old <code>color-theme.el</code> system, I&#8217;d also adapted a web-based theme creator, so that it could load existing themes, as long as they were in a fixed format, the same as used by <a href="http://themes.sweyla.com/">http://themes.sweyla.com/</a></p>
-
-<p>Anyway, I&#8217;ve begun to convert some of my regular themes over to the new <code>deftheme</code> format. The main advangatge is there&#8217;s no reliance on <code>color-theme</code> anymore. The only drawback for me is that I will need to update my existing theme-editor.</p>
-
-<p>But in the meantime, it&#8217;s possible to create <code>deftheme</code> style themes with <code>customize-create-theme</code> but it&#8217;s not the best way to to it, frankly, even if I converted my existing theme tool, it would still be very limited.</p>
-
-<p>The best thing to do is learn how to work with theme source code, which like everything that extends Emacs, is written in emacs lisp.</p>
-
-<p>The basic template for making a theme is as follows:</p>
-
-<pre><code>;;; Filename: name-theme.el 
-(deftheme name
-  "DOCSTRING")
-
-;; Not a bad idea to define a palette...
-(let (
-      (color-1 "#ffffff") 
-      (color-2 "#ff0000") 
-      (color-3 "#00ff00")
-      (color-4 "#0000ff"))
-
-  ;; Set faces
-  (custom-theme-set-faces
-   'name ;; you must use the same theme name here...
-   '(default ((t (:foreground ,color-1 :background black))))
-   '(cursor  ((t (:background ,color-4))))
-   '(fringe  ((t (:background ,color-3))))
-   ;;; etc... 
-   ;;; don't use these settings of course, 
-   ;;; they're horrible.
-   )
-
-  ;; Set variables
-  (custom-theme-set-variables
-   'name ;; again specify the same theme name...
-   '(any-variable EXPR)
-
-(provide-theme 'name)
-;;; name-theme.el ends here
-</code></pre>
-
-<p>For a more advanced example to work from, look at the new built in themes, I&#8217;d recommend <code>tango-theme.el</code> which you&#8217;ll be able to find using, <code>M-x describe-theme</code> and then type <code>tango</code>.</p>
-
-<p>The help buffer will give you a link to the source code, and you can study it further, (if you have questions, I&#8217;m very happy to answer them in the comments.)</p>
-
-<p><a name="newthemes" /></p>
-
-<hr />
-
-<h1>Two new themes&#8230;</h1>
-
-<h2>DeepBlueDay and MechanicalTurq</h2>
-
-<p><img src="http://emacsfodder.github.com/emacs24.themes.vol1.png" alt="" /></p>
+    <id>http://emacsfodder.github.com/blog/two-new-emacs24-themes</id>
+    <content type="html"><![CDATA[<p><img src="http://emacsfodder.github.com/media/emacs24.themes.vol1.png" alt="" /></p>
 
 <h1>Download&#8230;</h1>
 
-<p><a href="http://emacsfodder.github.com/DeepBlueDay-theme.el">DeepBlueDay-theme.el</a></p>
+<p><a href="http://emacsfodder.github.com/downloads/deep-blue-day-theme.el">deep-blue-day-theme.el</a></p>
 
-<p><a href="http://emacsfodder.github.com/MechanicalTurq-theme.el">MechanicalTurq-theme.el</a></p>
+<p><a href="http://emacsfodder.github.com/downloads/mechanical-turq%20-theme.el">mechanical-turq-theme.el</a></p>
 
 <p>Save them to your emacs custom theme folder, <code>~/.emacs.d/</code> by default, and in Emacs use <code>M-x enable-theme</code> to load and enable them (TAB completion will be available there, to make your life easier.)</p>
 
@@ -265,11 +343,13 @@ you&#8217;re in eshell, and play.</p>
   
   <entry>
     <title type="html"><![CDATA[Powerline.el enhanced]]></title>
-    <link href="http://emacsfodder.github.com/blog/2012/06/20/powerline-enhanced/"/>
+    <link href="http://emacsfodder.github.com/blog/powerline-enhanced/"/>
     <updated>2012-06-20T00:00:00+10:00</updated>
-    <id>http://emacsfodder.github.com/blog/2012/06/20/powerline-enhanced</id>
-    <content type="html"><![CDATA[<p>Powerline is an awesome little enhancement for Emacs, by <strike>an original
-unknown author</strike> Nicolas Rougier and Chen Yuan, you can find the original version at <a href="http://emacswiki.org/emacs/powerline.el">http://emacswiki.org/emacs/powerline.el</a></p>
+    <id>http://emacsfodder.github.com/blog/powerline-enhanced</id>
+    <content type="html"><![CDATA[<p>Powerline is an awesome little enhancement for Emacs, ported over from
+Vim by <strike>an original unknown author</strike> Nicolas Rougier and
+Chen Yuan, you can find the original version at
+<a href="http://emacswiki.org/emacs/powerline.el">http://emacswiki.org/emacs/powerline.el</a></p>
 
 <p>I&#8217;ve added a few different xpm shapes as alternatives to the arrows or
 flatshapes, a rounded or folded corner, and a set of diagonals.</p>
@@ -294,54 +374,54 @@ it, set the colors and graphic shape:</p>
 <pre><code>(setq powerline-arrow-shape 'arrow)       ;; 18px high arrows  
 </code></pre>
 
-<p><img src="http://emacsfodder.github.com/arrow.png" alt="" /></p>
+<p><img src="http://emacsfodder.github.com/media/arrow.png" alt="" /></p>
 
 <pre><code>(setq powerline-arrow-shape 'arrow14)     ;; 14px high arrows
 </code></pre>
 
-<p><img src="http://emacsfodder.github.com/arrow14.png" alt="" /></p>
+<p><img src="http://emacsfodder.github.com/media/arrow14.png" alt="" /></p>
 
 <pre><code>(setq powerline-arrow-shape 'half)        ;; flat
 </code></pre>
 
-<p><img src="http://emacsfodder.github.com/half.png" alt="" /></p>
+<p><img src="http://emacsfodder.github.com/media/half.png" alt="" /></p>
 
 <pre><code>(setq powerline-arrow-shape 'percent)     ;; ...? (I have no idea)
 </code></pre>
 
-<p><img src="http://emacsfodder.github.com/percent.png" alt="" /></p>
+<p><img src="http://emacsfodder.github.com/media/percent.png" alt="" /></p>
 
 <pre><code>(setq powerline-arrow-shape 'curve)       ;; scallop curve
 </code></pre>
 
-<p><img src="http://emacsfodder.github.com/curve.png" alt="" /></p>
+<p><img src="http://emacsfodder.github.com/media/curve.png" alt="" /></p>
 
 <h2>New shapes in this version</h2>
 
 <pre><code>(setq powerline-arrow-shape 'rounded)     ;; new, round corner
 </code></pre>
 
-<p><img src="http://emacsfodder.github.com/rounded.png" alt="" /></p>
+<p><img src="http://emacsfodder.github.com/media/rounded.png" alt="" /></p>
 
 <pre><code>(setq powerline-arrow-shape 'chamfer)     ;; new, folded corner
 </code></pre>
 
-<p><img src="http://emacsfodder.github.com/chamfer.png" alt="" /></p>
+<p><img src="http://emacsfodder.github.com/media/chamfer.png" alt="" /></p>
 
 <pre><code>(setq powerline-arrow-shape 'slant-left)  ;; new, diagonal from left
 </code></pre>
 
-<p><img src="http://emacsfodder.github.com/slant-left.png" alt="" /></p>
+<p><img src="http://emacsfodder.github.com/media/slant-left.png" alt="" /></p>
 
 <pre><code>(setq powerline-arrow-shape 'slant-right) ;; new, diagonal from right
 </code></pre>
 
-<p><img src="http://emacsfodder.github.com/slant-right.png" alt="" /></p>
+<p><img src="http://emacsfodder.github.com/media/slant-right.png" alt="" /></p>
 
 <pre><code>(setq powerline-arrow-shape 'slant)       ;; mirrored diagonals
 </code></pre>
 
-<p><img src="http://emacsfodder.github.com/slant.png" alt="" /></p>
+<p><img src="http://emacsfodder.github.com/media/slant.png" alt="" /></p>
 ]]></content>
   </entry>
   

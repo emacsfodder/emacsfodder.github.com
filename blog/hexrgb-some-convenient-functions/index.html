@@ -1,0 +1,260 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>HexRGB.el with some extras - Emacs Fodder</title>
+	<meta name="author" content="Jason Milkins">
+
+	
+	<meta name="description" content="a few useful enhancements for hexrgb.el">
+	
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href="/atom.xml" rel="alternate" title="Emacs Fodder" type="application/atom+xml">
+	
+	<link rel="canonical" href="http://emacsfodder.github.com/blog/hexrgb-some-convenient-functions/">
+	<link href="/favicon.png" rel="shortcut icon">
+	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700' rel='stylesheet' type='text/css'>
+	
+	
+
+</head>
+
+<body>
+	<div class="container">
+		<div class="left-col">
+			<div class="intrude-less">
+			<header id="header" class="inner"><div class="profilepic">	
+	<img src="/images/profile.png" alt="Profile Picture" style="width: 160px;">
+</div>
+<h1><a href="/">Emacs Fodder</a></h1>
+<p class="subtitle">Emacs24 on OS X</p>
+<nav id="main-nav"><ul class="main">
+	<li><a href="/">Blog</a></li>
+	<li><a href="/blog/archives">Archives</a></li>
+</ul>
+</nav>
+<nav id="sub-nav">
+	<div class="social">
+		
+		
+		
+		<a class="twitter" href="http://twitter.com/ocodo" title="Twitter">Twitter</a>
+		
+		
+		<a class="github" href="https://github.com/jasonm23" title="GitHub">GitHub</a>
+		
+		
+		
+		
+		
+		
+		<a class="rss" href="/atom.xml" title="RSS">RSS</a>
+		
+	</div>
+</nav>
+
+</header>				
+			</div>
+		</div>	
+		<div class="mid-col">
+			
+				
+<div id="banner" class="inner">
+	<div class="container">
+		<ul class="feed"></ul>
+	</div>
+	<small><a href="http://twitter.com/ocodo">ocodo</a> @ <a href="http://twitter.com">Twitter</a></small>
+	<div class="loading">Loading...</div>
+</div>
+<script src="/javascripts/twitter.js"></script>
+<script type="text/javascript">
+	(function($){
+		$('#banner').getTwitterFeed('ocodo', 4, false);
+	})(jQuery);
+</script>
+
+			
+			<div class="mid-col-container">
+				<div id="content" class="inner"><article class="post">
+	<h1 class="title">HexRGB.el With Some Extras</h1>
+	<div class="entry-content"><p>If you use a lot of css, you probably know there a few useful
+preprocessor, like <a href="http://sass-lang.com">SASS</a> and
+<a href="http://lesscss.org">LESS</a> both of which give us a collection of color
+manipulation functions.</p>
+
+<p>Adding a few of these helpful color functions to Emacs is relatively
+simple, the bulk of the work required is already done by the most
+excellent <strong>Drew Adams</strong> in his
+<a href="http://www.emacswiki.org/cgi-bin/wiki/hexrgb.el">hexrgb.el</a>
+extension.</p>
+
+<p>I've added a few small <a href="https://gist.github.com/3022890">extensions</a>.</p>
+
+<p><code>hexrgb-hsv-to-hex</code> accepts an additional argument <code>nb-digits</code> so that hex colors returned are with 2 digits per r,g,b
+value.</p>
+
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>(hexrgb-hsv-to-hex   0.05   0.7   0.4     2) 
+</span><span class='line'>;;------------------ ^ ---- ^ --- ^ ----- ^ -------
+</span><span class='line'>;;                   hue    sat   light   nb-digits</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+
+<p>Which returns <span style="color: white; background-color:#6639B8;
+padding:4px; border-radius: 3px;">#6639B8</span></p>
+
+<p><strong>hexrgb.el</strong> returns hex colors with 4 digits per channel (r, g, b),
+I'm not sure why, but obviously for a large number of people, this
+isn't all that useful.</p>
+
+<p>I've also added a few convenience functions that provide color
+manipulation direct from hex colors. Currently these just work in
+eshell or ielm (interactive emacs lisp modes.)</p>
+
+<p>For example:</p>
+
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>(hexrgb-hex-set-brightness "#ff0000" 0.3)</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+
+<p>returns <span style="color:white;background-color:#4C0000; padding:4px;border-radius: 3px;">#4C0000</span></p>
+
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>(hexrgb-hex-set-saturation "#ff0000" 0.5)</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+
+<p>returns <span style="color:white;background-color:#FF7F7F; padding:4px; border-radius: 3px;">#FF7F7F</span></p>
+
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>(hexrgb-hex-set-hue "#FF0000" 0.6)</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+
+<p>returns <span style="color:white;background-color:#0066FF; padding:4px; border-radius: 3px;">#0066FF</span></p>
+
+<p>These functions aren't complicated, they use the hex-to-hsv existing
+function, grab the h, s or v values and then convert back to a hex
+color value.  This makes working with colors easier, for example, you
+could add <code>(require 'hexrgb)</code> to a theme definition and use the
+functions to manipulate theme colors, or just switch on
+<a href="https://github.com/emacsmirror/rainbow-mode"><em>rainbow-mode</em></a> when
+you're in eshell, and play.</p>
+
+<p>Here's the function definitions:</p>
+
+<div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span> (hexrgb-extensions.el)</span> <a href='/code/hexrgb-extensions.el'>download</a></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+</pre></td><td class='code'><pre><code class='cl'><span class='line'><span class="p">(</span><span class="nb">defun</span> <span class="nv">hexrgb-hex-set-brightness</span>
+</span><span class='line'>  <span class="p">(</span><span class="nv">hex</span> <span class="nv">brightness</span><span class="p">)</span>
+</span><span class='line'>  <span class="s">&quot;set brightness of a hex color, amount values from 0-1</span>
+</span><span class='line'><span class="s">   returns a 6 digit hex color&quot;</span>
+</span><span class='line'>  <span class="p">(</span><span class="k">let*</span> <span class="p">((</span><span class="nv">hsv</span> <span class="p">(</span><span class="nv">hexrgb-hex-to-hsv</span> <span class="nv">hex</span><span class="p">))</span>
+</span><span class='line'>         <span class="p">(</span><span class="nv">h</span> <span class="p">(</span><span class="nb">first</span> <span class="nv">hsv</span><span class="p">))</span> <span class="p">(</span><span class="nv">s</span> <span class="p">(</span><span class="nb">second</span> <span class="nv">hsv</span><span class="p">))</span> <span class="p">(</span><span class="nv">v</span> <span class="p">(</span><span class="nb">third</span> <span class="nv">hsv</span><span class="p">)))</span>
+</span><span class='line'>    <span class="p">(</span><span class="nv">hexrgb-hsv-to-hex</span> <span class="nv">h</span> <span class="nv">s</span> <span class="p">(</span><span class="nb">*</span> <span class="nv">v</span> <span class="nv">brightness</span><span class="p">)</span> <span class="mi">2</span><span class="p">)))</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">(</span><span class="nb">defun</span> <span class="nv">hexrgb-hex-set-saturation</span>
+</span><span class='line'>  <span class="p">(</span><span class="nv">hex</span> <span class="nv">saturation</span><span class="p">)</span>
+</span><span class='line'>  <span class="s">&quot;set saturation of a hex color, amount values from 0-1</span>
+</span><span class='line'><span class="s">   returns a 6 digit hex color&quot;</span>
+</span><span class='line'>  <span class="p">(</span><span class="k">let*</span> <span class="p">((</span><span class="nv">hsv</span> <span class="p">(</span><span class="nv">hexrgb-hex-to-hsv</span> <span class="nv">hex</span><span class="p">))</span>
+</span><span class='line'>         <span class="p">(</span><span class="nv">h</span> <span class="p">(</span><span class="nb">first</span> <span class="nv">hsv</span><span class="p">))</span> <span class="p">(</span><span class="nv">s</span> <span class="p">(</span><span class="nb">second</span> <span class="nv">hsv</span><span class="p">))</span> <span class="p">(</span><span class="nv">v</span> <span class="p">(</span><span class="nb">third</span> <span class="nv">hsv</span><span class="p">)))</span>
+</span><span class='line'>    <span class="p">(</span><span class="nv">hexrgb-hsv-to-hex</span> <span class="nv">h</span> <span class="p">(</span><span class="nb">*</span> <span class="nv">s</span> <span class="nv">saturation</span><span class="p">)</span> <span class="nv">v</span> <span class="mi">2</span><span class="p">)))</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">(</span><span class="nb">defun</span> <span class="nv">hexrgb-hex-set-hue</span>
+</span><span class='line'>  <span class="p">(</span><span class="nv">hex</span> <span class="nv">hue</span><span class="p">)</span>
+</span><span class='line'>  <span class="s">&quot;set hue of a hex color, amount values from 0-1</span>
+</span><span class='line'><span class="s">   returns a 6 digit hex color&quot;</span>
+</span><span class='line'>  <span class="p">(</span><span class="k">let*</span> <span class="p">((</span><span class="nv">hsv</span> <span class="p">(</span><span class="nv">hexrgb-hex-to-hsv</span> <span class="nv">hex</span><span class="p">))</span>
+</span><span class='line'>         <span class="p">(</span><span class="nv">s</span> <span class="p">(</span><span class="nb">second</span> <span class="nv">hsv</span><span class="p">))</span> <span class="p">(</span><span class="nv">v</span> <span class="p">(</span><span class="nb">third</span> <span class="nv">hsv</span><span class="p">)))</span>
+</span><span class='line'>    <span class="p">(</span><span class="nv">hexrgb-hsv-to-hex</span> <span class="nv">hue</span> <span class="nv">s</span> <span class="nv">v</span> <span class="mi">2</span><span class="p">)))</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+</div>
+
+</article>
+
+	<div class="share">
+	<div class="addthis_toolbox addthis_default_style ">
+	
+	<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+	
+	
+	<a class="addthis_button_tweet"></a>
+	
+	
+	<a class="addthis_counter addthis_pill_style"></a>
+	</div>
+  <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid="></script>
+</div>
+
+
+</div>
+			</div>
+			<footer id="footer" class="inner">Copyright &copy; 2013
+
+    Jason Milkins
+
+
+- Design based on Greyshade by : <a href="http://shashankmehta.in/archive/2012/greyshade.html">Shashank Mehta</a>
+</footer>
+			<script src="/javascripts/slash.js"></script>
+<script src="/javascripts/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+	$('.fancybox').fancybox();
+})(jQuery);
+</script> <!-- Delete or comment this line to disable Fancybox -->
+
+
+<script type="text/javascript">
+      var disqus_shortname = 'emacsfodder';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+		</div>
+	</div>
+</body>
+</html>
