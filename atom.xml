@@ -4,7 +4,7 @@
   <title><![CDATA[Emacs Fodder]]></title>
   <link href="http://emacsfodder.github.com/atom.xml" rel="self"/>
   <link href="http://emacsfodder.github.com/"/>
-  <updated>2013-01-16T02:10:33+11:00</updated>
+  <updated>2013-01-16T02:15:48+11:00</updated>
   <id>http://emacsfodder.github.com/</id>
   <author>
     <name><![CDATA[Jason Milkins]]></name>
@@ -1123,6 +1123,9 @@ extension.</p>
 
 <p>I&#8217;ve added a few small <a href="https://gist.github.com/3022890">extensions</a>.</p>
 
+<!--more-->
+
+
 <p><code>hexrgb-hsv-to-hex</code> accepts an additional argument <code>nb-digits</code> so that hex colors returned are with 2 digits per r,g,b
 value.</p>
 
@@ -1259,6 +1262,9 @@ you&#8217;re in eshell, and play.</p>
  pull-request at some stage to add these into the latest version&#8230;</p>
 
 <h3>&#8230;. back to the original post.</h3>
+
+<!--more-->
+
 
 <p>Powerline is an awesome little enhancement for Emacs, ported over from
 Vim by <strike>an original unknown author</strike> Nicolas Rougier and
