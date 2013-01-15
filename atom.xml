@@ -4,7 +4,7 @@
   <title><![CDATA[Emacs Fodder]]></title>
   <link href="http://emacsfodder.github.com/atom.xml" rel="self"/>
   <link href="http://emacsfodder.github.com/"/>
-  <updated>2013-01-15T19:03:38+11:00</updated>
+  <updated>2013-01-15T19:06:37+11:00</updated>
   <id>http://emacsfodder.github.com/</id>
   <author>
     <name><![CDATA[Jason Milkins]]></name>
@@ -346,7 +346,9 @@ you&#8217;re in eshell, and play.</p>
     <link href="http://emacsfodder.github.com/blog/powerline-enhanced/"/>
     <updated>2012-06-20T00:00:00+10:00</updated>
     <id>http://emacsfodder.github.com/blog/powerline-enhanced</id>
-    <content type="html"><![CDATA[<p>Powerline is an awesome little enhancement for Emacs, ported over from
+    <content type="html"><![CDATA[<h2>Update: Jan 2013 - There is now a new powerline.el (1.2)</h2>
+
+<p>Powerline is an awesome little enhancement for Emacs, ported over from
 Vim by <strike>an original unknown author</strike> Nicolas Rougier and
 Chen Yuan, you can find the original version at
 <a href="http://emacswiki.org/emacs/powerline.el">http://emacswiki.org/emacs/powerline.el</a></p>
