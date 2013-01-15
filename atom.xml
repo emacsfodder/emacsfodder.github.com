@@ -4,7 +4,7 @@
   <title><![CDATA[Emacs Fodder]]></title>
   <link href="http://emacsfodder.github.com/atom.xml" rel="self"/>
   <link href="http://emacsfodder.github.com/"/>
-  <updated>2013-01-15T19:06:37+11:00</updated>
+  <updated>2013-01-15T19:34:25+11:00</updated>
   <id>http://emacsfodder.github.com/</id>
   <author>
     <name><![CDATA[Jason Milkins]]></name>
@@ -347,6 +347,15 @@ you&#8217;re in eshell, and play.</p>
     <updated>2012-06-20T00:00:00+10:00</updated>
     <id>http://emacsfodder.github.com/blog/powerline-enhanced</id>
     <content type="html"><![CDATA[<h2>Update: Jan 2013 - There is now a new powerline.el (1.2)</h2>
+
+<p>*Note that these enhancements were made to an earlier version, which
+ has been bugfixed. It should be trivial to extract the xpm data /
+ memoization / condition, for a shape you&#8217;d like, I&#8217;ll patch and
+ pull-request at some stage to add these into the latest version,
+ however I think providing this data externally instead is a better
+ idea, in the same way that nyan-mode does.</p>
+
+<h3>&#8230;. back to the original post.</h3>
 
 <p>Powerline is an awesome little enhancement for Emacs, ported over from
 Vim by <strike>an original unknown author</strike> Nicolas Rougier and
