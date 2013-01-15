@@ -655,76 +655,93 @@ flatshapes, a rounded or folded corner, and a set of diagonals.</p>
 the following lines to the end of your <code>.emacs</code> / <code>init.el</code> - to load
 it, set the colors and graphic shape:</p>
 
-<p>{% codeblock lang:cl }
-(require &#8216;powerline)
-;; colors&#8230;
-(setq powerline-color1 &#8220;#222&#8221;)      ;; dark grey;
-(setq powerline-color2 &#8220;#444&#8221;)      ;; slightly lighter grey
-;; shape&#8230;
-(setq powerline-arrow-shape &#8216;arrow) ;; mirrored arrows,
-;; see below for the shape options
-{% endcodeblock %}</p>
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='cl'><span class='line'><span class="p">(</span><span class="nb">require</span> <span class="ss">&#39;powerline</span><span class="p">)</span>
+</span><span class='line'><span class="c1">;; colors...</span>
+</span><span class='line'><span class="p">(</span><span class="k">setq</span> <span class="nv">powerline-color1</span> <span class="s">&quot;#222&quot;</span><span class="p">)</span>      <span class="c1">;; dark grey; </span>
+</span><span class='line'><span class="p">(</span><span class="k">setq</span> <span class="nv">powerline-color2</span> <span class="s">&quot;#444&quot;</span><span class="p">)</span>      <span class="c1">;; slightly lighter grey</span>
+</span><span class='line'><span class="c1">;; shape...</span>
+</span><span class='line'><span class="p">(</span><span class="k">setq</span> <span class="nv">powerline-arrow-shape</span> <span class="ss">&#39;arrow</span><span class="p">)</span> <span class="c1">;; mirrored arrows, </span>
+</span><span class='line'><span class="c1">;; see below for the shape options</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <h2>Shapes</h2>
 
-<p>{% codeblock %}
-(setq powerline-arrow-shape &#8216;arrow)       ;; 18px high arrows<br/>
-{% endcodeblock %}</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>(setq powerline-arrow-shape 'arrow)       ;; 18px high arrows</span></code></pre></td></tr></table></div></figure>
+
 
 <p><img src="/media/arrow.png" alt="" /></p>
 
-<p>{% codeblock lang:cl %}
-(setq powerline-arrow-shape &#8216;arrow14)     ;; 14px high arrows
-{% endcodeblock %}</p>
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='cl'><span class='line'><span class="p">(</span><span class="k">setq</span> <span class="nv">powerline-arrow-shape</span> <span class="ss">&#39;arrow14</span><span class="p">)</span>     <span class="c1">;; 14px high arrows</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <p><img src="/media/arrow14.png" alt="" /></p>
 
-<p>{% codeblock lang:cl %}
-(setq powerline-arrow-shape &#8216;half)        ;; flat
-{% endcodeblock %}</p>
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='cl'><span class='line'><span class="p">(</span><span class="k">setq</span> <span class="nv">powerline-arrow-shape</span> <span class="ss">&#39;half</span><span class="p">)</span>        <span class="c1">;; flat</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <p><img src="/media/half.png" alt="" /></p>
 
-<p>{% codeblock lang:cl %}
-(setq powerline-arrow-shape &#8216;percent)     ;; &#8230;? (I have no idea)
-{% endcodeblock %}</p>
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='cl'><span class='line'><span class="p">(</span><span class="k">setq</span> <span class="nv">powerline-arrow-shape</span> <span class="ss">&#39;percent</span><span class="p">)</span>     <span class="c1">;; ...? (I have no idea)</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <p><img src="/media/percent.png" alt="" /></p>
 
-<p>{% codeblock lang:cl %}
-(setq powerline-arrow-shape &#8216;curve)       ;; scallop curve
-{% endcodeblock %}</p>
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='cl'><span class='line'><span class="p">(</span><span class="k">setq</span> <span class="nv">powerline-arrow-shape</span> <span class="ss">&#39;curve</span><span class="p">)</span>       <span class="c1">;; scallop curve</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <p><img src="/media/curve.png" alt="" /></p>
 
 <h2>New shapes in this version</h2>
 
-<p>{% codeblock lang:cl %}
-(setq powerline-arrow-shape &#8216;rounded)     ;; new, round corner
-{% endcodeblock %}</p>
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='cl'><span class='line'><span class="p">(</span><span class="k">setq</span> <span class="nv">powerline-arrow-shape</span> <span class="ss">&#39;rounded</span><span class="p">)</span>     <span class="c1">;; new, round corner</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <p><img src="/media/rounded.png" alt="" /></p>
 
-<p>{% codeblock lang:cl %}
-(setq powerline-arrow-shape &#8216;chamfer)     ;; new, folded corner
-{% endcodeblock %}</p>
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='cl'><span class='line'><span class="p">(</span><span class="k">setq</span> <span class="nv">powerline-arrow-shape</span> <span class="ss">&#39;chamfer</span><span class="p">)</span>     <span class="c1">;; new, folded corner</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <p><img src="/media/chamfer.png" alt="" /></p>
 
-<p>{% codeblock lang:cl %}
-(setq powerline-arrow-shape &#8216;slant-left)  ;; new, diagonal from left
-{% endcodeblock %}</p>
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='cl'><span class='line'><span class="p">(</span><span class="k">setq</span> <span class="nv">powerline-arrow-shape</span> <span class="ss">&#39;slant-left</span><span class="p">)</span>  <span class="c1">;; new, diagonal from left</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <p><img src="/media/slant-left.png" alt="" /></p>
 
-<p>{% codeblock lang:cl %}
-(setq powerline-arrow-shape &#8216;slant-right) ;; new, diagonal from right
-{% endcodeblock %}
-<img src="/media/slant-right.png" alt="" /></p>
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='cl'><span class='line'><span class="p">(</span><span class="k">setq</span> <span class="nv">powerline-arrow-shape</span> <span class="ss">&#39;slant-right</span><span class="p">)</span> <span class="c1">;; new, diagonal from right</span>
+</span></code></pre></td></tr></table></div></figure>
 
-<p>{% codeblock lang:cl %}
-(setq powerline-arrow-shape &#8216;slant)       ;; mirrored diagonals
-{% endcodeblock %}</p>
+
+<p><img src="/media/slant-right.png" alt="" /></p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='cl'><span class='line'><span class="p">(</span><span class="k">setq</span> <span class="nv">powerline-arrow-shape</span> <span class="ss">&#39;slant</span><span class="p">)</span>       <span class="c1">;; mirrored diagonals</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <p><img src="/media/slant.png" alt="" /></p>
 
