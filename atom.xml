@@ -4,7 +4,7 @@
   <title><![CDATA[Emacs Fodder]]></title>
   <link href="http://emacsfodder.github.com/atom.xml" rel="self"/>
   <link href="http://emacsfodder.github.com/"/>
-  <updated>2013-01-18T21:16:50+11:00</updated>
+  <updated>2013-01-18T21:43:35+11:00</updated>
   <id>http://emacsfodder.github.com/</id>
   <author>
     <name><![CDATA[Jason Milkins]]></name>
@@ -1170,7 +1170,7 @@ functions to manipulate theme colors, or just switch on
 <a href="https://github.com/emacsmirror/rainbow-mode"><em>rainbow-mode</em></a> when
 you&#8217;re in eshell, and play.</p>
 
-<p>Here&#8217;s the full code:</p>
+<p>Here&#8217;s the full code, to get the new functions, they&#8217;re at the bottom.</p>
 
 <figure class='code'><figcaption><span> (hexrgb.el)</span> <a href='http://emacsfodder.github.com/code/hexrgb.el'>download</a></figcaption>
  <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
