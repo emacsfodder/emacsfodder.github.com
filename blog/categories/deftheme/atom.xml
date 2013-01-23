@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Emacs | Emacs Fodder]]></title>
-  <link href="http://emacsfodder.github.com/blog/categories/emacs/atom.xml" rel="self"/>
+  <title><![CDATA[Category: deftheme | Emacs Fodder]]></title>
+  <link href="http://emacsfodder.github.com/blog/categories/deftheme/atom.xml" rel="self"/>
   <link href="http://emacsfodder.github.com/"/>
   <updated>2013-01-24T00:45:08+11:00</updated>
   <id>http://emacsfodder.github.com/</id>
