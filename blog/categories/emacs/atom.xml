@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Emacs | Emacs Fodder]]></title>
   <link href="http://emacsfodder.github.com/blog/categories/emacs/atom.xml" rel="self"/>
   <link href="http://emacsfodder.github.com/"/>
-  <updated>2013-01-24T02:13:08+11:00</updated>
+  <updated>2013-01-26T11:12:36+11:00</updated>
   <id>http://emacsfodder.github.com/</id>
   <author>
     <name><![CDATA[Jason Milkins]]></name>
@@ -12,6 +12,25 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Soothe theme updated]]></title>
+    <link href="http://emacsfodder.github.com/blog/soothe_theme_updated/"/>
+    <updated>2013-01-26T00:00:00+11:00</updated>
+    <id>http://emacsfodder.github.com/blog/soothe_theme_updated</id>
+    <content type="html"><![CDATA[<p>Just a quick post about Soothe, I've updated it to run on the terminal, and adjust it's colors accordingly.</p>
+
+<p>Here's a screengrab of it running in the terminal...</p>
+
+<p><img src="https://raw.github.com/jasonm23/emacs-soothe-theme/master/soothe-terminal.png" alt="" /></p>
+
+<p>Soothe is also hosted on github as a <a href="https://github.com/jasonm23/emacs-soothe-theme">standalone repo here</a>, so it's easier for me to add it to elpa/milkbox etc.</p>
+
+<p>Also I've made a iTerm2 colortheme using the Soothe palette, which you can <a href="https://github.com/jasonm23/iterm2-color-themes">get over here</a></p>
+
+<p><img src="https://raw.github.com/jasonm23/iterm2-color-themes/master/soothe-colors.png" alt="" /></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Notes on deftheme]]></title>
@@ -174,31 +193,6 @@ psychological / color-theory sense, but try it out anyway.</p>
 <h3>ObjC</h3>
 
 <p><img src="/media/jadedragon-objc.png" alt="SleepDisplay console utility" /></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Tangerine Theme]]></title>
-    <link href="http://emacsfodder.github.com/blog/tangerine-theme/"/>
-    <updated>2012-07-02T00:00:00+10:00</updated>
-    <id>http://emacsfodder.github.com/blog/tangerine-theme</id>
-    <content type="html"><![CDATA[<p>Amber CRTs, Tangerine Dream, retro-futuristic, kandy kolored tangerine
-flake streamline baby... all these things held some influence over
-the creation of this theme.  Well, those things, and the fact I like orange.</p>
-
-<p><a href="/downloads/tangerine-theme.el">Download: Tangerine</a></p>
-
-<h2>Obligatory screenshots</h2>
-
-<p><img src="/media/tangerine-clojure.png" alt="Sample emacslisp" /></p>
-
-<h3>Tangerine shell</h3>
-
-<p><img src="/media/tangerine-shell.png" alt="Sample Shell script" /></p>
-
-<h3>Tangerine Perl</h3>
-
-<p><img src="/media/tangerine-perls.png" alt="Sample Perl code Git.pm" /></p>
 ]]></content>
   </entry>
   
