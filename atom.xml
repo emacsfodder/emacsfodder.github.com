@@ -4,7 +4,7 @@
   <title><![CDATA[Emacs Fodder]]></title>
   <link href="http://emacsfodder.github.com/atom.xml" rel="self"/>
   <link href="http://emacsfodder.github.com/"/>
-  <updated>2013-02-16T16:21:06+11:00</updated>
+  <updated>2013-02-16T21:12:38+11:00</updated>
   <id>http://emacsfodder.github.com/</id>
   <author>
     <name><![CDATA[Jason Milkins]]></name>
@@ -12,6 +12,23 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Purple Haze theme]]></title>
+    <link href="http://emacsfodder.github.com/blog/purple-haze-theme/"/>
+    <updated>2013-02-16T21:04:00+11:00</updated>
+    <id>http://emacsfodder.github.com/blog/purple-haze-theme</id>
+    <content type="html"><![CDATA[<p>Not my favorite Jimi Hendrix track, (that&#8217;d be <em>All Along the Watchtower</em>) but isn&#8217;t purple a nice restful color?</p>
+
+<p>This is yet another Emacs24 theme, it has core support for font-lock and some basic editor elements, but it lacks special support for Org, Helm, Gnus, Ido etc, etc.</p>
+
+<p>Grab it from github at http://jasonm23/emacs-purple-haze-theme</p>
+
+<h3>&#8230;and of course the obligatory screenshot</h3>
+
+<p><img src="https://raw.github.com/jasonm23/emacs-purple-haze-theme/master/purple-haze-theme.png" alt="" /></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Soothe theme updated]]></title>
