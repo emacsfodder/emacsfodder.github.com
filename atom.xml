@@ -4,7 +4,7 @@
   <title><![CDATA[Emacs Fodder]]></title>
   <link href="http://emacsfodder.github.com/atom.xml" rel="self"/>
   <link href="http://emacsfodder.github.com/"/>
-  <updated>2013-02-16T21:12:38+11:00</updated>
+  <updated>2013-02-16T21:15:02+11:00</updated>
   <id>http://emacsfodder.github.com/</id>
   <author>
     <name><![CDATA[Jason Milkins]]></name>
@@ -18,11 +18,11 @@
     <link href="http://emacsfodder.github.com/blog/purple-haze-theme/"/>
     <updated>2013-02-16T21:04:00+11:00</updated>
     <id>http://emacsfodder.github.com/blog/purple-haze-theme</id>
-    <content type="html"><![CDATA[<p>Not my favorite Jimi Hendrix track, (that&#8217;d be <em>All Along the Watchtower</em>) but isn&#8217;t purple a nice restful color?</p>
+    <content type="html"><![CDATA[<p>This is yet another Emacs24 theme, it has core support for font-lock and some basic editor elements, but it lacks special support for Org, Helm, Gnus, Ido etc, etc. It&#8217;s also not terminal friendly.</p>
 
-<p>This is yet another Emacs24 theme, it has core support for font-lock and some basic editor elements, but it lacks special support for Org, Helm, Gnus, Ido etc, etc.</p>
+<p>If that&#8217;s good enough for you, grab it from github at http://jasonm23/emacs-purple-haze-theme</p>
 
-<p>Grab it from github at http://jasonm23/emacs-purple-haze-theme</p>
+<p>No prizes for guessing where the name came from.</p>
 
 <h3>&#8230;and of course the obligatory screenshot</h3>
 
