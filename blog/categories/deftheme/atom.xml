@@ -4,7 +4,7 @@
   <title><![CDATA[Category: deftheme | Emacs Fodder]]></title>
   <link href="http://emacsfodder.github.com/blog/categories/deftheme/atom.xml" rel="self"/>
   <link href="http://emacsfodder.github.com/"/>
-  <updated>2013-02-16T21:27:01+11:00</updated>
+  <updated>2013-02-16T21:27:36+11:00</updated>
   <id>http://emacsfodder.github.com/</id>
   <author>
     <name><![CDATA[Jason Milkins]]></name>
@@ -20,7 +20,7 @@
     <id>http://emacsfodder.github.com/blog/purple-haze-theme</id>
     <content type="html"><![CDATA[<p>This is yet another Emacs24 theme, it has core support for font-lock and some basic editor elements.</p>
 
-<p>At the moment, it lacks specific support for Org-mode, Helm, Gnus, Ido etc. etc. and it's not terminal friendly.</p>
+<p>At the moment, it lacks specific support for Org-mode, Helm, Gnus, Ido etc. etc. and it's not terminal friendly. (that stuff will get added, but this is quick and dirty.)</p>
 
 <p>If that's good enough for you, grab it from github at <a href="http://github.com/jasonm23/emacs-purple-haze-theme">http://github.com/jasonm23/emacs-purple-haze-theme</a></p>
 
