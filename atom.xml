@@ -4,7 +4,7 @@
   <title><![CDATA[Emacs Fodder]]></title>
   <link href="http://emacsfodder.github.com/atom.xml" rel="self"/>
   <link href="http://emacsfodder.github.com/"/>
-  <updated>2013-02-15T13:53:59+11:00</updated>
+  <updated>2013-02-16T16:21:06+11:00</updated>
   <id>http://emacsfodder.github.com/</id>
   <author>
     <name><![CDATA[Jason Milkins]]></name>
@@ -3014,7 +3014,7 @@ you&#8217;re in eshell, and play.</p>
 
 <p><a href="http://emacsfodder.github.com/downloads/deep-blue-day-theme.el">deep-blue-day-theme.el</a></p>
 
-<p><a href="http://emacsfodder.github.com/downloads/mechanical-turq%20-theme.el">mechanical-turq-theme.el</a></p>
+<p><a href="http://emacsfodder.github.com/downloads/mechanical-turq-theme.el">mechanical-turq-theme.el</a></p>
 
 <p>Save them to your emacs custom theme folder, <code>~/.emacs.d/</code> by default, and in Emacs use <code>M-x enable-theme</code> to load and enable them (TAB completion will be available there, to make your life easier.)</p>
 
