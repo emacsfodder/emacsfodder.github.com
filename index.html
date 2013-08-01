@@ -7,7 +7,8 @@
 	<meta name="author" content="Jason Milkins">
 
 	
-	<meta name="description" content="I&#8217;ve just posted a couple of my themes to Marmalade&#8217;s Elpa repository, soothe-theme and purple-haze-theme you can install them with &hellip;">
+	<meta name="description" content="Not a theme, but a simple mechanism to reload the last theme you were
+using when you quit Emacs. I keep the same .emacs.d on all my machines, but I &hellip;">
 	
 
   <!-- http://t.co/dKP3o1e -->
@@ -36,7 +37,7 @@
 	<img src="/images/profile.png" alt="Profile Picture" style="width: 160px;">
 </div>
 <h1><a href="/">Emacs Fodder</a></h1>
-<p class="subtitle">Emacs24 on OS X</p>
+<p class="subtitle">Fodder for Emacs</p>
 <nav id="main-nav"><ul class="main">
 	<li><a href="/">Blog</a></li>
 	<li><a href="/blog/archives">Archives</a></li>
@@ -85,6 +86,56 @@
 			
 			<div class="mid-col-container">
 				<div id="content" class="inner">
+
+
+    <article class="post">
+	<div class="meta">
+		<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-08-01T19:22:00+10:00" pubdate data-updated="true">Aug 1<span>st</span>, 2013</time></div>
+		<div class="tags">
+
+</div>
+		
+			<span class="comments"><a href="/blog/remember-theme/#disqus_thread">Comments</a></span>
+		
+	</div>
+	<h1 class="title"><a href="/blog/remember-theme/">Remember Theme</a></h1>
+	<div class="entry-content">
+		<p>Not a theme, but a simple mechanism to reload the last theme you were
+using when you quit Emacs.</p>
+
+<p>I keep the same <code>.emacs.d</code> on all my machines, but I like to use
+different themes from time to time without impacting my config.</p>
+
+<p><code>remember-theme</code> provides a very simple method of doing this. Once
+installed, it will autoload at startup, check <code>~/.emacs-theme</code> file it
+uses to remember your last theme, and then load it (after disabling
+any preloaded themes). When Emacs is quit, the last theme loaded will
+be saved, ready to be loaded up next time.</p>
+
+<p>To install it, make sure you have the <strong>marmalade-repo</strong> available to
+the emacs package manager and then do <code>M-x package-list-packages</code> and
+find <code>remember-theme</code> in the list. (press <code>i</code> and <code>x</code> to begin
+installing.)</p>
+
+<p>You can find the code on github : https://github.com/jasonm23/emacs-remember-theme</p>
+
+		
+		
+	</div>
+
+</article>
 
 
     <article class="post">
@@ -505,52 +556,6 @@ the creation of this theme.  Well, those things, and the fact I like orange.</p>
 
 		
 		
-	</div>
-
-</article>
-
-
-    <article class="post">
-	<div class="meta">
-		<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-06-30T00:00:00+10:00" pubdate data-updated="true">Jun 30<span>th</span>, 2012</time></div>
-		<div class="tags">
-
-
-	<a class='category' href='/blog/categories/emacs/'>Emacs</a>, <a class='category' href='/blog/categories/color/'>color</a>
-
-
-</div>
-		
-			<span class="comments"><a href="/blog/hexrgb-some-convenient-functions/#disqus_thread">Comments</a></span>
-		
-	</div>
-	<h1 class="title"><a href="/blog/hexrgb-some-convenient-functions/">HexRGB.el With Some Extras</a></h1>
-	<div class="entry-content">
-		<p>If you use a lot of css, you probably know there a few useful
-preprocessor, like <a href="http://sass-lang.com">SASS</a> and
-<a href="http://lesscss.org">LESS</a> both of which give us a collection of color
-manipulation functions.</p>
-
-<p>Building on the work done by the most excellent <strong>Drew Adams</strong> in his
-hexrgb.el (the original is at http://www.emacswiki.org/cgi-bin/wiki/hexrgb.el)</p>
-
-<p>I&#8217;ve added a few extensions, and tweaks to make it even more useful.</p>
-
-
-		
-		<a href="/blog/hexrgb-some-convenient-functions/" class="more-link">Continue reading &rarr;</a>
 	</div>
 
 </article>

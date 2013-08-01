@@ -3,11 +3,12 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Emacs Fodder</title>
+	<title>Remember Theme - Emacs Fodder</title>
 	<meta name="author" content="Jason Milkins">
 
 	
-	<meta name="description" content="Page not found Sorry about that! Unfortunately the page you were looking for could not be found. It might have been removed, lost or never existed. &hellip;">
+	<meta name="description" content="Not a theme, but a simple mechanism to reload the last theme you were
+using when you quit Emacs. I keep the same .emacs.d on all my machines, but I &hellip;">
 	
 
   <!-- http://t.co/dKP3o1e -->
@@ -17,7 +18,7 @@
 
 	<link href="/atom.xml" rel="alternate" title="Emacs Fodder" type="application/atom+xml">
 	
-	<link rel="canonical" href="http://emacsfodder.github.com/404.html">
+	<link rel="canonical" href="http://emacsfodder.github.com/blog/remember-theme/">
 	<link href="/favicon.png" rel="shortcut icon">
 	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
 	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
@@ -84,29 +85,28 @@
 
 			
 			<div class="mid-col-container">
-				<div id="content" class="inner"><article class="page">
-    
-    <div class="entry-content"><header>
-  <h1 class="entry-title">Page not found</h1>
-  <p class="meta">Sorry about that!</p>
-</header>
+				<div id="content" class="inner"><article class="post">
+	<h1 class="title">Remember Theme</h1>
+	<div class="entry-content"><p>Not a theme, but a simple mechanism to reload the last theme you were
+using when you quit Emacs.</p>
 
-<p>
-  Unfortunately the page you were looking for could not be found. It might have
-  been removed, lost or never existed. You could try and find it using the
-  <script>
-    var arrURL = document.URL.split("/");
-    var arrParams = arrURL[3].split("?");
-    var searchParam = arrParams[0].substr(0, arrParams[0].lastIndexOf("."));
-    
-    document.write('<a href="http://google.com/search?q=site:emacsfodder.github.com ' + searchParam + '">search</a>')
-  </script>
-  <noscript><a href="http://google.com/search?q=site%3Aemacsfodder.github.com">search</a></noscript>
-  box (top right corner), browse the
-  <a href="/blog/archives">archives</a> or go to the
-  <a href="/">frontpage</a>.
-</p>
+<p>I keep the same <code>.emacs.d</code> on all my machines, but I like to use
+different themes from time to time without impacting my config.</p>
+
+<p><code>remember-theme</code> provides a very simple method of doing this. Once
+installed, it will autoload at startup, check <code>~/.emacs-theme</code> file it
+uses to remember your last theme, and then load it (after disabling
+any preloaded themes). When Emacs is quit, the last theme loaded will
+be saved, ready to be loaded up next time.</p>
+
+<p>To install it, make sure you have the <strong>marmalade-repo</strong> available to
+the emacs package manager and then do <code>M-x package-list-packages</code> and
+find <code>remember-theme</code> in the list. (press <code>i</code> and <code>x</code> to begin
+installing.)</p>
+
+<p>You can find the code on github : https://github.com/jasonm23/emacs-remember-theme</p>
 </div>
+
 </article>
 
 	<div class="share">
@@ -124,6 +124,12 @@
 </div>
 
 
+
+<section id="comment">
+    <h1 class="title">Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+</section>
 
 </div>
 			</div>
@@ -147,7 +153,10 @@
       var disqus_shortname = 'emacsfodder';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://emacsfodder.github.com/blog/remember-theme/';
+        var disqus_url = 'http://emacsfodder.github.com/blog/remember-theme/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

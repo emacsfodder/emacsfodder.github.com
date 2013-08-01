@@ -4,7 +4,7 @@
   <title><![CDATA[Emacs Fodder]]></title>
   <link href="http://emacsfodder.github.com/atom.xml" rel="self"/>
   <link href="http://emacsfodder.github.com/"/>
-  <updated>2013-02-19T13:17:09+11:00</updated>
+  <updated>2013-08-01T19:31:30+10:00</updated>
   <id>http://emacsfodder.github.com/</id>
   <author>
     <name><![CDATA[Jason Milkins]]></name>
@@ -12,6 +12,32 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Remember Theme]]></title>
+    <link href="http://emacsfodder.github.com/blog/remember-theme/"/>
+    <updated>2013-08-01T19:22:00+10:00</updated>
+    <id>http://emacsfodder.github.com/blog/remember-theme</id>
+    <content type="html"><![CDATA[<p>Not a theme, but a simple mechanism to reload the last theme you were
+using when you quit Emacs.</p>
+
+<p>I keep the same <code>.emacs.d</code> on all my machines, but I like to use
+different themes from time to time without impacting my config.</p>
+
+<p><code>remember-theme</code> provides a very simple method of doing this. Once
+installed, it will autoload at startup, check <code>~/.emacs-theme</code> file it
+uses to remember your last theme, and then load it (after disabling
+any preloaded themes). When Emacs is quit, the last theme loaded will
+be saved, ready to be loaded up next time.</p>
+
+<p>To install it, make sure you have the <strong>marmalade-repo</strong> available to
+the emacs package manager and then do <code>M-x package-list-packages</code> and
+find <code>remember-theme</code> in the list. (press <code>i</code> and <code>x</code> to begin
+installing.)</p>
+
+<p>You can find the code on github : https://github.com/jasonm23/emacs-remember-theme</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Soothing Purple Haze on marmalade]]></title>
