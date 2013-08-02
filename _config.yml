@@ -4,10 +4,10 @@
 
 url: http://emacsfodder.github.com
 title: Emacs Fodder
-subtitle: Emacs24 on OS X
+subtitle: Fodder for Emacs
 author: Jason Milkins
 simple_search: http://google.com/search
-description: Themes and stuff for Emacs24, on OSX (if ever platform specific.)
+description: Fodder, for Emacs users
 
 # Default date format is "ordinal" (resulting in "July 22nd 2007")
 # You can customize the format as defined in
