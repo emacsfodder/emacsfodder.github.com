@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: emacslisp | Emacs Fodder]]></title>
+  <link href="http://emacsfodder.github.com/blog/categories/emacslisp/atom.xml" rel="self"/>
+  <link href="http://emacsfodder.github.com/"/>
+  <updated>2014-04-05T21:54:50+08:00</updated>
+  <id>http://emacsfodder.github.com/</id>
+  <author>
+    <name><![CDATA[Jason Milkins]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Easy regexp generation with Emacs]]></title>
+    <link href="http://emacsfodder.github.com/blog/easy-regexp-generation-with-emacs/"/>
+    <updated>2014-04-05T00:00:00+08:00</updated>
+    <id>http://emacsfodder.github.com/blog/easy-regexp-generation-with-emacs</id>
+    <content type="html"><![CDATA[<p>Building regular expressions is quite tedious, and while Emacs has a
+number of tools that help build them they are generally geared towards
+building regexps which are Emacs Lisp specific.</p>
+
+<p>Emacs Lisp regular expressions use a different syntax than you're
+probably used to (those are usually PCRE used by many current/popular
+languages.) But it's quite easy to convert them with a nice package
+called <code>pcre2el</code>.</p>
+
+<h2>Creating an optimized regexp to match a list of words</h2>
+
+<p>When you want to match a list of words, using a regexp, it's fairly
+standard to use a pattern similar to this:</p>
+
+<pre><code>word1|word2|word3
+</code></pre>
+
+<p>As that list of words becomes more complex, doing something like the
+following, to optimize the regexp becomes trickier:</p>
+
+<pre><code>word[1,2,3]
+</code></pre>
+
+<p>Emacs can help us out here with a neat extension called <code>regexp-opt</code>
+(short for: regular expression optimiser.)  It accepts a list of
+words, and builds an optimised regexp for them. <code>regexp-opt</code> is a
+builtin package, so you don't need to install it.</p>
+
+<p>For example, the list of words in this sentence.</p>
+
+<pre><code>(regexp-opt
+  '("For" "example" "the" "list" "of" "words" "in" "this" "sentence"))
+</code></pre>
+
+<p>Generates the following Emacs Lisp style regular expression:</p>
+
+<pre><code>\(?:For\|example\|in\|list\|of\|sentence\|th\(?:e\|is\)\|words\)
+</code></pre>
+
+<p>I think this is rather cool, although as it is, a bit awkward for use
+in most other languages. This is where the package <code>pcre2el</code> comes in
+handy, while <code>pcre2el</code> sounds like it converts PCRE to Emace Lisp
+style, which indeed it does, it also automatically works the other way
+and converts Emacs Lisp style regexps to pcre. <code>pcre2el</code> is available
+on MELPA, so providing you have <a href="">MELPA packages available</a> you should be able to just do:</p>
+
+<pre><code>M-x package-install
+pcre2el
+</code></pre>
+
+<p>Once it's installed, here's what it gives us when we send our previous
+<code>regexp-opt</code> output though it:</p>
+
+<pre><code>(?:For|example|in|list|of|sentence|th(?:e|is)|words)
+</code></pre>
+
+<p>This is the emacs lisp code:</p>
+
+<pre><code>(pcre-to-elisp
+  (regexp-opt
+    '("For" "example" "the" "list" "of" "words" "in" "this" "sentence")))
+</code></pre>
+
+<p>Turning this into an interactive function is pretty easy, let's say
+you want Emacs to prompt you for the list of words...</p>
+
+<pre><code>(defun pcre-regexp-from-list-of-words (words)
+  "insert a pcre regexp to match a list of words"
+  (interactive "sList of words for regexp: ")
+  (insert
+   (pcre-to-elisp
+    (regexp-opt (split-string words)))))
+</code></pre>
+
+<p>You can just paste this into <code>*scratch*</code> and evaluate it (do <code>C-x
+C-e</code>) now you can run it with <code>M-x pcre-regexp-from-list-of-words</code> and
+enter a string of words, for example <em>"this is a test"</em> and we'd get
+the following regexp inserted into the buffer:</p>
+
+<pre><code>(?:a|is|t(?:est|his))
+</code></pre>
+
+<p>I hope this helps you out with making regexps, and also some
+inspiration for little Emacs hacks of your own.</p>
+]]></content>
+  </entry>
+  
+</feed>

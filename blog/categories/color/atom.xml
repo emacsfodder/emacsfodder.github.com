@@ -4,7 +4,7 @@
   <title><![CDATA[Category: color | Emacs Fodder]]></title>
   <link href="http://emacsfodder.github.com/blog/categories/color/atom.xml" rel="self"/>
   <link href="http://emacsfodder.github.com/"/>
-  <updated>2013-08-01T19:31:30+10:00</updated>
+  <updated>2014-04-05T21:54:50+08:00</updated>
   <id>http://emacsfodder.github.com/</id>
   <author>
     <name><![CDATA[Jason Milkins]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[HexRGB.el with some extras]]></title>
     <link href="http://emacsfodder.github.com/blog/hexrgb-some-convenient-functions/"/>
-    <updated>2012-06-30T00:00:00+10:00</updated>
+    <updated>2012-06-30T00:00:00+08:00</updated>
     <id>http://emacsfodder.github.com/blog/hexrgb-some-convenient-functions</id>
     <content type="html"><![CDATA[<p>If you use a lot of css, you probably know there a few useful
 preprocessor, like <a href="http://sass-lang.com">SASS</a> and

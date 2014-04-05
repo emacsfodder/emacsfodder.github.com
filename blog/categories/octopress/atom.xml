@@ -4,7 +4,7 @@
   <title><![CDATA[Category: octopress | Emacs Fodder]]></title>
   <link href="http://emacsfodder.github.com/blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://emacsfodder.github.com/"/>
-  <updated>2013-08-01T19:31:30+10:00</updated>
+  <updated>2014-04-05T21:54:50+08:00</updated>
   <id>http://emacsfodder.github.com/</id>
   <author>
     <name><![CDATA[Jason Milkins]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[Alternative _syntax.scss for Octopress]]></title>
     <link href="http://emacsfodder.github.com/blog/alternative-syntax-scss-for-octopress/"/>
-    <updated>2013-01-16T00:00:00+11:00</updated>
+    <updated>2013-01-16T00:00:00+08:00</updated>
     <id>http://emacsfodder.github.com/blog/alternative-syntax-scss-for-octopress</id>
     <content type="html"><![CDATA[<p>Well this isn't anything to do with Emacs, but since this blog uses
 Octopress, I suppose this is as good a place as any to post this.</p>

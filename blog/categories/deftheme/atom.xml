@@ -4,7 +4,7 @@
   <title><![CDATA[Category: deftheme | Emacs Fodder]]></title>
   <link href="http://emacsfodder.github.com/blog/categories/deftheme/atom.xml" rel="self"/>
   <link href="http://emacsfodder.github.com/"/>
-  <updated>2013-08-01T19:31:30+10:00</updated>
+  <updated>2014-04-05T21:54:50+08:00</updated>
   <id>http://emacsfodder.github.com/</id>
   <author>
     <name><![CDATA[Jason Milkins]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[Soothing Purple Haze on marmalade]]></title>
     <link href="http://emacsfodder.github.com/blog/soothing_purple_haze_on_marmalade/"/>
-    <updated>2013-02-17T00:00:00+11:00</updated>
+    <updated>2013-02-17T00:00:00+08:00</updated>
     <id>http://emacsfodder.github.com/blog/soothing_purple_haze_on_marmalade</id>
     <content type="html"><![CDATA[<p>I've just posted a couple of my themes to Marmalade's Elpa repository, <code>soothe-theme</code> and <code>purple-haze-theme</code> you can install them with package.el (part of Emacs24)</p>
 
@@ -37,7 +37,7 @@
   <entry>
     <title type="html"><![CDATA[Purple Haze theme]]></title>
     <link href="http://emacsfodder.github.com/blog/purple-haze-theme/"/>
-    <updated>2013-02-16T21:04:00+11:00</updated>
+    <updated>2013-02-16T21:04:00+08:00</updated>
     <id>http://emacsfodder.github.com/blog/purple-haze-theme</id>
     <content type="html"><![CDATA[<p>This is yet another Emacs24 theme, it has core support for font-lock and some basic editor elements.</p>
 
@@ -58,7 +58,7 @@
   <entry>
     <title type="html"><![CDATA[Soothe theme updated]]></title>
     <link href="http://emacsfodder.github.com/blog/soothe_theme_updated/"/>
-    <updated>2013-01-26T00:00:00+11:00</updated>
+    <updated>2013-01-26T00:00:00+08:00</updated>
     <id>http://emacsfodder.github.com/blog/soothe_theme_updated</id>
     <content type="html"><![CDATA[<p>Just a quick post about Soothe, I've updated it to run on the terminal, and adjust it's colors accordingly.</p>
 
@@ -77,7 +77,7 @@
   <entry>
     <title type="html"><![CDATA[Notes on deftheme]]></title>
     <link href="http://emacsfodder.github.com/blog/notes-on-deftheme/"/>
-    <updated>2013-01-15T00:00:00+11:00</updated>
+    <updated>2013-01-15T00:00:00+08:00</updated>
     <id>http://emacsfodder.github.com/blog/notes-on-deftheme</id>
     <content type="html"><![CDATA[<p>I have a bunch of Emacs color themes that I built a few years ago,
 they use the old <code>color-theme.el</code> system, I'd also adapted a web-based
@@ -182,7 +182,7 @@ themes.</p>
   <entry>
     <title type="html"><![CDATA[Mesa theme]]></title>
     <link href="http://emacsfodder.github.com/blog/mesa-theme/"/>
-    <updated>2013-01-14T00:00:00+11:00</updated>
+    <updated>2013-01-14T00:00:00+08:00</updated>
     <id>http://emacsfodder.github.com/blog/mesa-theme</id>
     <content type="html"><![CDATA[<p>Mesa is a theme for Emacs 24, works in both the terminal and full
 color GUIs.</p>

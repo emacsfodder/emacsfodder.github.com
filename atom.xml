@@ -4,7 +4,7 @@
   <title><![CDATA[Emacs Fodder]]></title>
   <link href="http://emacsfodder.github.com/atom.xml" rel="self"/>
   <link href="http://emacsfodder.github.com/"/>
-  <updated>2013-08-01T19:31:30+10:00</updated>
+  <updated>2014-04-05T21:54:50+08:00</updated>
   <id>http://emacsfodder.github.com/</id>
   <author>
     <name><![CDATA[Jason Milkins]]></name>
@@ -14,9 +14,101 @@
 
   
   <entry>
+    <title type="html"><![CDATA[Easy regexp generation with Emacs]]></title>
+    <link href="http://emacsfodder.github.com/blog/easy-regexp-generation-with-emacs/"/>
+    <updated>2014-04-05T00:00:00+08:00</updated>
+    <id>http://emacsfodder.github.com/blog/easy-regexp-generation-with-emacs</id>
+    <content type="html"><![CDATA[<p>Building regular expressions is quite tedious, and while Emacs has a
+number of tools that help build them they are generally geared towards
+building regexps which are Emacs Lisp specific.</p>
+
+<p>Emacs Lisp regular expressions use a different syntax than you&#8217;re
+probably used to (those are usually PCRE used by many current/popular
+languages.) But it&#8217;s quite easy to convert them with a nice package
+called <code>pcre2el</code>.</p>
+
+<h2>Creating an optimized regexp to match a list of words</h2>
+
+<p>When you want to match a list of words, using a regexp, it&#8217;s fairly
+standard to use a pattern similar to this:</p>
+
+<pre><code>word1|word2|word3
+</code></pre>
+
+<p>As that list of words becomes more complex, doing something like the
+following, to optimize the regexp becomes trickier:</p>
+
+<pre><code>word[1,2,3]
+</code></pre>
+
+<p>Emacs can help us out here with a neat extension called <code>regexp-opt</code>
+(short for: regular expression optimiser.)  It accepts a list of
+words, and builds an optimised regexp for them. <code>regexp-opt</code> is a
+builtin package, so you don&#8217;t need to install it.</p>
+
+<p>For example, the list of words in this sentence.</p>
+
+<pre><code>(regexp-opt
+  '("For" "example" "the" "list" "of" "words" "in" "this" "sentence"))
+</code></pre>
+
+<p>Generates the following Emacs Lisp style regular expression:</p>
+
+<pre><code>\(?:For\|example\|in\|list\|of\|sentence\|th\(?:e\|is\)\|words\)
+</code></pre>
+
+<p>I think this is rather cool, although as it is, a bit awkward for use
+in most other languages. This is where the package <code>pcre2el</code> comes in
+handy, while <code>pcre2el</code> sounds like it converts PCRE to Emace Lisp
+style, which indeed it does, it also automatically works the other way
+and converts Emacs Lisp style regexps to pcre. <code>pcre2el</code> is available
+on MELPA, so providing you have <a href="">MELPA packages available</a> you should be able to just do:</p>
+
+<pre><code>M-x package-install
+pcre2el
+</code></pre>
+
+<p>Once it&#8217;s installed, here&#8217;s what it gives us when we send our previous
+<code>regexp-opt</code> output though it:</p>
+
+<pre><code>(?:For|example|in|list|of|sentence|th(?:e|is)|words)
+</code></pre>
+
+<p>This is the emacs lisp code:</p>
+
+<pre><code>(pcre-to-elisp
+  (regexp-opt
+    '("For" "example" "the" "list" "of" "words" "in" "this" "sentence")))
+</code></pre>
+
+<p>Turning this into an interactive function is pretty easy, let&#8217;s say
+you want Emacs to prompt you for the list of words&#8230;</p>
+
+<pre><code>(defun pcre-regexp-from-list-of-words (words)
+  "insert a pcre regexp to match a list of words"
+  (interactive "sList of words for regexp: ")
+  (insert
+   (pcre-to-elisp
+    (regexp-opt (split-string words)))))
+</code></pre>
+
+<p>You can just paste this into <code>*scratch*</code> and evaluate it (do <code>C-x
+C-e</code>) now you can run it with <code>M-x pcre-regexp-from-list-of-words</code> and
+enter a string of words, for example <em>&#8220;this is a test&#8221;</em> and we&#8217;d get
+the following regexp inserted into the buffer:</p>
+
+<pre><code>(?:a|is|t(?:est|his))
+</code></pre>
+
+<p>I hope this helps you out with making regexps, and also some
+inspiration for little Emacs hacks of your own.</p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[Remember Theme]]></title>
     <link href="http://emacsfodder.github.com/blog/remember-theme/"/>
-    <updated>2013-08-01T19:22:00+10:00</updated>
+    <updated>2013-08-01T19:22:00+08:00</updated>
     <id>http://emacsfodder.github.com/blog/remember-theme</id>
     <content type="html"><![CDATA[<p>Not a theme, but a simple mechanism to reload the last theme you were
 using when you quit Emacs.</p>
@@ -42,7 +134,7 @@ installing.)</p>
   <entry>
     <title type="html"><![CDATA[Soothing Purple Haze on marmalade]]></title>
     <link href="http://emacsfodder.github.com/blog/soothing_purple_haze_on_marmalade/"/>
-    <updated>2013-02-17T00:00:00+11:00</updated>
+    <updated>2013-02-17T00:00:00+08:00</updated>
     <id>http://emacsfodder.github.com/blog/soothing_purple_haze_on_marmalade</id>
     <content type="html"><![CDATA[<p>I&#8217;ve just posted a couple of my themes to Marmalade&#8217;s Elpa repository, <code>soothe-theme</code> and <code>purple-haze-theme</code> you can install them with package.el (part of Emacs24)</p>
 
@@ -63,7 +155,7 @@ installing.)</p>
   <entry>
     <title type="html"><![CDATA[Purple Haze theme]]></title>
     <link href="http://emacsfodder.github.com/blog/purple-haze-theme/"/>
-    <updated>2013-02-16T21:04:00+11:00</updated>
+    <updated>2013-02-16T21:04:00+08:00</updated>
     <id>http://emacsfodder.github.com/blog/purple-haze-theme</id>
     <content type="html"><![CDATA[<p>This is yet another Emacs24 theme, it has core support for font-lock and some basic editor elements.</p>
 
@@ -84,7 +176,7 @@ installing.)</p>
   <entry>
     <title type="html"><![CDATA[Soothe theme updated]]></title>
     <link href="http://emacsfodder.github.com/blog/soothe_theme_updated/"/>
-    <updated>2013-01-26T00:00:00+11:00</updated>
+    <updated>2013-01-26T00:00:00+08:00</updated>
     <id>http://emacsfodder.github.com/blog/soothe_theme_updated</id>
     <content type="html"><![CDATA[<p>Just a quick post about Soothe, I&#8217;ve updated it to run on the terminal, and adjust it&#8217;s colors accordingly.</p>
 
@@ -103,7 +195,7 @@ installing.)</p>
   <entry>
     <title type="html"><![CDATA[Alternative _syntax.scss for Octopress]]></title>
     <link href="http://emacsfodder.github.com/blog/alternative-syntax-scss-for-octopress/"/>
-    <updated>2013-01-16T00:00:00+11:00</updated>
+    <updated>2013-01-16T00:00:00+08:00</updated>
     <id>http://emacsfodder.github.com/blog/alternative-syntax-scss-for-octopress</id>
     <content type="html"><![CDATA[<p>Well this isn&#8217;t anything to do with Emacs, but since this blog uses
 Octopress, I suppose this is as good a place as any to post this.</p>
@@ -1005,7 +1097,7 @@ replace your existing one, all the variables are self-contained.</p>
   <entry>
     <title type="html"><![CDATA[Notes on deftheme]]></title>
     <link href="http://emacsfodder.github.com/blog/notes-on-deftheme/"/>
-    <updated>2013-01-15T00:00:00+11:00</updated>
+    <updated>2013-01-15T00:00:00+08:00</updated>
     <id>http://emacsfodder.github.com/blog/notes-on-deftheme</id>
     <content type="html"><![CDATA[<p>I have a bunch of Emacs color themes that I built a few years ago,
 they use the old <code>color-theme.el</code> system, I&#8217;d also adapted a web-based
@@ -1111,7 +1203,7 @@ themes.</p>
   <entry>
     <title type="html"><![CDATA[Mesa theme]]></title>
     <link href="http://emacsfodder.github.com/blog/mesa-theme/"/>
-    <updated>2013-01-14T00:00:00+11:00</updated>
+    <updated>2013-01-14T00:00:00+08:00</updated>
     <id>http://emacsfodder.github.com/blog/mesa-theme</id>
     <content type="html"><![CDATA[<p>Mesa is a theme for Emacs 24, works in both the terminal and full
 color GUIs.</p>
@@ -1128,7 +1220,7 @@ color GUIs.</p>
   <entry>
     <title type="html"><![CDATA[Soothe theme]]></title>
     <link href="http://emacsfodder.github.com/blog/soothe-theme/"/>
-    <updated>2012-07-17T00:00:00+10:00</updated>
+    <updated>2012-07-17T00:00:00+08:00</updated>
     <id>http://emacsfodder.github.com/blog/soothe-theme</id>
     <content type="html"><![CDATA[<p>This is a theme I use almost exclusively now, it&#8217;s not Terminal
 friendly, and I should fix that, but if you&#8217;re using Emacs.app on OS
@@ -1153,7 +1245,7 @@ psychological / color-theory sense, but try it out anyway.</p>
   <entry>
     <title type="html"><![CDATA[Jade Dragon theme]]></title>
     <link href="http://emacsfodder.github.com/blog/jadedragon-theme/"/>
-    <updated>2012-07-03T00:00:00+10:00</updated>
+    <updated>2012-07-03T00:00:00+08:00</updated>
     <id>http://emacsfodder.github.com/blog/jadedragon-theme</id>
     <content type="html"><![CDATA[<p><a href="http://emacsfodder.github.com/downloads/jadedragon-theme.el">Download: jade dragon</a></p>
 
@@ -1170,7 +1262,7 @@ psychological / color-theory sense, but try it out anyway.</p>
   <entry>
     <title type="html"><![CDATA[Tangerine Theme]]></title>
     <link href="http://emacsfodder.github.com/blog/tangerine-theme/"/>
-    <updated>2012-07-02T00:00:00+10:00</updated>
+    <updated>2012-07-02T00:00:00+08:00</updated>
     <id>http://emacsfodder.github.com/blog/tangerine-theme</id>
     <content type="html"><![CDATA[<p>Amber CRTs, Tangerine Dream, retro-futuristic, kandy kolored tangerine
 flake streamline baby&#8230; all these things held some influence over
@@ -1195,7 +1287,7 @@ the creation of this theme.  Well, those things, and the fact I like orange.</p>
   <entry>
     <title type="html"><![CDATA[HexRGB.el with some extras]]></title>
     <link href="http://emacsfodder.github.com/blog/hexrgb-some-convenient-functions/"/>
-    <updated>2012-06-30T00:00:00+10:00</updated>
+    <updated>2012-06-30T00:00:00+08:00</updated>
     <id>http://emacsfodder.github.com/blog/hexrgb-some-convenient-functions</id>
     <content type="html"><![CDATA[<p>If you use a lot of css, you probably know there a few useful
 preprocessor, like <a href="http://sass-lang.com">SASS</a> and
@@ -3074,7 +3166,7 @@ you&#8217;re in eshell, and play.</p>
   <entry>
     <title type="html"><![CDATA[Two Emacs24 Themes]]></title>
     <link href="http://emacsfodder.github.com/blog/two-new-emacs24-themes/"/>
-    <updated>2012-06-29T00:00:00+10:00</updated>
+    <updated>2012-06-29T00:00:00+08:00</updated>
     <id>http://emacsfodder.github.com/blog/two-new-emacs24-themes</id>
     <content type="html"><![CDATA[<p><img src="http://emacsfodder.github.com/media/emacs24.themes.vol1.png" alt="" /></p>
 
@@ -3093,7 +3185,7 @@ you&#8217;re in eshell, and play.</p>
   <entry>
     <title type="html"><![CDATA[Powerline.el enhanced]]></title>
     <link href="http://emacsfodder.github.com/blog/powerline-enhanced/"/>
-    <updated>2012-06-20T00:00:00+10:00</updated>
+    <updated>2012-06-20T00:00:00+08:00</updated>
     <id>http://emacsfodder.github.com/blog/powerline-enhanced</id>
     <content type="html"><![CDATA[<h2>Update: Jan 2013 - There is now a new powerline.el (1.2)</h2>
 
