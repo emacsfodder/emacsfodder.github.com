@@ -1,9 +1,8 @@
 ---
 layout: post
 title: "Easy regexp generation with Emacs"
-date: 2014-04-05 19:59
 comments: true
-categories: [Emacs,regexp]
+categories: [Emacs,regexp,emacslisp]
 ---
 
 Building regular expressions is quite tedious, and while Emacs has a
