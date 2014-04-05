@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Emacs | Emacs Fodder]]></title>
   <link href="http://emacsfodder.github.com/blog/categories/emacs/atom.xml" rel="self"/>
   <link href="http://emacsfodder.github.com/"/>
-  <updated>2014-04-05T21:54:50+08:00</updated>
+  <updated>2014-04-05T22:57:35+08:00</updated>
   <id>http://emacsfodder.github.com/</id>
   <author>
     <name><![CDATA[Jason Milkins]]></name>
@@ -48,9 +48,11 @@ builtin package, so you don't need to install it.</p>
 
 <p>For example, the list of words in this sentence.</p>
 
-<pre><code>(regexp-opt
-  '("For" "example" "the" "list" "of" "words" "in" "this" "sentence"))
-</code></pre>
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='cl'><span class='line'><span class="p">(</span><span class="nv">regexp-opt</span>
+</span><span class='line'>  <span class="o">&#39;</span><span class="p">(</span><span class="s">&quot;For&quot;</span> <span class="s">&quot;example&quot;</span> <span class="s">&quot;the&quot;</span> <span class="s">&quot;list&quot;</span> <span class="s">&quot;of&quot;</span> <span class="s">&quot;words&quot;</span> <span class="s">&quot;in&quot;</span> <span class="s">&quot;this&quot;</span> <span class="s">&quot;sentence&quot;</span><span class="p">))</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>Generates the following Emacs Lisp style regular expression:</p>
 
@@ -76,21 +78,46 @@ pcre2el
 
 <p>This is the emacs lisp code:</p>
 
-<pre><code>(pcre-to-elisp
-  (regexp-opt
-    '("For" "example" "the" "list" "of" "words" "in" "this" "sentence")))
-</code></pre>
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='cl'><span class='line'><span class="p">(</span><span class="nv">pcre-to-elisp</span>
+</span><span class='line'>  <span class="p">(</span><span class="nv">regexp-opt&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">&lt;pre&gt;&lt;code&gt;</span><span class="o">&#39;</span><span class="p">(</span><span class="s">&quot;For&quot;</span> <span class="s">&quot;example&quot;</span> <span class="s">&quot;the&quot;</span> <span class="s">&quot;list&quot;</span> <span class="s">&quot;of&quot;</span> <span class="s">&quot;words&quot;</span> <span class="s">&quot;in&quot;</span> <span class="s">&quot;this&quot;</span> <span class="s">&quot;sentence&quot;</span><span class="p">)))</span>
+</span><span class='line'><span class="nv">&lt;/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">&lt;p&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>Turning this into an interactive function is pretty easy, let's say
 you want Emacs to prompt you for the list of words...</p>
 
-<pre><code>(defun pcre-regexp-from-list-of-words (words)
-  "insert a pcre regexp to match a list of words"
-  (interactive "sList of words for regexp: ")
-  (insert
-   (pcre-to-elisp
-    (regexp-opt (split-string words)))))
-</code></pre>
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='cl'><span class='line'><span class="p">(</span><span class="nb">defun</span> <span class="nv">pcre-regexp-from-list-of-words</span> <span class="p">(</span><span class="nv">words</span><span class="p">)</span>
+</span><span class='line'>  <span class="s">&quot;insert a pcre regexp to match a list of words&quot;</span>
+</span><span class='line'>  <span class="p">(</span><span class="nv">interactive</span> <span class="s">&quot;sList of words for regexp: &quot;</span><span class="p">)</span>
+</span><span class='line'>  <span class="p">(</span><span class="nv">insert</span>
+</span><span class='line'>   <span class="p">(</span><span class="nv">pcre-to-elisp&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">&lt;pre&gt;&lt;code&gt;</span><span class="p">(</span><span class="nv">regexp-opt</span> <span class="p">(</span><span class="nv">split-string</span> <span class="nv">words</span><span class="p">)))))</span>
+</span><span class='line'><span class="nv">&lt;/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">&lt;p&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>You can just paste this into <code>*scratch*</code> and evaluate it (do <code>C-x
 C-e</code>) now you can run it with <code>M-x pcre-regexp-from-list-of-words</code> and
