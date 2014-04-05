@@ -215,8 +215,17 @@ the following regexp inserted into the buffer:</p>
 <pre><code>(?:a|is|t(?:est|his))
 </code></pre>
 
-<p>I hope this helps you out with making regexps, and also some
-inspiration for little Emacs hacks of your own.</p>
+<p>You can add the function to your <code>.emacs.d/init.el</code> (after you&#8217;ve done
+<code>package-initialize</code>) and bind it to a suitable key, using
+<code>global-set-key</code>, ie:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='cl'><span class='line'><span class="p">(</span><span class="nv">global-set-key</span> <span class="p">(</span><span class="nv">kbd</span> <span class="s">&quot;C-c R&quot;</span><span class="p">)</span> <span class="ss">&#39;pcre-regexp-from-list-of-words</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>I hope this helps you make regexps with Emacs, and also gives you some
+inspiration for Emacs hacks of your own.</p>
 
 		
 		
