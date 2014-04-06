@@ -24,7 +24,7 @@ standard to use a pattern similar to this:
 As that list of words becomes more complex, doing something like the
 following, to optimize the regexp becomes trickier:
 
-    word[1,2,3]
+    word[1-3]
 
 Emacs can help us out here with a neat extension called `regexp-opt`
 (short for: regular expression optimiser.)  It accepts a list of
@@ -33,8 +33,10 @@ builtin package, so you don't need to install it.
 
 For example, the list of words in this sentence.
 
-    (regexp-opt
-      '("For" "example" "the" "list" "of" "words" "in" "this" "sentence"))
+{% codeblock lang:cl %}
+(regexp-opt
+  '("For" "example" "the" "list" "of" "words" "in" "this" "sentence"))
+{% endcodeblock %}
 
 Generates the following Emacs Lisp style regular expression:
 
@@ -45,7 +47,9 @@ in most other languages. This is where the package `pcre2el` comes in
 handy, while `pcre2el` sounds like it converts PCRE to Emace Lisp
 style, which indeed it does, it also automatically works the other way
 and converts Emacs Lisp style regexps to pcre. `pcre2el` is available
-on MELPA, so providing you have [MELPA packages available]() you should be able to just do:
+on MELPA, so providing you have
+[MELPA packages available](http://melpa.milkbox.net/#/getting-started)
+you should be able to just do:
 
     M-x package-install
     pcre2el
@@ -57,19 +61,24 @@ Once it's installed, here's what it gives us when we send our previous
 
 This is the emacs lisp code:
 
-    (pcre-to-elisp
-      (regexp-opt
-        '("For" "example" "the" "list" "of" "words" "in" "this" "sentence")))
+{% codeblock lang:cl %}
+(pcre-to-elisp
+  (regexp-opt
+    '("For" "example" "the" "list" "of" "words" "in" "this" "sentence")))
+{% endcodeblock %}
 
 Turning this into an interactive function is pretty easy, let's say
 you want Emacs to prompt you for the list of words...
 
-    (defun pcre-regexp-from-list-of-words (words)
-      "insert a pcre regexp to match a list of words"
-      (interactive "sList of words for regexp: ")
-      (insert
-       (pcre-to-elisp
-        (regexp-opt (split-string words)))))
+{% codeblock lang:cl %}
+(defun pcre-regexp-from-list-of-words (words)
+  "insert a pcre regexp to match a list of words"
+  (interactive "sList of words for regexp: ")
+  (insert
+   (pcre-to-elisp
+    (regexp-opt (split-string words)))))
+{% endcodeblock %}
+
 
 You can just paste this into `*scratch*` and evaluate it (do `C-x
 C-e`) now you can run it with `M-x pcre-regexp-from-list-of-words` and
@@ -78,5 +87,19 @@ the following regexp inserted into the buffer:
 
     (?:a|is|t(?:est|his))
 
-I hope this helps you out with making regexps, and also some
-inspiration for little Emacs hacks of your own.
+You can add the function to your `.emacs.d/init.el` (after you've done
+`package-initialize`) and bind it to a suitable key, using
+`global-set-key`, ie:
+
+{% codeblock lang:cl %}
+(global-set-key (kbd "C-c R") 'pcre-regexp-from-list-of-words)
+{% endcodeblock %}
+
+I hope this helps you make regexps with Emacs, and also gives you some
+inspiration for Emacs hacks of your own.
+
+Update: For more Emacs regexp goodness, have a look at
+[Visual Regexp](https://github.com/benma/visual-regexp.el) and
+[Visual Regexp Steroids](https://github.com/benma/visual-regexp-steroids.el)
+(which does PCRE-like regexps with lookbehinds etc.) Both of these are
+available via [MELPA](http://melpa.milkbox.net).
