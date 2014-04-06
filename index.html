@@ -137,7 +137,7 @@ standard to use a pattern similar to this:</p>
 <p>As that list of words becomes more complex, doing something like the
 following, to optimize the regexp becomes trickier:</p>
 
-<pre><code>word[1,2,3]
+<pre><code>word[1-3]
 </code></pre>
 
 <p>Emacs can help us out here with a neat extension called <code>regexp-opt</code>
@@ -226,6 +226,12 @@ the following regexp inserted into the buffer:</p>
 
 <p>I hope this helps you make regexps with Emacs, and also gives you some
 inspiration for Emacs hacks of your own.</p>
+
+<p>Update: For more Emacs regexp goodness, have a look at
+<a href="https://github.com/benma/visual-regexp.el">Visual Regexp</a> and
+<a href="https://github.com/benma/visual-regexp-steroids.el">Visual Regexp Steroids</a>
+(which does PCRE-like regexps with lookbehinds etc.) Both of these are
+available via <a href="http://melpa.milkbox.net">MELPA</a>.</p>
 
 		
 		
