@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Emacs | Emacs Fodder]]></title>
+  <link href="http://emacsfodder.github.com/blog/categories/emacs/atom.xml" rel="self"/>
+  <link href="http://emacsfodder.github.com/"/>
+  <updated>2014-04-06T14:26:08+08:00</updated>
+  <id>http://emacsfodder.github.com/</id>
+  <author>
+    <name><![CDATA[Jason Milkins]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Easy regexp generation with Emacs]]></title>
+    <link href="http://emacsfodder.github.com/blog/easy-regexp-generation-with-emacs/"/>
+    <updated>2014-04-05T00:00:00+08:00</updated>
+    <id>http://emacsfodder.github.com/blog/easy-regexp-generation-with-emacs</id>
+    <content type="html"><![CDATA[<p>Building regular expressions is quite tedious, and while Emacs has a
+number of tools that help build them they are generally geared towards
+building regexps which are Emacs Lisp specific.</p>
+
+<p>Emacs Lisp regular expressions use a different syntax than you're
+probably used to (those are usually PCRE used by many current/popular
+languages.) But it's quite easy to convert them with a nice package
+called <code>pcre2el</code>.</p>
+
+<h2>Creating an optimized regexp to match a list of words</h2>
+
+<p>When you want to match a list of words, using a regexp, it's fairly
+standard to use a pattern similar to this:</p>
+
+<pre><code>word1|word2|word3
+</code></pre>
+
+<p>As that list of words becomes more complex, doing something like the
+following, to optimize the regexp becomes trickier:</p>
+
+<pre><code>word[1-3]
+</code></pre>
+
+<p>Emacs can help us out here with a neat extension called <code>regexp-opt</code>
+(short for: regular expression optimiser.)  It accepts a list of
+words, and builds an optimised regexp for them. <code>regexp-opt</code> is a
+builtin package, so you don't need to install it.</p>
+
+<p>For example, the list of words in this sentence.</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='cl'><span class='line'><span class="p">(</span><span class="nv">regexp-opt</span>
+</span><span class='line'>  <span class="o">&#39;</span><span class="p">(</span><span class="s">&quot;For&quot;</span> <span class="s">&quot;example&quot;</span> <span class="s">&quot;the&quot;</span> <span class="s">&quot;list&quot;</span> <span class="s">&quot;of&quot;</span> <span class="s">&quot;words&quot;</span> <span class="s">&quot;in&quot;</span> <span class="s">&quot;this&quot;</span> <span class="s">&quot;sentence&quot;</span><span class="p">))</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>Generates the following Emacs Lisp style regular expression:</p>
+
+<pre><code>\(?:For\|example\|in\|list\|of\|sentence\|th\(?:e\|is\)\|words\)
+</code></pre>
+
+<p>I think this is rather cool, although as it is, a bit awkward for use
+in most other languages. This is where the package <code>pcre2el</code> comes in
+handy, while <code>pcre2el</code> sounds like it converts PCRE to Emace Lisp
+style, which indeed it does, it also automatically works the other way
+and converts Emacs Lisp style regexps to pcre. <code>pcre2el</code> is available
+on MELPA, so providing you have
+<a href="http://melpa.milkbox.net/#/getting-started">MELPA packages available</a>
+you should be able to just do:</p>
+
+<pre><code>M-x package-install
+pcre2el
+</code></pre>
+
+<p>Once it's installed, here's what it gives us when we send our previous
+<code>regexp-opt</code> output though it:</p>
+
+<pre><code>(?:For|example|in|list|of|sentence|th(?:e|is)|words)
+</code></pre>
+
+<p>This is the emacs lisp code:</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='cl'><span class='line'><span class="p">(</span><span class="nv">pcre-to-elisp</span>
+</span><span class='line'>  <span class="p">(</span><span class="nv">regexp-opt&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">&lt;pre&gt;&lt;code&gt;</span><span class="o">&#39;</span><span class="p">(</span><span class="s">&quot;For&quot;</span> <span class="s">&quot;example&quot;</span> <span class="s">&quot;the&quot;</span> <span class="s">&quot;list&quot;</span> <span class="s">&quot;of&quot;</span> <span class="s">&quot;words&quot;</span> <span class="s">&quot;in&quot;</span> <span class="s">&quot;this&quot;</span> <span class="s">&quot;sentence&quot;</span><span class="p">)))</span>
+</span><span class='line'><span class="nv">&lt;/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">&lt;p&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>Turning this into an interactive function is pretty easy, let's say
+you want Emacs to prompt you for the list of words...</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='cl'><span class='line'><span class="p">(</span><span class="nb">defun</span> <span class="nv">pcre-regexp-from-list-of-words</span> <span class="p">(</span><span class="nv">words</span><span class="p">)</span>
+</span><span class='line'>  <span class="s">&quot;insert a pcre regexp to match a list of words&quot;</span>
+</span><span class='line'>  <span class="p">(</span><span class="nv">interactive</span> <span class="s">&quot;sList of words for regexp: &quot;</span><span class="p">)</span>
+</span><span class='line'>  <span class="p">(</span><span class="nv">insert</span>
+</span><span class='line'>   <span class="p">(</span><span class="nv">pcre-to-elisp&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">&lt;pre&gt;&lt;code&gt;</span><span class="p">(</span><span class="nv">regexp-opt</span> <span class="p">(</span><span class="nv">split-string</span> <span class="nv">words</span><span class="p">)))))</span>
+</span><span class='line'><span class="nv">&lt;/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">&lt;p&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>You can just paste this into <code>*scratch*</code> and evaluate it (do <code>C-x
+C-e</code>) now you can run it with <code>M-x pcre-regexp-from-list-of-words</code> and
+enter a string of words, for example <em>"this is a test"</em> and we'd get
+the following regexp inserted into the buffer:</p>
+
+<pre><code>(?:a|is|t(?:est|his))
+</code></pre>
+
+<p>You can add the function to your <code>.emacs.d/init.el</code> (after you've done
+<code>package-initialize</code>) and bind it to a suitable key, using
+<code>global-set-key</code>, ie:</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='cl'><span class='line'><span class="p">(</span><span class="nv">global-set-key</span> <span class="p">(</span><span class="nv">kbd</span> <span class="s">&quot;C-c R&quot;</span><span class="p">)</span> <span class="ss">&#39;pcre-regexp-from-list-of-words</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>I hope this helps you make regexps with Emacs, and also gives you some
+inspiration for Emacs hacks of your own.</p>
+
+<p>Update: For more Emacs regexp goodness, have a look at
+<a href="https://github.com/benma/visual-regexp.el">Visual Regexp</a> and
+<a href="https://github.com/benma/visual-regexp-steroids.el">Visual Regexp Steroids</a>
+(which does PCRE-like regexps with lookbehinds etc.) Both of these are
+available via <a href="http://melpa.milkbox.net">MELPA</a>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Soothing Purple Haze on marmalade]]></title>
+    <link href="http://emacsfodder.github.com/blog/soothing_purple_haze_on_marmalade/"/>
+    <updated>2013-02-17T00:00:00+08:00</updated>
+    <id>http://emacsfodder.github.com/blog/soothing_purple_haze_on_marmalade</id>
+    <content type="html"><![CDATA[<p>I've just posted a couple of my themes to Marmalade's Elpa repository, <code>soothe-theme</code> and <code>purple-haze-theme</code> you can install them with package.el (part of Emacs24)</p>
+
+<p>Find them with from <code>M-x package-list-packages</code> or just install them with <code>M-x package-install</code></p>
+
+<h3>Screenshots...</h3>
+
+<h4>Purple Haze</h4>
+
+<p><img src="https://raw.github.com/jasonm23/emacs-purple-haze-theme/master/purple-haze-theme.png" alt="" /></p>
+
+<h4>Soothe</h4>
+
+<p><img src="/media/soothe-ruby.png" alt="" /></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Purple Haze theme]]></title>
+    <link href="http://emacsfodder.github.com/blog/purple-haze-theme/"/>
+    <updated>2013-02-16T21:04:00+08:00</updated>
+    <id>http://emacsfodder.github.com/blog/purple-haze-theme</id>
+    <content type="html"><![CDATA[<p>This is yet another Emacs24 theme, it has core support for font-lock and some basic editor elements.</p>
+
+<p>At the moment, it lacks specific support for Org-mode, Helm, Gnus, Ido etc. etc. and it's not terminal friendly. (that stuff will get added, but this is quick and dirty.)</p>
+
+<p>If that's good enough for you, grab it from github at <a href="http://github.com/jasonm23/emacs-purple-haze-theme">http://github.com/jasonm23/emacs-purple-haze-theme</a></p>
+
+<p>No prizes for guessing where the name came from.</p>
+
+<h1><a href="http://github.com/jasonm23/emacs-purple-haze-theme">Clone from github</a></h1>
+
+<h3>...and of course the obligatory screenshot</h3>
+
+<p><img src="https://raw.github.com/jasonm23/emacs-purple-haze-theme/master/purple-haze-theme.png" alt="" /></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Soothe theme updated]]></title>
+    <link href="http://emacsfodder.github.com/blog/soothe_theme_updated/"/>
+    <updated>2013-01-26T00:00:00+08:00</updated>
+    <id>http://emacsfodder.github.com/blog/soothe_theme_updated</id>
+    <content type="html"><![CDATA[<p>Just a quick post about Soothe, I've updated it to run on the terminal, and adjust it's colors accordingly.</p>
+
+<p>Here's a screengrab of it running in the terminal...</p>
+
+<p><img src="https://raw.github.com/jasonm23/emacs-soothe-theme/master/soothe-terminal.png" alt="" /></p>
+
+<p>Soothe is also hosted on github as a <a href="https://github.com/jasonm23/emacs-soothe-theme">standalone repo here</a>, so it's easier for me to add it to elpa/milkbox etc.</p>
+
+<p>Also I've made a iTerm2 colortheme using the Soothe palette, which you can <a href="https://github.com/jasonm23/iterm2-color-themes">get over here</a></p>
+
+<p><img src="https://raw.github.com/jasonm23/iterm2-color-themes/master/soothe-colors.png" alt="" /></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Notes on deftheme]]></title>
+    <link href="http://emacsfodder.github.com/blog/notes-on-deftheme/"/>
+    <updated>2013-01-15T00:00:00+08:00</updated>
+    <id>http://emacsfodder.github.com/blog/notes-on-deftheme</id>
+    <content type="html"><![CDATA[<p>I have a bunch of Emacs color themes that I built a few years ago,
+they use the old <code>color-theme.el</code> system, I'd also adapted a web-based
+theme creator, so that it could load existing themes, as long as they
+were in a fixed format, the same as used by
+<a href="http://themes.sweyla.com/">http://themes.sweyla.com/</a> - All in all I
+was quite invested in <code>color-theme.el</code></p>
+
+<!--more-->
+
+
+<p>I've begun to convert some of my regular themes over to the new
+<code>(deftheme)</code> format. The main advangatge is there's no reliance on
+<code>color-theme.el</code> anymore. There's a couple of small drawbacks, when a
+theme is first loaded, you need to confirm it, since it's possible to
+run arbitrary emacs-lisp in it. You then need to enable it for future
+use, so it's a quick trip to <code>.emacs</code> - This is only going to bug you
+if you run Emacs in <code>-Q</code> quick-start mode, which I do in some cases.</p>
+
+<p>With Emacs 24 you can create a theme <code>customize-create-theme</code> it's ok,
+but not the best way to to it, it's much better to learn how to work
+with theme source code, which like everything that extends Emacs, is
+written in emacs lisp.</p>
+
+<p>To that end, have a look at this base template, it's meant to serve as
+a guide, it'd be better to create a few <code>yas/snippets</code>.</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span> (template-theme.el)</span> <a href='/code/template-theme.el'>download</a></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+</pre></td><td class='code'><pre><code class='cl'><span class='line'>    <span class="c1">;;; Filename: name-theme.el </span>
+</span><span class='line'><span class="p">(</span><span class="nv">deftheme</span> <span class="nv">name</span>
+</span><span class='line'>  <span class="s">&quot;DOCSTRING&quot;</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">;; Not a bad idea to define a palette...</span>
+</span><span class='line'><span class="p">(</span><span class="k">let</span> <span class="p">(</span>
+</span><span class='line'>      <span class="p">(</span><span class="nv">color-1</span> <span class="s">&quot;#ffffff&quot;</span><span class="p">)</span>
+</span><span class='line'>      <span class="p">(</span><span class="nv">color-2</span> <span class="s">&quot;#ff0000&quot;</span><span class="p">)</span>
+</span><span class='line'>      <span class="p">(</span><span class="nv">color-3</span> <span class="s">&quot;#00ff00&quot;</span><span class="p">)</span>
+</span><span class='line'>      <span class="p">(</span><span class="nv">color-4</span> <span class="s">&quot;#0000ff&quot;</span><span class="p">))</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">;; Set faces</span>
+</span><span class='line'>  <span class="p">(</span><span class="nv">custom-theme-set-faces</span>
+</span><span class='line'>   <span class="ss">&#39;name</span> <span class="c1">;; you must use the same theme name here...</span>
+</span><span class='line'>   <span class="o">&#39;</span><span class="p">(</span><span class="nv">default</span> <span class="p">((</span><span class="no">t</span> <span class="p">(</span><span class="ss">:foreground</span> <span class="o">,</span><span class="nv">color-1</span> <span class="ss">:background</span> <span class="nv">black</span><span class="p">))))</span>
+</span><span class='line'>   <span class="o">&#39;</span><span class="p">(</span><span class="nv">cursor</span>  <span class="p">((</span><span class="no">t</span> <span class="p">(</span><span class="ss">:background</span> <span class="o">,</span><span class="nv">color-4</span><span class="p">))))</span>
+</span><span class='line'>   <span class="o">&#39;</span><span class="p">(</span><span class="nv">fringe</span>  <span class="p">((</span><span class="no">t</span> <span class="p">(</span><span class="ss">:background</span> <span class="o">,</span><span class="nv">color-3</span><span class="p">))))</span>
+</span><span class='line'>       <span class="c1">;;; etc... </span>
+</span><span class='line'>       <span class="c1">;;; don&#39;t use these settings of course, </span>
+</span><span class='line'>       <span class="c1">;;; they&#39;re horrible.</span>
+</span><span class='line'>   <span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">;; Set variables</span>
+</span><span class='line'>  <span class="p">(</span><span class="nv">custom-theme-set-variables</span>
+</span><span class='line'>   <span class="ss">&#39;name</span> <span class="c1">;; again specify the same theme name...</span>
+</span><span class='line'>   <span class="o">&#39;</span><span class="p">(</span><span class="nv">any-variable</span> <span class="nv">EXPR</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'>   <span class="p">(</span><span class="nv">provide-theme</span> <span class="ss">&#39;name</span><span class="p">)</span>
+</span><span class='line'>    <span class="c1">;;; name-theme.el ends here</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>For more advanced examples, look at the new built in themes, I'd
+recommend <code>tango-theme.el</code> which you'll be able to find using, <code>M-x
+describe-theme</code> <code>tango</code>.</p>
+
+<p>Have a look at <a href="/blog/hexrgb-some-convenient-functions/">my extensions</a> to Drew Adams
+<a href="http://emacswiki.org/emacs/hexrgb.el"><code>hexrgb.el</code></a> for some useful
+color helpers, and don't forget the always helpful
+<a href="http://julien.danjou.info/projects/emacs-packages"><code>rainbow-mode.el</code></a>. Personally
+I think Emacs plus these little extensions, are the best way to make
+themes.</p>
+]]></content>
+  </entry>
+  
+</feed>

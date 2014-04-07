@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: customization | Emacs Fodder]]></title>
+  <link href="http://emacsfodder.github.com/blog/categories/customization/atom.xml" rel="self"/>
+  <link href="http://emacsfodder.github.com/"/>
+  <updated>2014-04-06T14:26:08+08:00</updated>
+  <id>http://emacsfodder.github.com/</id>
+  <author>
+    <name><![CDATA[Jason Milkins]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Powerline.el enhanced]]></title>
+    <link href="http://emacsfodder.github.com/blog/powerline-enhanced/"/>
+    <updated>2012-06-20T00:00:00+08:00</updated>
+    <id>http://emacsfodder.github.com/blog/powerline-enhanced</id>
+    <content type="html"><![CDATA[<h2>Update: Jan 2013 - There is now a new powerline.el (1.2)</h2>
+
+<p>*Note that these enhancements were made to an earlier version, which
+ has been bugfixed. It should be trivial to extract the xpm data /
+ memoization / condition, for a shape you'd like, I'll patch and
+ pull-request at some stage to add these into the latest version...</p>
+
+<h3>.... back to the original post.</h3>
+
+<!--more-->
+
+
+<p>Powerline is an awesome little enhancement for Emacs, ported over from
+Vim by <strike>an original unknown author</strike> Nicolas Rougier and
+Chen Yuan, you can find the original version at
+<a href="http://emacswiki.org/emacs/powerline.el">http://emacswiki.org/emacs/powerline.el</a></p>
+
+<p>I've added a few different xpm shapes as alternatives to the arrows or
+flatshapes, a rounded or folded corner, and a set of diagonals.</p>
+
+<p>Grab the updated powerline from here: <a href="https://gist.github.com/2945235">https://gist.github.com/2945235</a> <span class="icon-download icon-white"></span></p>
+
+<p>Put it somewhere in your Emacs load path (e.g. <code>~/.emacs.d</code>) and add
+the following lines to the end of your <code>.emacs</code> / <code>init.el</code> - to load
+it, set the colors and graphic shape:</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='cl'><span class='line'><span class="p">(</span><span class="nb">require</span> <span class="ss">&#39;powerline</span><span class="p">)</span>
+</span><span class='line'><span class="c1">;; colors...</span>
+</span><span class='line'><span class="p">(</span><span class="k">setq</span> <span class="nv">powerline-color1</span> <span class="s">&quot;#222&quot;</span><span class="p">)</span>      <span class="c1">;; dark grey;</span>
+</span><span class='line'><span class="p">(</span><span class="k">setq</span> <span class="nv">powerline-color2</span> <span class="s">&quot;#444&quot;</span><span class="p">)</span>      <span class="c1">;; slightly lighter grey</span>
+</span><span class='line'><span class="c1">;; shape...</span>
+</span><span class='line'><span class="p">(</span><span class="k">setq</span> <span class="nv">powerline-arrow-shape</span> <span class="ss">&#39;arrow</span><span class="p">)</span> <span class="c1">;; mirrored arrows,</span>
+</span><span class='line'><span class="c1">;; see below for the shape options</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<h2>Shapes</h2>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>(setq powerline-arrow-shape 'arrow)       ;; 18px high arrows&lt;br/></span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p><img src="/media/arrow.png" alt="" /></p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='cl'><span class='line'><span class="p">(</span><span class="k">setq</span> <span class="nv">powerline-arrow-shape</span> <span class="ss">&#39;arrow14</span><span class="p">)</span>     <span class="c1">;; 14px high arrows</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p><img src="/media/arrow14.png" alt="" /></p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='cl'><span class='line'><span class="p">(</span><span class="k">setq</span> <span class="nv">powerline-arrow-shape</span> <span class="ss">&#39;half</span><span class="p">)</span>        <span class="c1">;; flat</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p><img src="/media/half.png" alt="" /></p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='cl'><span class='line'><span class="p">(</span><span class="k">setq</span> <span class="nv">powerline-arrow-shape</span> <span class="ss">&#39;percent</span><span class="p">)</span>     <span class="c1">;; ...? (I have no idea)</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p><img src="/media/percent.png" alt="" /></p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='cl'><span class='line'><span class="p">(</span><span class="k">setq</span> <span class="nv">powerline-arrow-shape</span> <span class="ss">&#39;curve</span><span class="p">)</span>       <span class="c1">;; scallop curve</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p><img src="/media/curve.png" alt="" /></p>
+
+<h2>New shapes in this version</h2>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='cl'><span class='line'><span class="p">(</span><span class="k">setq</span> <span class="nv">powerline-arrow-shape</span> <span class="ss">&#39;rounded</span><span class="p">)</span>     <span class="c1">;; new, round corner</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p><img src="/media/rounded.png" alt="" /></p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='cl'><span class='line'><span class="p">(</span><span class="k">setq</span> <span class="nv">powerline-arrow-shape</span> <span class="ss">&#39;chamfer</span><span class="p">)</span>     <span class="c1">;; new, folded corner</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p><img src="/media/chamfer.png" alt="" /></p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='cl'><span class='line'><span class="p">(</span><span class="k">setq</span> <span class="nv">powerline-arrow-shape</span> <span class="ss">&#39;slant-left</span><span class="p">)</span>  <span class="c1">;; new, diagonal from left</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p><img src="/media/slant-left.png" alt="" /></p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='cl'><span class='line'><span class="p">(</span><span class="k">setq</span> <span class="nv">powerline-arrow-shape</span> <span class="ss">&#39;slant-right</span><span class="p">)</span> <span class="c1">;; new, diagonal from right</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+<img src="/media/slant-right.png" alt="" /></p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='cl'><span class='line'><span class="p">(</span><span class="k">setq</span> <span class="nv">powerline-arrow-shape</span> <span class="ss">&#39;slant</span><span class="p">)</span>       <span class="c1">;; mirrored diagonals</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p><img src="/media/slant.png" alt="" /></p>
+]]></content>
+  </entry>
+  
+</feed>

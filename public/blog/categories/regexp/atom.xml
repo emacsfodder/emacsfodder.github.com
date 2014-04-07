@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: regexp | Emacs Fodder]]></title>
+  <link href="http://emacsfodder.github.com/blog/categories/regexp/atom.xml" rel="self"/>
+  <link href="http://emacsfodder.github.com/"/>
+  <updated>2014-04-06T14:26:08+08:00</updated>
+  <id>http://emacsfodder.github.com/</id>
+  <author>
+    <name><![CDATA[Jason Milkins]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Easy regexp generation with Emacs]]></title>
+    <link href="http://emacsfodder.github.com/blog/easy-regexp-generation-with-emacs/"/>
+    <updated>2014-04-05T00:00:00+08:00</updated>
+    <id>http://emacsfodder.github.com/blog/easy-regexp-generation-with-emacs</id>
+    <content type="html"><![CDATA[<p>Building regular expressions is quite tedious, and while Emacs has a
+number of tools that help build them they are generally geared towards
+building regexps which are Emacs Lisp specific.</p>
+
+<p>Emacs Lisp regular expressions use a different syntax than you're
+probably used to (those are usually PCRE used by many current/popular
+languages.) But it's quite easy to convert them with a nice package
+called <code>pcre2el</code>.</p>
+
+<h2>Creating an optimized regexp to match a list of words</h2>
+
+<p>When you want to match a list of words, using a regexp, it's fairly
+standard to use a pattern similar to this:</p>
+
+<pre><code>word1|word2|word3
+</code></pre>
+
+<p>As that list of words becomes more complex, doing something like the
+following, to optimize the regexp becomes trickier:</p>
+
+<pre><code>word[1-3]
+</code></pre>
+
+<p>Emacs can help us out here with a neat extension called <code>regexp-opt</code>
+(short for: regular expression optimiser.)  It accepts a list of
+words, and builds an optimised regexp for them. <code>regexp-opt</code> is a
+builtin package, so you don't need to install it.</p>
+
+<p>For example, the list of words in this sentence.</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='cl'><span class='line'><span class="p">(</span><span class="nv">regexp-opt</span>
+</span><span class='line'>  <span class="o">&#39;</span><span class="p">(</span><span class="s">&quot;For&quot;</span> <span class="s">&quot;example&quot;</span> <span class="s">&quot;the&quot;</span> <span class="s">&quot;list&quot;</span> <span class="s">&quot;of&quot;</span> <span class="s">&quot;words&quot;</span> <span class="s">&quot;in&quot;</span> <span class="s">&quot;this&quot;</span> <span class="s">&quot;sentence&quot;</span><span class="p">))</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>Generates the following Emacs Lisp style regular expression:</p>
+
+<pre><code>\(?:For\|example\|in\|list\|of\|sentence\|th\(?:e\|is\)\|words\)
+</code></pre>
+
+<p>I think this is rather cool, although as it is, a bit awkward for use
+in most other languages. This is where the package <code>pcre2el</code> comes in
+handy, while <code>pcre2el</code> sounds like it converts PCRE to Emace Lisp
+style, which indeed it does, it also automatically works the other way
+and converts Emacs Lisp style regexps to pcre. <code>pcre2el</code> is available
+on MELPA, so providing you have
+<a href="http://melpa.milkbox.net/#/getting-started">MELPA packages available</a>
+you should be able to just do:</p>
+
+<pre><code>M-x package-install
+pcre2el
+</code></pre>
+
+<p>Once it's installed, here's what it gives us when we send our previous
+<code>regexp-opt</code> output though it:</p>
+
+<pre><code>(?:For|example|in|list|of|sentence|th(?:e|is)|words)
+</code></pre>
+
+<p>This is the emacs lisp code:</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='cl'><span class='line'><span class="p">(</span><span class="nv">pcre-to-elisp</span>
+</span><span class='line'>  <span class="p">(</span><span class="nv">regexp-opt&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">&lt;pre&gt;&lt;code&gt;</span><span class="o">&#39;</span><span class="p">(</span><span class="s">&quot;For&quot;</span> <span class="s">&quot;example&quot;</span> <span class="s">&quot;the&quot;</span> <span class="s">&quot;list&quot;</span> <span class="s">&quot;of&quot;</span> <span class="s">&quot;words&quot;</span> <span class="s">&quot;in&quot;</span> <span class="s">&quot;this&quot;</span> <span class="s">&quot;sentence&quot;</span><span class="p">)))</span>
+</span><span class='line'><span class="nv">&lt;/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">&lt;p&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>Turning this into an interactive function is pretty easy, let's say
+you want Emacs to prompt you for the list of words...</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='cl'><span class='line'><span class="p">(</span><span class="nb">defun</span> <span class="nv">pcre-regexp-from-list-of-words</span> <span class="p">(</span><span class="nv">words</span><span class="p">)</span>
+</span><span class='line'>  <span class="s">&quot;insert a pcre regexp to match a list of words&quot;</span>
+</span><span class='line'>  <span class="p">(</span><span class="nv">interactive</span> <span class="s">&quot;sList of words for regexp: &quot;</span><span class="p">)</span>
+</span><span class='line'>  <span class="p">(</span><span class="nv">insert</span>
+</span><span class='line'>   <span class="p">(</span><span class="nv">pcre-to-elisp&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">&lt;pre&gt;&lt;code&gt;</span><span class="p">(</span><span class="nv">regexp-opt</span> <span class="p">(</span><span class="nv">split-string</span> <span class="nv">words</span><span class="p">)))))</span>
+</span><span class='line'><span class="nv">&lt;/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">&lt;p&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>You can just paste this into <code>*scratch*</code> and evaluate it (do <code>C-x
+C-e</code>) now you can run it with <code>M-x pcre-regexp-from-list-of-words</code> and
+enter a string of words, for example <em>"this is a test"</em> and we'd get
+the following regexp inserted into the buffer:</p>
+
+<pre><code>(?:a|is|t(?:est|his))
+</code></pre>
+
+<p>You can add the function to your <code>.emacs.d/init.el</code> (after you've done
+<code>package-initialize</code>) and bind it to a suitable key, using
+<code>global-set-key</code>, ie:</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='cl'><span class='line'><span class="p">(</span><span class="nv">global-set-key</span> <span class="p">(</span><span class="nv">kbd</span> <span class="s">&quot;C-c R&quot;</span><span class="p">)</span> <span class="ss">&#39;pcre-regexp-from-list-of-words</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>I hope this helps you make regexps with Emacs, and also gives you some
+inspiration for Emacs hacks of your own.</p>
+
+<p>Update: For more Emacs regexp goodness, have a look at
+<a href="https://github.com/benma/visual-regexp.el">Visual Regexp</a> and
+<a href="https://github.com/benma/visual-regexp-steroids.el">Visual Regexp Steroids</a>
+(which does PCRE-like regexps with lookbehinds etc.) Both of these are
+available via <a href="http://melpa.milkbox.net">MELPA</a>.</p>
+]]></content>
+  </entry>
+  
+</feed>

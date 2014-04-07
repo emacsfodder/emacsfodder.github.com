@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: marmalade | Emacs Fodder]]></title>
+  <link href="http://emacsfodder.github.com/blog/categories/marmalade/atom.xml" rel="self"/>
+  <link href="http://emacsfodder.github.com/"/>
+  <updated>2014-04-06T14:26:08+08:00</updated>
+  <id>http://emacsfodder.github.com/</id>
+  <author>
+    <name><![CDATA[Jason Milkins]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Soothing Purple Haze on marmalade]]></title>
+    <link href="http://emacsfodder.github.com/blog/soothing_purple_haze_on_marmalade/"/>
+    <updated>2013-02-17T00:00:00+08:00</updated>
+    <id>http://emacsfodder.github.com/blog/soothing_purple_haze_on_marmalade</id>
+    <content type="html"><![CDATA[<p>I've just posted a couple of my themes to Marmalade's Elpa repository, <code>soothe-theme</code> and <code>purple-haze-theme</code> you can install them with package.el (part of Emacs24)</p>
+
+<p>Find them with from <code>M-x package-list-packages</code> or just install them with <code>M-x package-install</code></p>
+
+<h3>Screenshots...</h3>
+
+<h4>Purple Haze</h4>
+
+<p><img src="https://raw.github.com/jasonm23/emacs-purple-haze-theme/master/purple-haze-theme.png" alt="" /></p>
+
+<h4>Soothe</h4>
+
+<p><img src="/media/soothe-ruby.png" alt="" /></p>
+]]></content>
+  </entry>
+  
+</feed>
