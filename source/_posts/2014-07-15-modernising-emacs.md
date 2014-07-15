@@ -6,5 +6,5 @@ I'll be writing at least one article per-week, and my aim is to keep it digestib
 
 It's become easier than ever to modernise Emacs, but it's also even easier to miss out on many of it's awesome features, (since there are quite literally 1000s.)
 
-Anyway, I hope you'll find this series interesting and educational.
+I hope you'll find this series interesting and educational.
 
